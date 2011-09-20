@@ -18,6 +18,7 @@ $config = array(
 	'modules' => array(
 		// comment this crap after finishing creating models!!!
 //		'gii' => array('class' => 'system.gii.GiiModule', 'password' => 'gii', 'ipFilters' => array('127.0.0.1', '::1')),
+		'admin',
 	),
 
 	'components' => array(
