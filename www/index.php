@@ -1,6 +1,6 @@
 <?php
 
-define('PRODUCTION', !($_SERVER['HTTP_HOST'] == 'localhost' || strpos($_SERVER['HTTP_HOST'], '.dev') >= 0));
+define('PRODUCTION', ($_SERVER['HTTP_HOST'] != 'localhost' && strpos($_SERVER['HTTP_HOST'], '.dev') === false));
 
 $config = dirname(__FILE__).'/../protected/config/main.php';
 $yii = (PRODUCTION)?
