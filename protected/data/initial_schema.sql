@@ -88,9 +88,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpnrio2011`.`sponsors`
+-- Table `phpnrio2011`.`sponsor`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpnrio2011`.`sponsors` (
+CREATE  TABLE IF NOT EXISTS `phpnrio2011`.`sponsor` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(50) NOT NULL ,
   `description` VARCHAR(250) NOT NULL ,

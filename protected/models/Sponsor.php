@@ -1,24 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "phpnrio2011.sponsors".
+ * This is the model class for table "phpnrio2011.sponsor".
  *
- * The followings are the available columns in table 'phpnrio2011.sponsors':
+ * The followings are the available columns in table 'phpnrio2011.sponsor':
  * @property integer $id
  * @property string $name
  * @property string $description
  */
-class Sponsors extends CActiveRecord {
+class Sponsor extends CActiveRecord {
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return Sponsors the static model class
+	 * @return Sponsor the static model class
 	 */
 	public static function model($className=__CLASS__) { return parent::model($className); }
 
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.sponsors'; }
+	public function tableName() { return 'phpnrio2011.sponsor'; }
 
 	/**
 	 * @return array validation rules for model attributes.
