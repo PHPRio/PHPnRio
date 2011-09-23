@@ -32,7 +32,7 @@
 				array('label'=>'Palestrantes', 'url' => $this->createUrl('speaker/index')),
 				array('label'=>'Palestras', 'url' => $this->createUrl('presentation/index')),
 				array('label'=>'Patrocinadores', 'url' => $this->createUrl('sponsor/index')),
-				array('label'=>'Equipe', 'url' => $this->createUrl('teamMember/index')),
+				array('label'=>'Membros da Equipe', 'url' => $this->createUrl('teamMember/index')),
 				array('label'=>'Usuários', 'url'=> $this->createUrl('user/index')),
 
 				array('label'=>'Login', 'url'=>array('login'), 'visible'=>Yii::app()->user->isGuest),
@@ -47,12 +47,6 @@
 	<?php endif?>
 
 	<?php echo $content; ?>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
 
 </div><!-- page -->
 
