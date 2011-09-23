@@ -61,10 +61,10 @@ $config = array(
 	),
 );
 
-if (PRODUCTION) {
-
-} else {
+if (!PRODUCTION) {
 	$config['components']['log']['routes'][] = array('class' => 'ext.yii-debug-toolbar.YiiDebugToolbarRoute');
+	$config['components']['db']['enableProfiling'] = true;
+	$config['components']['db']['enableParamLogging'] = true;
 }
 
 return $config;
