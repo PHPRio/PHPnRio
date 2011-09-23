@@ -51,7 +51,7 @@ class TeamMemberController extends Controller {
 		if (isset($_POST['TeamMember'])) {
 			$model->attributes = $_POST['TeamMember'];
 			if ($model->save())
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('index', 'id' => $model->id));
 		}
 
 		$this->render('create', array(
@@ -73,7 +73,7 @@ class TeamMemberController extends Controller {
 		if (isset($_POST['TeamMember'])) {
 			$model->attributes = $_POST['TeamMember'];
 			if ($model->save())
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('index', 'id' => $model->id));
 		}
 
 		$this->render('update', array(

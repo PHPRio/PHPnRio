@@ -51,7 +51,7 @@ class SpeakerController extends Controller {
 		if (isset($_POST['Speaker'])) {
 			$model->attributes = $_POST['Speaker'];
 			if ($model->save())
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('index', 'id' => $model->id));
 		}
 
 		$this->render('create', array(
@@ -73,7 +73,7 @@ class SpeakerController extends Controller {
 		if (isset($_POST['Speaker'])) {
 			$model->attributes = $_POST['Speaker'];
 			if ($model->save())
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('index', 'id' => $model->id));
 		}
 
 		$this->render('update', array(
