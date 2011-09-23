@@ -43,9 +43,8 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 	'columns'=>array(
 		'id',
 		'name',
-		'email',
 		'username',
-		'password',
+		'email',
 		array(
 			'class'=>'CButtonColumn',
 		),
