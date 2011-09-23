@@ -3,7 +3,7 @@ $env = getenv('ENVIRONMENT');
 define('ENV', $env? $env : 'prod');
 define('PRODUCTION', ENV == 'prod');
 
-switch ($env) {
+switch (ENV) {
 	case 'prod':
 		$config = dirname(__FILE__).'/protected/config/console.php';
 		$yiic = dirname(__FILE__).'/../etc/yii/yii-1.1.8/framework/yiic.php';
