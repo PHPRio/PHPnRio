@@ -103,16 +103,6 @@ class NewsController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('News');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin() {
 		$model = new News('search');
 		$model->unsetAttributes();  // clear any default values
 		if (isset($_GET['News']))
