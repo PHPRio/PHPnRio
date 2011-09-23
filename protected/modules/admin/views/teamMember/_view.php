@@ -12,9 +12,5 @@
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('team_member_col')); ?>:</b>
-	<?php echo CHtml::encode($data->team_member_col); ?>
-	<br />
-
 
 </div>

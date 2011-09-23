@@ -44,7 +44,6 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'id',
 		'name',
 		'description',
-		'team_member_col',
 		array(
 			'class'=>'CButtonColumn',
 		),

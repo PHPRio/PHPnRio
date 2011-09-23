@@ -21,12 +21,6 @@
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'team_member_col'); ?>
-		<?php echo $form->textField($model,'team_member_col',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'team_member_col'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Criar' : 'Salvar'); ?>
 	</div>

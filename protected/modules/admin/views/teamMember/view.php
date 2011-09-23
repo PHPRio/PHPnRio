@@ -21,6 +21,5 @@ $this->menu=array(
 		'id',
 		'name',
 		'description',
-		'team_member_col',
 	),
 )); ?>

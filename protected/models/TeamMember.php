@@ -7,7 +7,6 @@
  * @property integer $id
  * @property string $name
  * @property string $description
- * @property string $team_member_col
  */
 class TeamMember extends CActiveRecord {
 	/**
@@ -33,7 +32,7 @@ class TeamMember extends CActiveRecord {
 			array('description', 'length', 'max'=>250),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description, team_member_col', 'safe', 'on'=>'search'),
+			array('id, name, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +54,6 @@ class TeamMember extends CActiveRecord {
 			'id' => 'ID',
 			'name' => 'Name',
 			'description' => 'Description',
-			'team_member_col' => 'Team Member Col',
 		);
 	}
 
@@ -72,7 +70,6 @@ class TeamMember extends CActiveRecord {
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('team_member_col',$this->team_member_col,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
