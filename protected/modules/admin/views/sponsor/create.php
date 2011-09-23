@@ -5,8 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Patrocinador', 'url'=>array('index')),
-	array('label'=>'Administrar Patrocinadores', 'url'=>array('admin')),
+	array('label'=>'Listar Patrocinadores', 'url'=>array('index')),
 );
 ?>
 

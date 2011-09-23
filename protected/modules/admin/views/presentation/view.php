@@ -5,11 +5,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Palestras', 'url'=>array('index')),
 	array('label'=>'Nova Palestra', 'url'=>array('create')),
 	array('label'=>'Alterar Palestra', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Apagar Palestra', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Palestras', 'url'=>array('admin')),
+	array('label'=>'Listar Palestras', 'url'=>array('index')),
 );
 ?>
 

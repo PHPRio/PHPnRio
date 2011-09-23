@@ -6,10 +6,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Palestrantes', 'url'=>array('index')),
 	array('label'=>'Novo Palestrante', 'url'=>array('create')),
 	array('label'=>'Visualizar Palestrante', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Administrar Palestrantes', 'url'=>array('admin')),
+	array('label'=>'Listar Palestrantes', 'url'=>array('index')),
 );
 ?>
 

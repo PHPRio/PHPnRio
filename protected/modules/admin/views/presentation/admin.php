@@ -1,11 +1,10 @@
 <?php
 $this->breadcrumbs=array(
 	'Palestras'=>array('index'),
-	'Administrar',
+	'Listar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Palestras', 'url'=>array('index')),
 	array('label'=>'Nova Palestra', 'url'=>array('create')),
 );
 
@@ -23,7 +22,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Palestras</h1>
+<h1>Listar Palestras</h1>
 
 <p>
 Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) no começo de cada um dos campos de busca para especificar como a comparação deve ser feita.

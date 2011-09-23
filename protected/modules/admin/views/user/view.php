@@ -5,11 +5,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Usuários', 'url'=>array('index')),
 	array('label'=>'Novo Usuário', 'url'=>array('create')),
 	array('label'=>'Alterar Usuário', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Remover Usuário', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Usuários', 'url'=>array('admin')),
+	array('label'=>'Listar Usuários', 'url'=>array('index')),
 );
 ?>
 
