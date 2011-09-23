@@ -5,6 +5,8 @@
 $config = array(
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 	'name' => "PHP'n Rio 2011",
+	'language' => 'pt_br',
+	'sourceLanguage' => 'pt_br',
 
 	// preloading 'log' component
 	'preload' => array('log'),
@@ -25,15 +27,17 @@ $config = array(
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
+			'loginUrl'=> array('/admin/default/login'),
 		),
 		'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
-//			'rules'=>array(
+			'rules'=>array(
+				'admin/<action:(login|logout)>' => 'admin/default/<action>',
 //				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 //				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 //				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-//			),
+			),
 		),
 
 		'db' => require '_database.php',
