@@ -64,7 +64,7 @@ $config = array(
 if (PRODUCTION) {
 
 } else {
-	$config['components']['log']['routes'][] = array('class' => 'CWebLogRoute');
+	$config['components']['log']['routes'][] = array('class' => 'ext.yii-debug-toolbar.YiiDebugToolbarRoute');
 }
 
 return $config;
