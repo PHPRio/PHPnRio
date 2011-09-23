@@ -4,7 +4,7 @@ define('PRODUCTION', ($_SERVER['HTTP_HOST'] != 'localhost' && strpos($_SERVER['H
 
 $config = dirname(__FILE__).'/../protected/config/main.php';
 $yii = (PRODUCTION)?
-	'/etc/yii/yii-1.1.8/framework/yii.php' :
+	'/etc/yii/yii-1.1.8/framework/yiilite.php' :
 	'/var/www/shared/yii/1.1.8-orig/framework/yii.php';
 
 defined('YII_DEBUG') or define('YII_DEBUG', !PRODUCTION);
