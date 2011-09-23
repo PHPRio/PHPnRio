@@ -73,7 +73,7 @@ body {
 <!-- cadastre-se -->
 <div class="info">
         <pre>
-<span></span>
+<span style="font-size:14px;">&lt;?php</span>
 <span>$evento</span> <span>=</span>
     <span>array</span><span>(</span><span>'data'</span> <span>=></span><span style="font-size:19px; font-weight:bold;">'05/11/2011'</span><span>,</span>
           <span>&nbsp;&nbsp;'local'</span><span>=></span><span style="font-size:19px; font-weight:bold;">'CEFET-RJ campus Maracanã'</<span><span>);</span>
