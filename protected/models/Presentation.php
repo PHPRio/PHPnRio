@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "phpnrio2011.presentation".
  *
- * The followings are the available columns in table 'phpnrio2011.presentation':
+ * The followings are the available columns in table 'presentation':
  * @property integer $id
  * @property string $title
  * @property string $description
@@ -24,7 +24,7 @@ class Presentation extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.presentation'; }
+	public function tableName() { return 'presentation'; }
 
 	/**
 	 * @return array validation rules for model attributes.

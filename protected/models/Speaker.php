@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "phpnrio2011.speaker".
  *
- * The followings are the available columns in table 'phpnrio2011.speaker':
+ * The followings are the available columns in table 'speaker':
  * @property integer $id
  * @property string $name
  * @property string $description
@@ -22,7 +22,7 @@ class Speaker extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.speaker'; }
+	public function tableName() { return 'speaker'; }
 
 	/**
 	 * @return array validation rules for model attributes.

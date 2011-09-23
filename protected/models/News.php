@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "phpnrio2011.news".
  *
- * The followings are the available columns in table 'phpnrio2011.news':
+ * The followings are the available columns in table 'news':
  * @property integer $id
  * @property string $title
  * @property string $short_desc
@@ -23,7 +23,7 @@ class News extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.news'; }
+	public function tableName() { return 'news'; }
 
 	/**
 	 * @return array validation rules for model attributes.

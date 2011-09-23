@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "phpnrio2011.sponsor".
  *
- * The followings are the available columns in table 'phpnrio2011.sponsor':
+ * The followings are the available columns in table 'sponsor':
  * @property integer $id
  * @property string $name
  * @property string $description
@@ -18,7 +18,7 @@ class Sponsor extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.sponsor'; }
+	public function tableName() { return 'sponsor'; }
 
 	/**
 	 * @return array validation rules for model attributes.

@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "phpnrio2011.team_member".
  *
- * The followings are the available columns in table 'phpnrio2011.team_member':
+ * The followings are the available columns in table 'team_member':
  * @property integer $id
  * @property string $name
  * @property string $description
@@ -19,7 +19,7 @@ class TeamMember extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName() { return 'phpnrio2011.team_member'; }
+	public function tableName() { return 'team_member'; }
 
 	/**
 	 * @return array validation rules for model attributes.
