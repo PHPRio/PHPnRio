@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'News',
+	'Notícias',
 );
 
 $this->menu=array(
-	array('label'=>'Create News', 'url'=>array('create')),
-	array('label'=>'Manage News', 'url'=>array('admin')),
+	array('label'=>'Nova Notícia', 'url'=>array('create')),
+	array('label'=>'Administrar Notícias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>News</h1>
+<h1>Notícias</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

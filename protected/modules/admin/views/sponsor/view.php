@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Sponsors'=>array('index'),
+	'Patrocinadores'=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List Sponsor', 'url'=>array('index')),
-	array('label'=>'Create Sponsor', 'url'=>array('create')),
-	array('label'=>'Update Sponsor', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Sponsor', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Sponsor', 'url'=>array('admin')),
+	array('label'=>'Listar Patrocinadores', 'url'=>array('index')),
+	array('label'=>'Novo Patrocinador', 'url'=>array('create')),
+	array('label'=>'Alterar Patrocinador', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Apagar Patrocinador', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Patrocinadores', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Sponsor #<?php echo $model->id; ?></h1>
+<h1>Visualizar Patrocinador #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

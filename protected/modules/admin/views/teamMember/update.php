@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Team Members'=>array('index'),
+	'Membros'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
-	'Update',
+	'Alterar',
 );
 
 $this->menu=array(
-	array('label'=>'List TeamMember', 'url'=>array('index')),
-	array('label'=>'Create TeamMember', 'url'=>array('create')),
-	array('label'=>'View TeamMember', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TeamMember', 'url'=>array('admin')),
+	array('label'=>'Listar Membros', 'url'=>array('index')),
+	array('label'=>'Novo Membro', 'url'=>array('create')),
+	array('label'=>'Visualizar Membro', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar Membros', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TeamMember <?php echo $model->id; ?></h1>
+<h1>Alterar Membro <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

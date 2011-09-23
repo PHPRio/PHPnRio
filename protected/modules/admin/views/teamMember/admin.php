@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Team Members'=>array('index'),
-	'Manage',
+	'Membros'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List TeamMember', 'url'=>array('index')),
-	array('label'=>'Create TeamMember', 'url'=>array('create')),
+	array('label'=>'Listar Membros', 'url'=>array('index')),
+	array('label'=>'Novo Membro', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Team Members</h1>
+<h1>Administrar Team Members</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Speakers',
+	'Palestrantes',
 );
 
 $this->menu=array(
-	array('label'=>'Create Speaker', 'url'=>array('create')),
-	array('label'=>'Manage Speaker', 'url'=>array('admin')),
+	array('label'=>'Novo Palestrante', 'url'=>array('create')),
+	array('label'=>'Administrar Palestrantes', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Speakers</h1>
+<h1>Palestrantes</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

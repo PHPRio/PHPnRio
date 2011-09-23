@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Presentations'=>array('index'),
-	'Create',
+	'Palestras'=>array('index'),
+	'Nova',
 );
 
 $this->menu=array(
-	array('label'=>'List Presentation', 'url'=>array('index')),
-	array('label'=>'Manage Presentation', 'url'=>array('admin')),
+	array('label'=>'Listar Palestras', 'url'=>array('index')),
+	array('label'=>'Administrar Palestras', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Presentation</h1>
+<h1>Novo Palestra</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

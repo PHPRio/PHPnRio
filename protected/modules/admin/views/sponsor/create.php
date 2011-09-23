@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Sponsors'=>array('index'),
-	'Create',
+	'Patrocinadores'=>array('index'),
+	'Novo',
 );
 
 $this->menu=array(
-	array('label'=>'List Sponsor', 'url'=>array('index')),
-	array('label'=>'Manage Sponsor', 'url'=>array('admin')),
+	array('label'=>'Listar Patrocinador', 'url'=>array('index')),
+	array('label'=>'Administrar Patrocinadores', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Sponsor</h1>
+<h1>Novo Patrocinador</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Team Members'=>array('index'),
-	'Create',
+	'Membros'=>array('index'),
+	'Novo',
 );
 
 $this->menu=array(
-	array('label'=>'List TeamMember', 'url'=>array('index')),
-	array('label'=>'Manage TeamMember', 'url'=>array('admin')),
+	array('label'=>'Listar Membros', 'url'=>array('index')),
+	array('label'=>'Administrar Membros', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TeamMember</h1>
+<h1>Novo Membro</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

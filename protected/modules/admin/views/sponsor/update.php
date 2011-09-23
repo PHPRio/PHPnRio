@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Sponsors'=>array('index'),
+	'Patrocinadores'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
-	'Update',
+	'Alterar',
 );
 
 $this->menu=array(
-	array('label'=>'List Sponsor', 'url'=>array('index')),
-	array('label'=>'Create Sponsor', 'url'=>array('create')),
-	array('label'=>'View Sponsor', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Sponsor', 'url'=>array('admin')),
+	array('label'=>'Listar Patrocinadores', 'url'=>array('index')),
+	array('label'=>'Novo Patrocinador', 'url'=>array('create')),
+	array('label'=>'Visualizar Patrocinador', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar Patrocinadores', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Sponsor <?php echo $model->id; ?></h1>
+<h1>Alterar Patrocinador <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

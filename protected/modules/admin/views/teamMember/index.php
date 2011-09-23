@@ -1,11 +1,11 @@
 <?php
 $this->breadcrumbs=array(
-	'Team Members',
+	'Membros',
 );
 
 $this->menu=array(
-	array('label'=>'Create TeamMember', 'url'=>array('create')),
-	array('label'=>'Manage TeamMember', 'url'=>array('admin')),
+	array('label'=>'Novo Membro', 'url'=>array('create')),
+	array('label'=>'Administrar Membros', 'url'=>array('admin')),
 );
 ?>
 
