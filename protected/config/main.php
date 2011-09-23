@@ -36,13 +36,7 @@ $config = array(
 //			),
 		),
 
-		'db' => array(
-			'connectionString' => 'mysql:host=localhost;dbname=phpnrio2011',
-			'emulatePrepare' => true,
-			'username' => 'phpnrio2011',
-			'password' => 'phpnrio',
-			'charset' => 'utf8',
-		),
+		'db' => require '_database.php',
 
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
