@@ -1,5 +1,6 @@
 <?php
-define('ENV', getenv('ENVIRONMENT')?: 'prod');
+$env = getenv('ENVIRONMENT');
+define('ENV', $env? $env : 'prod');
 define('PRODUCTION', ENV == 'prod');
 
 if (PRODUCTION) {
