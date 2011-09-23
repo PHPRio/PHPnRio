@@ -1,9 +1,9 @@
 <?php
-
-define('PRODUCTION', ($_SERVER['HTTP_HOST'] != 'localhost' && strpos($_SERVER['HTTP_HOST'], '.dev') === false));
+define('ENV', getenv('ENVIRONMENT')?: 'prod');
+define('PRODUCTION', ENV == 'prod');
 
 $config = dirname(__FILE__).'/../protected/config/main.php';
-$yii = (PRODUCTION)?
+$yii = (ENV == 'prod')?
 	'/etc/yii/yii-1.1.8/framework/yiilite.php' :
 	'/var/www/shared/yii/1.1.8-orig/framework/yii.php';
 
