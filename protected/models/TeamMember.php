@@ -28,7 +28,7 @@ class TeamMember extends CActiveRecord {
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('name, team_member_col', 'length', 'max'=>50),
+			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>250),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -52,8 +52,8 @@ class TeamMember extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
+			'name' => 'Nome',
+			'description' => 'Descrição',
 		);
 	}
 

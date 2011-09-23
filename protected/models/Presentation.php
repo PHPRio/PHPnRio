@@ -60,11 +60,11 @@ class Presentation extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'begin' => 'Begin',
-			'end' => 'End',
-			'speaker_id' => 'Speaker',
+			'title' => 'Título',
+			'description' => 'Descrição',
+			'begin' => 'Início',
+			'end' => 'Fim',
+			'speaker_id' => 'Palestrante',
 		);
 	}
 

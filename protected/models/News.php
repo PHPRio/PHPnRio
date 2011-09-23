@@ -33,7 +33,6 @@ class News extends CActiveRecord {
 		// will receive user inputs.
 		return array(
 			array('title, short_desc, text, author', 'required'),
-			array('author', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>50),
 			array('short_desc', 'length', 'max'=>100),
 			// The following rule is used by search().
@@ -59,10 +58,10 @@ class News extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'short_desc' => 'Short Desc',
-			'text' => 'Text',
-			'author' => 'Author',
+			'title' => 'Título',
+			'short_desc' => 'Texto curto',
+			'text' => 'Conteúdo',
+			'author' => 'Autor',
 		);
 	}
 

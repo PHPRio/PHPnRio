@@ -52,8 +52,8 @@ class Sponsor extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
+			'name' => 'Nome',
+			'description' => 'Descrição',
 		);
 	}
 

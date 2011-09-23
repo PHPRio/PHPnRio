@@ -59,7 +59,7 @@ class Speaker extends CActiveRecord {
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
-			'description' => 'Description',
+			'description' => 'Descrição',
 			'twitter' => 'Twitter',
 		);
 	}
