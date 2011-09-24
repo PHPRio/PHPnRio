@@ -27,9 +27,11 @@ class SiteController extends Controller {
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex() {
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$speakers	= Speaker::model()->with('presentations')->findAll(array('order' => 'RAND()'));
+		$all_news	= News::model()->findAll(array('limit' => 6));
+		$news_total	= News::model()->count();
+		$sponsors	= Sponsor::model()->findAll(array('limit' => 6));
+		$this->render('index', compact('speakers','all_news','news_total','sponsors'));
 	}
 
 	/**
