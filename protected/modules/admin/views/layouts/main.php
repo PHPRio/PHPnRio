@@ -48,6 +48,12 @@
 
 	<?php echo $content; ?>
 
+		<div id="footer">
+			Criado com <a href="http://www.yiiframework.com">Yii Framework</a><br />
+			<a href="https://github.com/igorsantos07/PHP-n-Rio-2011/">Código-fonte do site</a> ||
+			<a href="https://github.com/igorsantos07/PHP-n-Rio-2011/issues/">Tarefas e bugs</a>
+		</div>
+
 </div><!-- page -->
 
 </body>
