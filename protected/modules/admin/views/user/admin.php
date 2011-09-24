@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'Alterar minha senha', 'url'=>array('changePassword')),
 	array('label'=>'Novo Usuário', 'url'=>array('create')),
 );
 

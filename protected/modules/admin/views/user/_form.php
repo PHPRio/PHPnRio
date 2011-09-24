@@ -27,11 +27,19 @@
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
+	<? if ($model->isNewRecord) { ?>
+		<div class="row">
+			<?php echo $form->labelEx($model,'password'); ?>
+			<?php echo $form->passwordField($model,'password',array('size'=>20)); ?>
+			<?php echo $form->error($model,'password'); ?>
+		</div>
+
+		<div class="row">
+			<?php echo $form->labelEx($model,'password_repeat'); ?>
+			<?php echo $form->passwordField($model,'password_repeat',array('size'=>20)); ?>
+			<?php echo $form->error($model,'password_repeat'); ?>
+		</div>
+	<? } ?>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Criar' : 'Salvar'); ?>

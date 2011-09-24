@@ -14,6 +14,10 @@
  * @property News[] $news
  */
 class User extends CActiveRecord {
+
+	/** @var string */ public $password_repeat;
+	/** @var string */ public $new_password;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return User the static model class
@@ -32,13 +36,18 @@ class User extends CActiveRecord {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email, username, password', 'required'),
+			array('name, email, username', 'required'),
 			array('name, email', 'length', 'max'=>50),
 			array('username', 'length', 'max'=>25),
-			array('password', 'length', 'max'=>40),
+			array('email', 'email'),
+			array('password,password_repeat', 'required', 'on' => 'insert'),
+			array('password,new_password,password_repeat', 'length', 'min'=>6),
+			array('new_password,password_repeat', 'required', 'on' => 'changePassword'),
+			array('password','compare', 'on' => 'insert'),
+			array('new_password','compare', 'compareAttribute' => 'password_repeat', 'on' => 'changePassword'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, email, username, password', 'safe', 'on'=>'search'),
+			array('id, name, email, username', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,8 +70,11 @@ class User extends CActiveRecord {
 			'id' => 'ID',
 			'name' => 'Nome',
 			'email' => 'E-mail',
-			'username' => 'Username',
+			'username' => 'Login',
 			'password' => 'Senha',
+			'password_repeat' => 'Repita a senha',
+			'new_password' => 'Nova senha',
+			'old_password' => 'Senha atual',
 		);
 	}
 
@@ -80,7 +92,6 @@ class User extends CActiveRecord {
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

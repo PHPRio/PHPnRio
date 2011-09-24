@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'Alterar minha senha', 'url'=>array('changePassword')),
 	array('label'=>'Novo Usuário', 'url'=>array('create')),
 	array('label'=>'Alterar Usuário', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Remover Usuário', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),

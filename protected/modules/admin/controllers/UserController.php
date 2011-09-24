@@ -11,6 +11,12 @@ class UserController extends Controller {
 		);
 	}
 
+	public function behaviors() {
+      return array(
+			'alertRedirect'	=> array('class' => 'ext.behaviors.AlertRedirector')
+		);
+   }
+
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -19,7 +25,7 @@ class UserController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'create', 'update'),
+				'actions' => array('index', 'view', 'create', 'update', 'changePassword'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -50,8 +56,11 @@ class UserController extends Controller {
 
 		if (isset($_POST['User'])) {
 			$model->attributes = $_POST['User'];
-			if ($model->save())
-				$this->redirect(array('index', 'id' => $model->id));
+			if ($model->validate()) {
+				$model->password = sha1($model->password);
+				if ($model->save(false))
+					$this->redirect(array('index', 'id' => $model->id));
+			}
 		}
 
 		$this->render('create', array(
@@ -73,8 +82,8 @@ class UserController extends Controller {
 		if (isset($_POST['User'])) {
 			$model->attributes = $_POST['User'];
 			if ($model->save())
-				$this->redirect(array('index', 'id' => $model->id));
-		}
+					$this->redirect(array('index', 'id' => $model->id));
+			}
 
 		$this->render('update', array(
 			'model' => $model,
@@ -111,6 +120,25 @@ class UserController extends Controller {
 		$this->render('admin', array(
 			'model' => $model,
 		));
+	}
+
+	/**
+	 * Changes user own password
+	 */
+	public function actionChangePassword() {
+     	$model=$this->loadModel(Yii::app()->user->id);
+		$model->setScenario('changePassword');
+
+     	if(isset($_POST['User'])) {
+			$model->attributes = $_POST['User'];
+			if ($model->validate()) {
+				$model->password = sha1($_POST['User']['new_password']);
+				if($model->save(false))
+					$this->alertRedirect('Senha alterada!',$this->createUrl('index'));
+			}
+		}
+
+		$this->render('changePassword',array('model'=>$model));
 	}
 
 	/**
