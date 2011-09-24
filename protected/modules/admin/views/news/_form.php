@@ -17,20 +17,22 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'short_desc'); ?>
-		<?php echo $form->textField($model,'short_desc',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'short_desc',array('size'=>90,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'short_desc'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'text'); ?>
-		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
+		<?php $this->widget('application.extensions.tinymce.ETinyMce', array(
+			'model'=>$model, 'attribute' => 'text',
+			'editorTemplate' => 'full',
+			'plugins' => array('preview', 'contextmenu'),
+			'options' => array(
+				'theme' => 'advanced',
+				'skin' => "o2k7",
+			)
+		)); ?>
 		<?php echo $form->error($model,'text'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->textField($model,'author'); ?>
-		<?php echo $form->error($model,'author'); ?>
 	</div>
 
 	<div class="row buttons">
