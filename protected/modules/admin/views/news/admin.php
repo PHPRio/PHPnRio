@@ -43,10 +43,8 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'id',
 		'title',
 		'short_desc',
-		'text',
-		'author',
-		array(
-			'class'=>'CButtonColumn',
-		),
+		array('header' => 'Conteúdo', 'type' => 'html', 'value' => '$data->snippet("text")'),
+		'author.name',
+		array('class'=>'CButtonColumn'),
 	),
 )); ?>
