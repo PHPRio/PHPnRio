@@ -83,4 +83,8 @@ class Speaker extends CActiveRecord {
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function getTwitterLink() {
+		if ($this->twitter) return 'twitter.com/'.$this->twitter;
+	}
 }
