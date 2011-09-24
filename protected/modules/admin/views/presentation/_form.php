@@ -22,21 +22,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'begin'); ?>
-		<?php echo $form->textField($model,'begin'); ?>
-		<?php echo $form->error($model,'begin'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'end'); ?>
-		<?php echo $form->textField($model,'end'); ?>
-		<?php echo $form->error($model,'end'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'speaker_id'); ?>
-		<?php echo $form->textField($model,'speaker_id'); ?>
+		<?php echo $form->dropDownList($model,'speaker_id', CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'speaker_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo CHtml::label($model->getAttributeLabel('begin').' - '.$model->getAttributeLabel('end'), 'Presentation_begin'); ?>
+		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'begin', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>
+		-
+		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'end', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>
+		<?php echo $form->error($model,'begin'); ?>
+		<?php echo $form->error($model,'end'); ?>
 	</div>
 
 	<div class="row buttons">
