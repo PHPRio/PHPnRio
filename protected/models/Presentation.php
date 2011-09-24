@@ -36,7 +36,7 @@ class Presentation extends CActiveRecord {
 			array('title, description, speaker_id', 'required'),
 			array('speaker_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
-			array('begin, end', 'date', 'format' => 'HH:mm', 'allowEmpty' => false),
+			array('begin, end', 'date', 'format' => 'HH:mm', 'allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, description, begin, end, speaker_id', 'safe', 'on'=>'search'),
