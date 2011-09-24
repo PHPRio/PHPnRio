@@ -19,7 +19,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
+		array('name' => 'Twitter', 'type' => 'url', 'value' => $model->twitterLink),
 		'description',
-		'twitter',
 	),
 )); ?>
