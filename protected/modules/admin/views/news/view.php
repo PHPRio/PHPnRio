@@ -18,9 +18,9 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'author.name',
 		'title',
 		'short_desc',
-		'text',
-		'author',
+		array('name' => 'Conteúdo', 'type' => 'html', 'value' => $model->text),
 	),
 )); ?>
