@@ -65,6 +65,7 @@ class Presentation extends CActiveRecord {
 			'begin' => 'Início',
 			'end' => 'Fim',
 			'speaker_id' => 'Palestrante',
+			'speaker.name' => 'Palestrante',
 		);
 	}
 

@@ -22,6 +22,6 @@ $this->menu=array(
 		'description',
 		'begin',
 		'end',
-		'speaker_id',
+		'speaker.name',
 	),
 )); ?>

@@ -45,7 +45,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'description',
 		'begin',
 		'end',
-		'speaker_id',
+		'speaker.name',
 		array(
 			'class'=>'CButtonColumn',
 		),
