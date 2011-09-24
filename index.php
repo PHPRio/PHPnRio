@@ -10,12 +10,12 @@ switch (ENV) {
 	break;
 
 	case 'test':
-		$config = dirname(__FILE__).'/../protected/config/main.php';
+		$config = dirname(__FILE__).'/protected/config/main.php';
 		$yii = '/etc/yii/yii-1.1.8/framework/yiilite.php';
 	break;
 
 	case 'dev':
-		$config = dirname(__FILE__).'/../protected/config/main.php';
+		$config = dirname(__FILE__).'/protected/config/main.php';
 		$yii = '/var/www/shared/yii/1.1.8-orig/framework/yii.php';
 	break;
 }
