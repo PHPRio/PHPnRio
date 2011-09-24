@@ -48,7 +48,7 @@ class News extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'author0' => array(self::BELONGS_TO, 'User', 'author'),
+			'author' => array(self::BELONGS_TO, 'User', 'author'),
 		);
 	}
 
@@ -84,5 +84,12 @@ class News extends CActiveRecord {
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	protected function beforeValidate() {
+		if ($this->isNewRecord)
+			$this->author = Yii::app()->user->id;
+		
+		return true;
 	}
 }
