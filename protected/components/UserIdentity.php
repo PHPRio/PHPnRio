@@ -18,8 +18,11 @@ class UserIdentity extends CUserIdentity {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		else if ($user->password !== sha1($this->password))
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
-		else
+		else {
+			$this->setState('id', $user->id);
+			$this->setState('username', $user->username);
 			$this->errorCode = self::ERROR_NONE;
+		}
 
 		return !$this->errorCode;
 	}
