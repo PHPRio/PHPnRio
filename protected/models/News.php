@@ -91,6 +91,7 @@ class News extends CActiveRecord {
 	}
 
 	protected function beforeValidate() {
+		parent::beforeValidate();
 		if ($this->isNewRecord)
 			$this->author = Yii::app()->user->id;
 
