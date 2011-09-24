@@ -11,7 +11,7 @@
  * @property integer $author
  *
  * The followings are the available model relations:
- * @property User $author0
+ * @property User $author
  */
 class News extends CActiveRecord {
 	/**
@@ -24,6 +24,10 @@ class News extends CActiveRecord {
 	 * @return string the associated database table name
 	 */
 	public function tableName() { return 'news'; }
+
+	public function behaviors() {
+		return array('snippetable'	=> array('class' => 'ext.behaviors.Snippetable'));
+	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -48,7 +52,7 @@ class News extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'author' => array(self::BELONGS_TO, 'User', 'author'),
+			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
 		);
 	}
 
@@ -79,7 +83,7 @@ class News extends CActiveRecord {
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('short_desc',$this->short_desc,true);
 		$criteria->compare('text',$this->text,true);
-		$criteria->compare('author',$this->author);
+		$criteria->compare('author',$this->author->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -89,7 +93,7 @@ class News extends CActiveRecord {
 	protected function beforeValidate() {
 		if ($this->isNewRecord)
 			$this->author = Yii::app()->user->id;
-		
+
 		return true;
 	}
 }
