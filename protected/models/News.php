@@ -96,7 +96,7 @@ class News extends CActiveRecord {
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('short_desc',$this->short_desc,true);
 		$criteria->compare('text',$this->text,true);
-		$criteria->compare('author',$this->author->name,true);
+		if (is_a($this->author, 'Author')) $criteria->compare('author',$this->author->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
