@@ -20,5 +20,6 @@ $this->menu=array(
 		'id',
 		'name',
 		'description',
+		array('name' => 'Foto', 'type' => 'image', 'value' => $model->getImageUrl("imageFile")),
 	),
 )); ?>

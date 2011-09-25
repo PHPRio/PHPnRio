@@ -9,6 +9,9 @@
  * @property string $description
  */
 class Sponsor extends CActiveRecord {
+
+	/** @var mixed */ public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Sponsor the static model class
@@ -20,6 +23,19 @@ class Sponsor extends CActiveRecord {
 	 */
 	public function tableName() { return 'sponsor'; }
 
+ 	public function behaviors() {
+		return array(
+			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+				'fields'	=> array('image'),
+				'folderName'=> 'patrocinadores',
+				'resizeTo'	=> array(array(200,200)),
+				'hasThumb'	=> true,
+				'thumbSize' => array(array(115,79)),
+				'prependFileName' => false,
+			),
+		);
+ 	}
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -28,6 +44,7 @@ class Sponsor extends CActiveRecord {
 		// will receive user inputs.
 		return array(
 			array('name, description', 'required'),
+			array('image', 'required', 'on' => 'insert'),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>250),
 			// The following rule is used by search().
@@ -75,4 +92,6 @@ class Sponsor extends CActiveRecord {
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function getImageFile() { return $this->id.'.jpg'; }
 }

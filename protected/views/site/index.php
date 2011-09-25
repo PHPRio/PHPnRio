@@ -166,7 +166,7 @@
 			<div class="rodape-top">
 				<div class="logos-patrocinio">
 					<? foreach ($sponsors as $sponsor): ?>
-						<div class="box-logos-patrocinio"><a href="#"><img src="img/logo-php-rio.gif" alt="<?=$sponsor->name?>" width="115" height="79" border="0" /></a></div>
+						<div class="box-logos-patrocinio"><a href="#"><img src="<?=$sponsor->getImageUrl('imageFile',true)?>" alt="<?=$sponsor->name?>" width="115" height="79" border="0" /></a></div>
 					<? endforeach ?>
 				</div>
 			</div>
