@@ -9,6 +9,9 @@
  * @property string $description
  */
 class TeamMember extends CActiveRecord {
+
+	/** @var mixed */ public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return TeamMember the static model class
@@ -19,6 +22,19 @@ class TeamMember extends CActiveRecord {
 	 * @return string the associated database table name
 	 */
 	public function tableName() { return 'team_member'; }
+
+	 public function behaviors() {
+		 return array(
+			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+				'fields'	=> array('image'),
+				'folderName'=> 'membros',
+				'resizeTo'	=> array(array(200,200)),
+				'hasThumb'	=> true,
+				'thumbSize'	=> array(array(70,70)),
+				'prependFileName' => false,
+			),
+		 );
+	 }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -75,4 +91,6 @@ class TeamMember extends CActiveRecord {
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function getImageFile() { return $this->id.'.jpg'; }
 }
