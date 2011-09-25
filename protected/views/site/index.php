@@ -89,7 +89,7 @@
 					<div class="titulo"><h2>Notícias</h2></div>
 
 					<? foreach ($all_news as $news): ?>
-						<div class="box-noticias"><a href="#"><img src="img/sem-foto.jpg" alt="Sem foto" width="70" height="70" border="0" style="float:left;" /></a>
+						<div class="box-noticias"><a href="#"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" /></a>
 							<div class="chamada-noticia">
 								<a href="#"><p style="font-size:16px; color:#60a7aa;"><?=$news->title?></p></a>
 								<a href="#"><p style="font-size:14px; color:#333333;"><?=$news->short_desc?></p></a>

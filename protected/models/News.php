@@ -14,6 +14,9 @@
  * @property User $author
  */
 class News extends CActiveRecord {
+
+	/** @var mixed */ public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return News the static model class
@@ -26,7 +29,17 @@ class News extends CActiveRecord {
 	public function tableName() { return 'news'; }
 
 	public function behaviors() {
-		return array('snippetable'	=> array('class' => 'ext.behaviors.Snippetable'));
+		return array(
+			'snippetable'	=> array('class' => 'ext.behaviors.Snippetable'),
+			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+				'fields'	=> array('image'),
+				'folderName'=> 'noticias',
+				'resizeTo'	=> array(array(200,200)),
+				'hasThumb'	=> true,
+				'thumbSize'	=> array(array(70,70)),
+				'prependFileName' => false,
+			)
+		);
 	}
 
 	/**
@@ -97,4 +110,6 @@ class News extends CActiveRecord {
 
 		return true;
 	}
+
+	public function getImageFile() { return $this->id.'.jpg'; }
 }

@@ -3,6 +3,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'news-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array('enctype' => 'multipart/form-data')
 )); ?>
 
 	<p class="note">Campos com <span class="required">*</span> são obrigatórios.</p>
@@ -19,6 +20,12 @@
 		<?php echo $form->labelEx($model,'short_desc'); ?>
 		<?php echo $form->textField($model,'short_desc',array('size'=>90,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'short_desc'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->fileField($model,'image'); ?>
+		<?php echo $form->error($model,'image'); ?>
 	</div>
 
 	<div class="row">
