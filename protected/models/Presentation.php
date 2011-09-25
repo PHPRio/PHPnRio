@@ -50,7 +50,6 @@ class Presentation extends CActiveRecord {
 		// will receive user inputs.
 		return array(
 			array('title, description, speaker_id', 'required'),
-			array('image', 'required', 'on' => 'insert'),
 			array('speaker_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('begin, end', 'date', 'format' => 'HH:mm', 'allowEmpty' => true),
