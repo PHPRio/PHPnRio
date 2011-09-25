@@ -58,6 +58,8 @@ $config = array(
 	),
 	// application-level parameters that can be accessed using Yii::app()->params['paramName']
 	'params' => array(
+		'imgPath' => 'img/conteudo',
+		'imgUrl' => 'img/conteudo',
 	),
 );
 
