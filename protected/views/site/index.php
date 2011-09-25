@@ -18,7 +18,7 @@
 				background-color: #fff;
 			}
 		</style>
-<!--		<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />-->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
 	</head>
 	<body>
 		<center>
@@ -70,7 +70,7 @@
 							<? foreach($speakers as $speaker): ?>
 								<li>
 									<div class="palestrante">
-										<img src="img/palestrante-sem-foto.png" style="float:left; padding-right:10px;" />
+										<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" style="float:left; padding-right:10px;" />
 										<h3><?=$speaker->name?></h3>
 										<? foreach($speaker->presentations as $presentation): ?>
 										<p><?=$presentation->title?></p>
@@ -108,7 +108,7 @@
 				<div class="coluna-direita">
 					<div class="titulo"><h2>Redes Sociais</h2></div>
 					<div class="col" style="float:right; padding-top:10px;">
-<!--						<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+						<script src="http://widgets.twimg.com/j/2/widget.js"></script>
 						<script>
 							new TWTR.Widget({
 								version: 2,
@@ -141,19 +141,19 @@
 									behavior: 'default'
 								}
 							}).render().start();
-						</script>-->
+						</script>
 					</div>
 
 
 					<div class="col" style="float:right; padding-top:10px;">
 						<div id="fb-root"></div>
-<!--						<script>(function(d, s, id) {
+						<script>(function(d, s, id) {
 							var js, fjs = d.getElementsByTagName(s)[0];
 							if (d.getElementById(id)) {return;}
 							js = d.createElement(s); js.id = id;
 							js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 							fjs.parentNode.insertBefore(js, fjs);
-						}(document, 'script', 'facebook-jssdk'));</script>-->
+						}(document, 'script', 'facebook-jssdk'));</script>
 
 						<div class="fb-like-box" data-href="http://www.facebook.com/pages/PHPRio/160383237381004" colorscheme="fff" data-width="250" data-height="180" data-show-faces="true" data-stream="false" data-header="false" style="float:right;"></div>
 					</div>
@@ -204,9 +204,9 @@
 			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>
 			<script type="text/javascript" src="/js/prettify.js"></script>
 
-<!--			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 			<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			<script type="text/javascript">
 			$(function() {
 				$("#scroller").jCarouselLite({
