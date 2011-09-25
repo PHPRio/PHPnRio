@@ -41,6 +41,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+		array('header' => 'Foto', 'type' => 'image', 'value' => '$data->getImageUrl("imageFile",true)'),
 		'name',
 		'description',
 		array('header' => 'Twitter', 'type' => 'url', 'value' => '$data->twitterLink'),

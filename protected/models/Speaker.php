@@ -13,6 +13,9 @@
  * @property Presentation[] $presentations
  */
 class Speaker extends CActiveRecord {
+
+	/** @var mixed */ public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Speaker the static model class
@@ -23,6 +26,19 @@ class Speaker extends CActiveRecord {
 	 * @return string the associated database table name
 	 */
 	public function tableName() { return 'speaker'; }
+
+ 	public function behaviors() {
+		return array(
+			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+				'fields'	=> array('image'),
+				'folderName'=> 'palestrantes',
+				'resizeTo'	=> array(array(200,200)),
+				'hasThumb'	=> true,
+				'thumbSize' => array(array(72,82)),
+				'prependFileName' => false,
+			),
+		);
+ 	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -58,9 +74,10 @@ class Speaker extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Nome',
 			'description' => 'Descrição',
 			'twitter' => 'Twitter',
+			'image' => 'Foto',
 		);
 	}
 
@@ -87,4 +104,6 @@ class Speaker extends CActiveRecord {
 	public function getTwitterLink() {
 		if ($this->twitter) return 'twitter.com/'.$this->twitter;
 	}
+
+	public function getImageFile() { return $this->id.'.jpg'; }
 }

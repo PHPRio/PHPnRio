@@ -21,5 +21,6 @@ $this->menu=array(
 		'name',
 		array('name' => 'Twitter', 'type' => 'url', 'value' => $model->twitterLink),
 		'description',
+		array('name' => 'Foto', 'type' => 'image', 'value' => $model->getImageUrl("imageFile")),
 	),
 )); ?>
