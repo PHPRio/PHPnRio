@@ -29,18 +29,18 @@ class Presentation extends CActiveRecord {
 	 */
 	public function tableName() { return 'presentation'; }
 
- public function behaviors() {
-	 return array(
-		'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
-			'fields'	=> array('image'),
-			'folderName'=> 'palestras',
-			'resizeTo'	=> array(array(200,200)),
-			'hasThumb'	=> true,
-			'thumbSize'	=> array(array(70,70)),
-			'prependFileName' => false,
-		),
-	 );
- }
+	 public function behaviors() {
+		 return array(
+			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+				'fields'	=> array('image'),
+				'folderName'=> 'palestras',
+				'resizeTo'	=> array(array(200,200)),
+				'hasThumb'	=> true,
+				'thumbSize'	=> array(array(70,70)),
+				'prependFileName' => false,
+			),
+		 );
+	 }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -108,7 +108,5 @@ class Presentation extends CActiveRecord {
 		));
 	}
 
-	public function getImageName() {
-		return $this->id.'.jpg';
-	}
+	public function getImageName() { return $this->id.'.jpg'; }
 }
