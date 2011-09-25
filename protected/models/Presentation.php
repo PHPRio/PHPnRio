@@ -15,6 +15,9 @@
  * @property Speaker $speaker
  */
 class Presentation extends CActiveRecord {
+
+	/** @var mixed */ public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Presentation the static model class
@@ -26,6 +29,19 @@ class Presentation extends CActiveRecord {
 	 */
 	public function tableName() { return 'presentation'; }
 
+ public function behaviors() {
+	 return array(
+		'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
+			'fields'	=> array('image'),
+			'folderName'=> 'palestras',
+			'resizeTo'	=> array(array(200,200)),
+			'hasThumb'	=> true,
+			'thumbSize'	=> array(array(70,70)),
+			'prependFileName' => false,
+		),
+	 );
+ }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -34,6 +50,7 @@ class Presentation extends CActiveRecord {
 		// will receive user inputs.
 		return array(
 			array('title, description, speaker_id', 'required'),
+			array('image', 'required', 'on' => 'insert'),
 			array('speaker_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('begin, end', 'date', 'format' => 'HH:mm', 'allowEmpty' => true),
@@ -62,6 +79,7 @@ class Presentation extends CActiveRecord {
 			'id' => 'ID',
 			'title' => 'Título',
 			'description' => 'Descrição',
+			'image' => 'Imagem',
 			'begin' => 'Início',
 			'end' => 'Fim',
 			'speaker_id' => 'Palestrante',
@@ -89,5 +107,9 @@ class Presentation extends CActiveRecord {
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function getImageName() {
+		return $this->id.'.jpg';
 	}
 }

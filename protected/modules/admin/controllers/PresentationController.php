@@ -19,7 +19,7 @@ class PresentationController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'create', 'update'),
+				'actions' => array('index', 'view', 'create', 'update', 'delete'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -44,12 +44,11 @@ class PresentationController extends Controller {
 	 */
 	public function actionCreate() {
 		$model = new Presentation;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if (isset($_POST['Presentation'])) {
-			$model->attributes = $_POST['Presentation'];
+			$model->attributes = array_merge($_POST['Presentation'], $_FILES['Presentation']['name']);
 			if ($model->save())
 				$this->redirect(array('index', 'id' => $model->id));
 		}

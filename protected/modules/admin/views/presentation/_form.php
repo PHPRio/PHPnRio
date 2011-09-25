@@ -3,6 +3,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'presentation-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array('enctype' => 'multipart/form-data')
 )); ?>
 
 	<p class="note">Campos com <span class="required">*</span> são obrigatórios.</p>
@@ -22,13 +23,19 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->fileField($model,'image'); ?>
+		<?php echo $form->error($model,'image'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'speaker_id'); ?>
 		<?php echo $form->dropDownList($model,'speaker_id', CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'speaker_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo CHtml::label($model->getAttributeLabel('begin').' - '.$model->getAttributeLabel('end'), 'Presentation_begin'); ?>
+		<?php echo CHtml::label($model->getAttributeLabel('begin').' - '.$model->getAttributeLabel('end').'<span class="required">*</span>', 'Presentation_begin'); ?>
 		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'begin', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>
 		-
 		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'end', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>

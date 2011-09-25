@@ -23,5 +23,6 @@ $this->menu=array(
 		'begin',
 		'end',
 		'speaker.name',
+		array('name' => 'Imagem', 'type' => 'image', 'value' => $model->getImageUrl('imageName'))
 	),
 )); ?>
