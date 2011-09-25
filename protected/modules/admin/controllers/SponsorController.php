@@ -19,7 +19,7 @@ class SponsorController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'create', 'update'),
+				'actions' => array('index', 'view', 'create', 'update', 'delete'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users

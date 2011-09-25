@@ -25,7 +25,7 @@ class UserController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'create', 'update', 'changePassword'),
+				'actions' => array('index', 'view', 'create', 'update', 'delete', 'changePassword'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
