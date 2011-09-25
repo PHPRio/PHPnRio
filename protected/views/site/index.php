@@ -201,7 +201,7 @@
 			<!-- footer 2-->
 
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>
+<!--			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>-->
 			<script type="text/javascript" src="/js/prettify.js"></script>
 
 			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
