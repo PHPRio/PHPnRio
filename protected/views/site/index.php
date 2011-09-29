@@ -9,6 +9,10 @@
 		<meta name="robots" content="index,follow" />
 		<meta name="author" content="Rafael Caride, Igor Santos" />
 
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
+		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
 		<link href="css/estilo.css" rel="stylesheet" type="text/css"/>
 		<style type="text/css">
 			body {
@@ -26,17 +30,9 @@
 				<!-- topo -->
 				<div class="topo">
 					<div class="logo"><a href="index.php"><img src="img/logo.gif" alt="PHP 'n Rio 2011" width="204" height="51" border="0" /></a></div>
-					<div class="redes-sociais" style="color:#FFFFFF;">
-						<span style="padding-top:2px; *padding-top:1px; float:right;">
-							<fb:like href="http://www.facebook.com/pages/PHPRio/160383237381004" send="false" layout="button_count" width="80" show_faces="false" font=""></fb:like>
-						</span>
-						<span style="padding-top:2px; padding-right:15px; float:right;">
-							<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="phprio" data-text="PHP'n Rio 2011 dia 5 de Novembro - O evento de desenvolvimento web carioca @phprio" data-lang="en">Tweet</a>
-						</span>
-						<span style="padding-top:2px; float:right;">
-							<g:plusone size="medium" href="http://phprio.org/phpnrio11"></g:plusone>
-						</span>
-					</div>
+
+					<?=$this->renderPartial('_barrinha_social')?>
+
 					<div id="menu">
 						<ul>
 							<li><a href="#.php">O EVENTO</a></li><?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
@@ -171,10 +167,6 @@
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <!--			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>-->
 			<script type="text/javascript" src="/js/prettify.js"></script>
-
-			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-			<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			<script type="text/javascript">
 			$(function() {
 				$("#scroller").jCarouselLite({
