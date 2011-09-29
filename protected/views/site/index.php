@@ -35,11 +35,12 @@
 
 					<div id="menu">
 						<ul>
-							<li><a href="#.php">O EVENTO</a></li><?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
-							<li><a href="#.php">INSCRIÇÕES</a></li>
-							<li><a href="#.php">GRADE</a></li>
-							<li><a href="#.php">PATROCINADORES</a></li>
-							<li><a href="#.php">ORGANIZAÇÃO</a></li>
+							<?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
+							<li><?=CHtml::link('O EVENTO',			array('site/page', 'view' => 'evento'))?></li>
+							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
+							<li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
+							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
+							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMembers/list'))?></li>
 						</ul>
 					</div>
 				</div>
@@ -55,7 +56,9 @@
     <span>);</span>
 <span class="op">?&gt;</span>
 					</pre>
-					<a href="#" style="float:right;"><img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" /></a>
+					<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>" style="float:right;">
+						<img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
+					</a>
 				</div>
 				<!-- cadastre-se -->
 
@@ -144,10 +147,12 @@
 
 					<div class="menu-rodape">
 						<p style="margin-bottom:5px;">O EVENTO</p>
-						<ul><li><a href="#">Palestrantes</a></li>
-							<li><a href="#">Palestras</a></li>
-							<li><a href="#">Eventos anteriores</a></li>
-							<li><a href="#">Informações</a></li>
+						<ul>
+							<li><?=CHtml::link('Palestrantes',	array('speaker/list'))?></li>
+							<li><?=CHtml::link('Palestras',		array('presentation/list'))?></li>
+							<li><?=CHtml::link('Informações',	array('site/page', 'view' => 'evento'))?></li>
+							<li><a href="http://www.phprio.org/phpnrio10">PHP'n Rio 10</a></li>
+							<li><a href="http://www.phprio.org/phpnrio09">PHP'n Rio 09</a></li>
 						</ul>
 					</div>
 
