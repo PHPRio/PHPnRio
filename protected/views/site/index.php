@@ -98,7 +98,7 @@
 						</div>
 					<? endforeach ?>
 
-					<? if ($news_total < 6): ?>
+					<? if ($news_total > 6): ?>
 						<p align="right" style="padding-right:20px; font-size:11px; float:right;"><a href="<?=$this->createUrl('news/list')?>" style="color:#60a7aa;">+ notícias</a></p>
 					<? endif ?>
 
