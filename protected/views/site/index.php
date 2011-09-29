@@ -48,11 +48,12 @@
 				<!-- cadastre-se -->
 				<div class="info">
 					<pre>
-	<span style="font-size:14px;">&lt;?php</span>
-	<span>$evento</span> <span>=</span>
-	<span>array</span><span>(</span><span>'data'</span> <span>=></span><span style="font-size:19px; font-weight:bold;">'05/11/2011'</span><span>,</span>
-		  <span>&nbsp;&nbsp;'local'</span><span>=></span><span style="font-size:19px; font-weight:bold;">'CEFET-RJ campus Maracanã'</<span><span>);</span>
-		  <span style="font-size:14px;">?></span>
+<span class="op">&lt;?php</span>
+    <span class="imp">$evento</span> <span>=</span> <span>array</span><span>(</span>
+        <span class="imp">'data'</span>  <span>=></span> <span class="imp" style="font-size:19px; font-weight:bold;">'05/11/2011'</span><span>,</span>
+        <span class="imp">'local'</span> <span>=></span> <span class="imp" style="font-size:19px; font-weight:bold;">'CEFET-RJ campus Maracanã'</span>
+    <span>);</span>
+<span class="op">?&gt;</span>
 					</pre>
 					<a href="#" style="float:right;"><img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" /></a>
 				</div>
@@ -119,16 +120,16 @@
 							if (isset($sponsors[$s])) {
 								$img = $sponsors[$s]->getImageUrl('imageFile', true);
 								$name = $sponsors[$s]['name'];
-								$url = array('path' => 'site/patrocinadores', '#' => $sponsors[$s]['name']);
+								$hash = $sponsors[$s]['name'];
 							}
 							else {
 								$img = '/img/patrocine-aqui.jpg';
 								$name = "Patrocine o PHP'n Rio";
-								$url = array('path' => 'site/patrocinadores', '#' => 'patrocine');
+								$hash = 'patrocine';
 							}
 						?>
 						<div class="box-logos-patrocinio">
-							<a href="<?=$this->createUrl($url['path'], array('#' => $url['#']))?>">
+							<a href="<?=$this->createUrl('sponsor/list', array('#' => $hash))?>">
 								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
 							</a>
 						</div>

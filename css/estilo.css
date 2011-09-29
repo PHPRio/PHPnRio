@@ -72,9 +72,20 @@
 }
 
 .info pre{
-	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif ;
+	font-family: monospace;
+/*	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;*/
 	font-weight: bold;
 	text-shadow:0px 2px 2px #003a66;
+	color: #8EABCF;
+}
+
+.info pre .op {
+	font-size: 14px;
+	color: #5E83B2;
+}
+
+.info pre .imp {
+	color: white;
 }
 
 
