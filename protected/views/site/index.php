@@ -165,9 +165,25 @@
 			<!-- footer 1-->
 			<div class="rodape-top">
 				<div class="logos-patrocinio">
-					<? foreach ($sponsors as $sponsor): ?>
-						<div class="box-logos-patrocinio"><a href="#"><img src="<?=$sponsor->getImageUrl('imageFile',true)?>" alt="<?=$sponsor->name?>" width="115" height="79" border="0" /></a></div>
-					<? endforeach ?>
+					<?php
+						for ($s = 1; $s <= 6; $s++):
+							if (isset($sponsors[$s])) {
+								$img = $sponsors[$s]->getImageUrl('imageFile', true);
+								$name = $sponsors[$s]['name'];
+								$url = array('path' => 'site/patrocinadores', '#' => $sponsors[$s]['name']);
+							}
+							else {
+								$img = '/img/patrocine-aqui.jpg';
+								$name = "Patrocine o PHP'n Rio";
+								$url = array('path' => 'site/patrocinadores', '#' => 'patrocine');
+							}
+						?>
+						<div class="box-logos-patrocinio">
+							<a href="<?=$this->createUrl($url['path'], array('#' => $url['#']))?>">
+								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
+							</a>
+						</div>
+					<? endfor ?>
 				</div>
 			</div>
 			<!-- footer 1-->
