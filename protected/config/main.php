@@ -34,6 +34,9 @@ $config = array(
 			'showScriptName' => false,
 			'rules'=>array(
 				'admin/<action:(login|logout)>' => 'admin/default/<action>',
+				'patrocinadores' => 'sponsor/list', 'palestrantes' => 'speaker/list', 'palestras' => 'presentation/list',
+				'noticias' => 'news/list',
+				'noticia/<id:\d+>' => 'news/view',
 //				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 //				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 //				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
