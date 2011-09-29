@@ -89,16 +89,19 @@
 					<div class="titulo"><h2>Notícias</h2></div>
 
 					<? foreach ($all_news as $news): ?>
-						<div class="box-noticias"><a href="#"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" /></a>
+						<? $url = $this->createUrl('news/view', array('id' => $news->id)) ?>
+						<div class="box-noticias">
+							<a href="<?=$url?>"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" />							</a>
+
 							<div class="chamada-noticia">
-								<a href="#"><p style="font-size:16px; color:#60a7aa;"><?=$news->title?></p></a>
-								<a href="#"><p style="font-size:14px; color:#333333;"><?=$news->short_desc?></p></a>
+								<a href="<?=$url?>"><p style="font-size:16px; color:#60a7aa;"><?=$news->title?></p></a>
+								<a href="<?=$url?>"><p style="font-size:14px; color:#333333;"><?=$news->short_desc?></p></a>
 							</div>
 						</div>
 					<? endforeach ?>
 
-					<? if ($news_total > 6): ?>
-						<p align="right" style="padding-right:20px; font-size:11px; float:right;"><a href="#" style="color:#60a7aa;">+ notícias</a></p>
+					<? if ($news_total < 6): ?>
+						<p align="right" style="padding-right:20px; font-size:11px; float:right;"><a href="<?=$this->createUrl('news/list')?>" style="color:#60a7aa;">+ notícias</a></p>
 					<? endif ?>
 
 				</div>
