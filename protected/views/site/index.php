@@ -64,12 +64,13 @@
 					<div id="scroller">
 						<ul>
 							<? foreach($speakers as $speaker): ?>
+								<? $speaker_url = $this->createUrl('speaker/list', array('#' => $speaker->id)); ?>
 								<li>
 									<div class="palestrante">
-										<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" style="float:left; padding-right:10px;" />
-										<h3><?=$speaker->name?></h3>
+										<a href="<?=$speaker_url?>"><img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" style="float:left; padding-right:10px;" /></a>
+										<h3><a href="<?=$speaker_url?>"><?=$speaker->name?></a></h3>
 										<? foreach($speaker->presentations as $presentation): ?>
-										<p><?=$presentation->title?></p>
+											<a href="<?=$this->createUrl('presentation/view', array('id' => $presentation->id))?>"><p><?=$presentation->title?></p></a>
 										<? endforeach ?>
 									</div>
 								</li>
