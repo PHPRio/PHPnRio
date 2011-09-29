@@ -10,14 +10,33 @@
 .mae  {
 	width: 1010px;
 	height:auto;
-	min-height:200px;
 	text-align:left;
 	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif ;
 }
 
+.meio  {
+	width:100%;
+	float:left;
+	height:auto;
+	padding-top:15px;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	line-height:20px;
+}
+
+.meio a{
+text-decoration:none;
+color:#0075c4;
+}
+
+.meio a:hover{
+text-decoration:underline;
+color:#195383;
+}
+
 .logo {
 	width:200px;
-	height:100px;
+	height:70px;
 	padding-top:22px;
 	float:left;
 }
@@ -67,6 +86,8 @@
 	clear: both;
 	width:  355px;
 	height: 170px;
+	*padding-top:15px;
+	margin-bottom:20px;
 	color:#FFFFFF;
 	font-size:14px;
 }
@@ -87,7 +108,6 @@
 .info pre .imp {
 	color: white;
 }
-
 
 #palestrantes{
 	border-bottom:  5px solid #60a7aa;
@@ -153,6 +173,47 @@ div#scroller{
 	float:left;
 }
 
+.palestras {
+width:100%;
+margin-top:20px;
+margin-bottom:20px;
+padding-bottom:10px;
+border-bottom: #D7EBFF dotted 1px;
+}
+
+.pagina-palestrantes {
+width:100%;
+margin-top:20px;
+margin-bottom:20px;
+padding-bottom:10px;
+float:left;
+border-bottom: #D7EBFF dotted 1px;
+}
+
+.organizadores {
+width:100%;
+margin-top:20px;
+margin-bottom:20px;
+padding-bottom:10px;
+float:left;
+border-bottom: #D7EBFF dotted 1px;
+}
+
+.programacao {
+width:100%;
+margin-top:20px;
+margin-bottom:20px;
+padding-bottom:10px;
+float:left;
+border-bottom: #D7EBFF dotted 1px;
+}
+
+
+h1 {
+	font-size:22px;
+	color:#195383;
+}
+
 h2 {
 	font-size:16px;
 	color:#60a7aa;
@@ -186,6 +247,26 @@ p{
 	border-bottom:#CCCCCC 1px dotted;
 }
 
+.conteudo {
+	width:715px;
+	margin-top:15px;
+	float:left;
+}
+
+.box-inscreva-se {
+	float:right;
+	width:234px;
+	*width:250px;
+	font-size:14px;
+	color:#666666;
+	background-color: #EAEAEA;
+	border: #DBDBDB solid 1px;
+	padding:8px;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+
 .box-noticias {
 	margin:10px;
 	width:335px;
@@ -211,8 +292,9 @@ p{
 
 .rodape-top {
 	width:100%;
-	height:300px;
+	height:140px;
 	float:left;
+	margin-top:20px;
 	border-top:#60a7aa 5px solid;
 	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
@@ -230,11 +312,11 @@ p{
 }
 
 .box-logos-patrocinio a{
-	border: #CCCCCC 2px solid;
+	border: #CCCCCC 1px solid;
 }
 
 .box-logos-patrocinio a:hover{
-	border: #60a7aa 2px solid;
+	border: #60a7aa 1px solid;
 }
 
 .rodape-bottom {
@@ -242,7 +324,7 @@ p{
 	float: left;
 	color: white;
 	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	height: 160px;
+	height: 140px;
 	padding-top: 15px;
 	width: 100%;
 }
@@ -252,8 +334,15 @@ p{
 }
 
 .rodape-bottom a {
-	color: white;
+	color: #FFF;
 	text-decoration: underline;
+	font-size:11px;
+}
+
+.rodape-bottom a:hover {
+	color: #FFCC66;
+	text-decoration: underline;
+	font-size:11px;
 }
 
 .rodape-bottom .conteudo-rodape {
