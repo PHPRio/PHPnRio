@@ -17,6 +17,17 @@
 					<?=$speaker->name?>
 				</h1>
 
+				<? if (($total_presentations = sizeof($speaker->presentations)) > 0): ?>
+					<h3>
+					<?php
+						foreach ($speaker->presentations as $num => $pres) {
+							echo CHtml::link($pres->title, array('presentation/list', '#' => $pres->id));
+							if ($num+1 < $total_presentations) echo ' | ';
+						}
+					?>
+					</h3>
+				<? endif ?>
+
 				<? if (!empty($speaker->twitter)) { ?>
 					<p style="color:#60a7aa">
 						<a href="http://<?=$speaker->twitterLink?>" target="_blank" style="color:#60a7aa;">@<?=$speaker->twitter?></a>
@@ -26,9 +37,6 @@
 				<p><?=$speaker->description?></p>
 
 				<br />
-				<? foreach ($speaker->presentations as $pres): ?>
-					<h3><?=CHtml::link($pres->title, array('presentation/list', '#' => $pres->id))?></h3>
-				<? endforeach ?>
 			</div>
 		<? endforeach ?>
 		<!-- box palestrantes -->
