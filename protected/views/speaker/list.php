@@ -48,7 +48,7 @@
 		<?= $this->renderPartial('/layouts/_box_inscricoes') ?>
 		<?= $this->renderPartial('/layouts/_redes_sociais') ?>
 	</div>
-
 	<!-- coluna direita -->
+
 </div>
 <!-- meio -->
