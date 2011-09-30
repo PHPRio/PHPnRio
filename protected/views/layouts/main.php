@@ -17,7 +17,7 @@
 		<style type="text/css">
 			body {
 				background-position:center top;
-				background-image: url(img/bg.gif);
+				background-image: url(img/<?=($this->getUniqueId() == 'site' && $this->action->getId() == 'index')? 'bg.gif' : 'bg-internas.jpg'?>);
 				background-repeat:no-repeat;
 				background-color: #fff;
 			}
