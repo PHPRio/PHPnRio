@@ -9,6 +9,7 @@
 
 		<!-- box palestrantes -->
 		<? foreach ($speakers as $speaker): ?>
+			<a name="<?=$speaker->id?>"></a>
 			<div class="pagina-palestrantes">
 				<h1>
 					<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" width="73" height="82" border="1" align="left" style="margin-right:15px;" />
