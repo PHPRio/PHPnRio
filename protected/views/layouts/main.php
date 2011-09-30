@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
 		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
-		<link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+		<link href="/css/estilo.css" rel="stylesheet" type="text/css"/>
 		<style type="text/css">
 			body {
 				background-position:center top;
