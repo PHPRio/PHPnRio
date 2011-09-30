@@ -38,9 +38,9 @@
 							<?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
 							<li><?=CHtml::link('O EVENTO',			array('site/page', 'view' => 'evento'))?></li>
 							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
-							<li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
+							<? /* <li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
 							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
-							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMembers/list'))?></li>
+							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMembers/list'))?></li> */ ?>
 						</ul>
 					</div>
 				</div>
@@ -66,9 +66,9 @@
 							}
 						?>
 						<div class="box-logos-patrocinio">
-							<a href="<?=$this->createUrl('sponsor/list', array('#' => $hash))?>">
+<!--							<a href="<?=$this->createUrl('sponsor/list', array('#' => $hash))?>">-->
 								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
-							</a>
+<!--							</a>-->
 						</div>
 					<? endfor ?>
 				</div>
@@ -108,16 +108,16 @@
 <!--			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>-->
 			<script type="text/javascript" src="/js/prettify.js"></script>
 			<script type="text/javascript">
-			$(function() {
-				$("#scroller").jCarouselLite({
-					btnPrev : '.prev',
-					btnNext : '.next',
-					auto    : null,
-					speed   : 3000,
-					visible : 4
-				});
+				$(function() {
+					$("#scroller").jCarouselLite({
+						btnPrev : '.prev',
+						btnNext : '.next',
+						auto    : null,
+						speed   : 3000,
+						visible : 4
+					});
 
-			});
+				});
 			</script>
 		</center>
 	</body>
