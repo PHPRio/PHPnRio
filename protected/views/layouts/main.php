@@ -1,56 +1,134 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>PHP'n Rio 2011: Dia 5 de Novembro no CEFET-RJ campus Maracanã</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Principal evento de PHP no Rio de Janeiro" />
+		<meta name="keywords" content="PHP, desenvolvimento, programação web, web developer, evento php rio, evento php, phprio"/>
+		<meta name="language" content="pt-br" />
+		<meta name="robots" content="index,follow" />
+		<meta name="author" content="Rafael Caride, Igor Santos" />
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
+		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+		<link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+		<style type="text/css">
+			body {
+				background-position:center top;
+				background-image: url(img/bg.gif);
+				background-repeat:no-repeat;
+				background-color: #fff;
+			}
+		</style>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
+	</head>
+	<body>
+		<center>
+			<div class="mae">
+				<!-- topo -->
+				<div class="topo">
+					<div class="logo"><a href="index.php"><img src="img/logo.gif" alt="PHP 'n Rio 2011" width="204" height="51" border="0" /></a></div>
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-</head>
+					<?=$this->renderPartial('/layouts/_barrinha_social')?>
 
-<body>
+					<div id="menu">
+						<ul>
+							<?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
+							<li><?=CHtml::link('O EVENTO',			array('site/page', 'view' => 'evento'))?></li>
+							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
+							<li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
+							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
+							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMembers/list'))?></li>
+						</ul>
+					</div>
+				</div>
+				<!-- topo -->
 
-<div class="container" id="page">
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+				<?=$content?>
 
-	<?php echo $content; ?>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
 
-</div><!-- page -->
+				<!-- coluna direita -->
+				<div class="coluna-direita">
+					<?=$this->renderPartial('/layouts/_redes_sociais')?>
+				</div>
+				<!-- coluna direita -->
 
-</body>
+			</div>
+			<!-- footer 1-->
+			<div class="rodape-top">
+				<div class="logos-patrocinio">
+					<?php
+						for ($s = 1; $s <= 6; $s++):
+							if (isset($sponsors[$s])) {
+								$img = $sponsors[$s]->getImageUrl('imageFile', true);
+								$name = $sponsors[$s]['name'];
+								$hash = $sponsors[$s]['name'];
+							}
+							else {
+								$img = '/img/patrocine-aqui.jpg';
+								$name = "Patrocine o PHP'n Rio";
+								$hash = 'patrocine';
+							}
+						?>
+						<div class="box-logos-patrocinio">
+							<a href="<?=$this->createUrl('sponsor/list', array('#' => $hash))?>">
+								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
+							</a>
+						</div>
+					<? endfor ?>
+				</div>
+			</div>
+			<!-- footer 1-->
+
+			<!-- footer 2-->
+			<div class="rodape-bottom">
+				<div class="conteudo-rodape">
+
+					<div class="menu-rodape">
+						<p style="margin-bottom:5px;">O EVENTO</p>
+						<ul>
+							<li><?=CHtml::link('Palestrantes',	array('speaker/list'))?></li>
+							<li><?=CHtml::link('Palestras',		array('presentation/list'))?></li>
+							<li><?=CHtml::link('Informações',	array('site/page', 'view' => 'evento'))?></li>
+							<li><a href="http://www.phprio.org/phpnrio10">PHP'n Rio 10</a></li>
+							<li><a href="http://www.phprio.org/phpnrio09">PHP'n Rio 09</a></li>
+						</ul>
+					</div>
+
+					<div class="menu-rodape">
+						<p style="margin-bottom:5px;">Precisa falar conosco?</p>
+						<ul>
+							<li>phprio@phprio.org.br</li>
+					</div>
+
+					<div class="rodape-creditos"><img src="img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
+						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br">Design e Frontend<br /> Rafael Caride</a></p>
+					</div>
+
+				</div>
+			</div>
+			<!-- footer 2-->
+
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<!--			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>-->
+			<script type="text/javascript" src="/js/prettify.js"></script>
+			<script type="text/javascript">
+			$(function() {
+				$("#scroller").jCarouselLite({
+					btnPrev : '.prev',
+					btnNext : '.next',
+					auto    : null,
+					speed   : 3000,
+					visible : 4
+				});
+
+			});
+			</script>
+		</center>
+	</body>
 </html>
