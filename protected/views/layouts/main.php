@@ -17,7 +17,7 @@
 		<style type="text/css">
 			body {
 				background-position:center top;
-				background-image: url(img/<?=($this->getUniqueId() == 'site' && $this->action->getId() == 'index')? 'bg.gif' : 'bg-internas.jpg'?>);
+				background-image: url(/img/<?=($this->getUniqueId() == 'site' && $this->action->getId() == 'index')? 'bg.gif' : 'bg-internas.jpg'?>);
 				background-repeat:no-repeat;
 				background-color: #fff;
 			}
@@ -29,7 +29,7 @@
 			<div class="mae">
 				<!-- topo -->
 				<div class="topo">
-					<div class="logo"><a href="index.php"><img src="img/logo.gif" alt="PHP 'n Rio 2011" width="204" height="51" border="0" /></a></div>
+					<div class="logo"><a href="index.php"><img src="/img/logo.gif" alt="PHP 'n Rio 2011" width="204" height="51" border="0" /></a></div>
 
 					<?=$this->renderPartial('/layouts/_barrinha_social')?>
 
@@ -96,7 +96,7 @@
 							<li>phprio@phprio.org.br</li>
 					</div>
 
-					<div class="rodape-creditos"><img src="img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
+					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
 						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br">Design e Frontend<br /> Rafael Caride</a></p>
 					</div>
 
