@@ -8,7 +8,7 @@
     <span>);</span>
 <span class="op">?&gt;</span>
 	</pre>
-	
+
 	<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>" style="float:right;">
 		<img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
 	</a>
@@ -60,3 +60,9 @@
 
 </div>
 <!-- notícias -->
+
+<!-- coluna direita -->
+<div class="coluna-direita">
+	<?=$this->renderPartial('/layouts/_redes_sociais')?>
+</div>
+<!-- coluna direita -->

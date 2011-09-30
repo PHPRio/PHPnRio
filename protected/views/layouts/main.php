@@ -46,17 +46,7 @@
 				</div>
 				<!-- topo -->
 
-
-
 				<?=$content?>
-
-
-
-				<!-- coluna direita -->
-				<div class="coluna-direita">
-					<?=$this->renderPartial('/layouts/_redes_sociais')?>
-				</div>
-				<!-- coluna direita -->
 
 			</div>
 			<!-- footer 1-->
