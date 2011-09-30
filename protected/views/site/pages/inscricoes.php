@@ -12,7 +12,24 @@
 		<br />
 		<div style="height:80px;">
 			<h2 style="text-align:center;">&nbsp;</h2>
-			<a href="#"><img src="img/bt-inscreva-se.png" alt="inscreva-se" width="165" height="47" border="0" style="float:left; padding-left:277px;" /></a>
+
+			<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+			<form style="width: 205px; margin: 0px auto" target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/cart.html?action=add" method="post">
+				<input type="hidden" name="receiverEmail" value="projeto-phpnrio@alta.org.br" />
+				<input type="hidden" name="currency" value="BRL" />
+				<input type="hidden" name="itemId" value="1" />
+				<input type="hidden" name="itemDescription" value="Inscricao para o evento PHP'n Rio 2011 para o dia 5/11/2011" />
+				<input type="hidden" name="itemQuantity" value="1" />
+				<input type="hidden" name="itemAmount" value="30.00" />
+				<input type="hidden" name="itemWeight" value="" />
+				<input type="hidden" name="itemShippingCost" value="0.00" />
+				<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/205x30-pagar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+				<? /*
+					* botão pagseguro: https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/205x30-pagar.gif
+					* botão layout: img/bt-inscreva-se.png
+					*/ ?>
+			</form>
+			<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 		</div>
 		<br />
 		<p><strong>Observações:</strong></p>
