@@ -31,6 +31,7 @@ class SiteController extends Controller {
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError() {
+		$this->layout = false;
 		if ($error = Yii::app()->errorHandler->error) {
 
 			//handling default image for speakers, presentations, etc
