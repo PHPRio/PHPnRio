@@ -10,7 +10,7 @@ class Controller extends CController
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
 	 */
 //	public $layout='//layouts/column1';
-	
+
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
@@ -21,4 +21,15 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	/**
+	 * @var Sponsor[]
+	 */
+	public $sponsors = array();
+
+	protected function beforeAction($action) {
+		parent::beforeAction($action);
+		$this->sponsors = Sponsor::model()->findAll(array('limit' => 6));
+		return true;
+	}
 }

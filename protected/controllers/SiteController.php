@@ -24,8 +24,7 @@ class SiteController extends Controller {
 		$speakers	= Speaker::model()->with('presentations')->findAll(array('order' => 'RAND()'));
 		$all_news	= News::model()->findAll(array('limit' => 6));
 		$news_total	= News::model()->count();
-		$sponsors	= Sponsor::model()->findAll(array('limit' => 6));
-		$this->render('index', compact('speakers','all_news','news_total','sponsors'));
+		$this->render('index', compact('speakers','all_news','news_total'));
 	}
 
 	/**

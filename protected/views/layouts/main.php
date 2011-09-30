@@ -53,11 +53,11 @@
 			<div class="rodape-top">
 				<div class="logos-patrocinio">
 					<?php
-						for ($s = 1; $s <= 6; $s++):
-							if (isset($sponsors[$s])) {
-								$img = $sponsors[$s]->getImageUrl('imageFile', true);
-								$name = $sponsors[$s]['name'];
-								$hash = $sponsors[$s]['name'];
+						for ($s = 0; $s < 6; $s++):
+							if (isset($this->sponsors[$s])) {
+								$img = $this->sponsors[$s]->getImageUrl('imageFile', true);
+								$name = $this->sponsors[$s]['name'];
+								$hash = $this->sponsors[$s]['id'];
 							}
 							else {
 								$img = '/img/patrocine-aqui.jpg';
