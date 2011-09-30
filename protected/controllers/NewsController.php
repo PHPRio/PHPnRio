@@ -6,10 +6,11 @@ class NewsController extends Controller {
 		$news = News::model()->findAll();
 		$this->render('list', compact('news'));
 	}
-	
+
 	public function actionView($id) {
 		$news = News::model()->findByPk($id);
-		$this->render('list', compact('news'));
+		$other_news = News::model()->findAll(array('condition' => "id != $news->id", 'limit' => 4));
+		$this->render('view', compact('news', 'other_news'));
 	}
 
 }
