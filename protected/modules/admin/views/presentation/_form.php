@@ -35,12 +35,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo CHtml::label($model->getAttributeLabel('begin').' - '.$model->getAttributeLabel('end').'<span class="required">*</span>', 'Presentation_begin'); ?>
-		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'begin', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>
-		-
-		<?php $this->widget('CMaskedTextField', array('model'=> $model, 'attribute' => 'end', 'mask' => '99:99', 'htmlOptions' => array('size' => 5))); ?>
-		<?php echo $form->error($model,'begin'); ?>
-		<?php echo $form->error($model,'end'); ?>
+		<?php echo $form->labelEx($model,'period'); ?>
+		<?php echo $form->dropDownList($model,'period', Presentation::$periods); ?>
+		<?php echo $form->error($model,'period'); ?>
 	</div>
 
 	<div class="row buttons">

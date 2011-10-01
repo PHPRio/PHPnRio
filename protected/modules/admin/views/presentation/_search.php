@@ -21,16 +21,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'begin'); ?>
-		<?php echo $form->textField($model,'begin'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'end'); ?>
-		<?php echo $form->textField($model,'end'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'speaker_id'); ?>
 		<?php echo $form->textField($model,'speaker_id'); ?>
 	</div>

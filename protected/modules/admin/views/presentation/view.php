@@ -20,8 +20,7 @@ $this->menu=array(
 		'id',
 		'title',
 		'description',
-		'begin',
-		'end',
+		'periodTime',
 		'speaker.name',
 		array('name' => 'Imagem', 'type' => 'image', 'value' => $model->getImageUrl('imageName'))
 	),

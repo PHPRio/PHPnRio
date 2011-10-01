@@ -18,6 +18,20 @@ class Presentation extends CActiveRecord {
 
 	/** @var mixed */ public $image;
 
+	/** @var array */ public static $periods = array(
+			'Indefinido',
+			'09:00/09:30 - Abertura',
+			'09:30/10:30',
+			'10:30/11:30',
+			'11:30/12:30',
+			'13:30/14:30 - Almoço',
+			'14:30/15:30',
+			'15:30/16:30',
+			'16:30/17:30',
+			'17:30/18:20',
+			'18:20/18:30 - Encerramento',
+		);
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Presentation the static model class
@@ -51,11 +65,11 @@ class Presentation extends CActiveRecord {
 		return array(
 			array('title, description, speaker_id', 'required'),
 			array('speaker_id', 'numerical', 'integerOnly'=>true),
+			array('period', 'numerical', 'integerOnly'=>true, 'allowEmpty' => true),
 			array('title', 'length', 'max'=>100),
-			array('begin, end', 'date', 'format' => 'HH:mm', 'allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, begin, end, speaker_id', 'safe', 'on'=>'search'),
+			array('id, title, description, period, speaker_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -99,8 +113,6 @@ class Presentation extends CActiveRecord {
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('begin',$this->begin,true);
-		$criteria->compare('end',$this->end,true);
 		$criteria->compare('speaker_id',$this->speaker_id);
 
 		return new CActiveDataProvider($this, array(
@@ -109,4 +121,6 @@ class Presentation extends CActiveRecord {
 	}
 
 	public function getImageName() { return $this->id.'.jpg'; }
+
+	public function getPeriodTime() { return self::$periods[$this->period]; }
 }
