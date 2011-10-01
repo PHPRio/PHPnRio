@@ -49,7 +49,6 @@ class Speaker extends CActiveRecord {
 		return array(
 			array('name', 'required'),
 			array('name', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>250),
 			array('twitter', 'length', 'max'=>30, 'allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
