@@ -7,10 +7,14 @@
  * @property integer $id
  * @property string $name
  * @property string $description
+ * @property integer $category
+ * @property string $url
  */
 class Sponsor extends CActiveRecord {
 
 	/** @var mixed */ public $image;
+
+	/** @var array */ public static $categories = array('Apoiador', 'Gold', 'Silver', 'Bronze');
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -46,6 +50,8 @@ class Sponsor extends CActiveRecord {
 			array('image', 'required', 'on' => 'insert'),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>250),
+			array('category', 'numerical', 'integerOnly' => true),
+			array('url', 'length', 'max' => 200, 'allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, description', 'safe', 'on'=>'search'),
@@ -70,6 +76,9 @@ class Sponsor extends CActiveRecord {
 			'id' => 'ID',
 			'name' => 'Nome',
 			'description' => 'Descrição',
+			'url' => 'Site',
+			'category' => 'Categoria',
+			'categoryName' => 'Categoria',
 		);
 	}
 
@@ -93,4 +102,14 @@ class Sponsor extends CActiveRecord {
 	}
 
 	public function getImageFile() { return $this->id.'.jpg'; }
+
+	public function getCategoryName() { return self::$categories[$this->category]; }
+
+	public function beforeSave() {
+		parent::beforeSave();
+		if ($this->url && strpos($this->url, 'http://') !== 0)
+			$this->url = "http://$this->url";
+
+		return true;
+	}
 }

@@ -44,8 +44,8 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		array('header' => 'Foto', 'type' => 'image', 'value' => '$data->getImageUrl("imageFile",true)'),
 		'name',
 		'description',
-		array(
-			'class'=>'CButtonColumn',
-		),
+		'categoryName',
+		array('header' => 'Site', 'type' => 'url', 'value' => '$data->url'),
+		array('class'=>'CButtonColumn'),
 	),
 )); ?>

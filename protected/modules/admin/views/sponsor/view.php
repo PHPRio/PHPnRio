@@ -20,6 +20,8 @@ $this->menu=array(
 		'id',
 		'name',
 		'description',
+		'categoryName',
+		array('name' => 'Site', 'type' => 'url', 'value' => '$data->url'),
 		array('name' => 'Foto', 'type' => 'image', 'value' => $model->getImageUrl("imageFile")),
 	),
 )); ?>
