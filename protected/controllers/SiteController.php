@@ -43,6 +43,7 @@ class SiteController extends Controller {
 				$default_img = Yii::app()->getBasePath(true).'/../'.dirname($path).'/default'.($is_thumb? '.thumb':'').'.jpg';
 				if (!file_exists($asked_img) && file_exists($default_img)) {
 					header('Content-type: image/jpeg');
+					header('HTTP/1.0 200 OK');
 					echo file_get_contents($default_img);
 					exit;
 				}
