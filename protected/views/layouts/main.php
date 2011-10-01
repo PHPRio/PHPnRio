@@ -9,9 +9,11 @@
 		<meta name="robots" content="index,follow" />
 		<meta name="author" content="Rafael Caride, Igor Santos" />
 
+<? if (ENV != 'dev'): ?>
 		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
 		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<? endif ?>
 
 		<link href="/css/estilo.css" rel="stylesheet" type="text/css"/>
 		<style type="text/css">
@@ -22,7 +24,7 @@
 				background-color: #fff;
 			}
 		</style>
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
+		<? if (ENV != 'dev') { ?><link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' /><? } ?>
 
 		<? if (PRODUCTION) echo $this->renderPartial('/layouts/_ga') ?>
 	</head>
@@ -107,20 +109,7 @@
 			<!-- footer 2-->
 
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<!--			<script type="text/javascript" src="/js/jcarousellite_1.0.1.min.js"></script>-->
 			<script type="text/javascript" src="/js/prettify.js"></script>
-			<script type="text/javascript">
-				$(function() {
-					$("#scroller").jCarouselLite({
-						btnPrev : '.prev',
-						btnNext : '.next',
-						auto    : null,
-						speed   : 3000,
-						visible : 4
-					});
-
-				});
-			</script>
 		</center>
 	</body>
 </html>

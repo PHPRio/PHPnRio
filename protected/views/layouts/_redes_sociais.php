@@ -1,5 +1,6 @@
 <div class="titulo"><h2>Redes Sociais</h2></div>
 <div class="col" style="float:right; padding-top:10px;">
+<? if (ENV != 'dev'): ?>
 	<script src="http://widgets.twimg.com/j/2/widget.js"></script>
 	<script>
 		new TWTR.Widget({
@@ -34,6 +35,7 @@
 			}
 		}).render().start();
 	</script>
+<? endif ?>
 </div>
 
 <div class="col" style="float:right; padding-top:10px;">

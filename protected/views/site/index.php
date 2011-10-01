@@ -67,3 +67,17 @@
 	<?=$this->renderPartial('/layouts/_redes_sociais')?>
 </div>
 <!-- coluna direita -->
+
+<?php
+	$cs = Yii::app()->getClientScript();
+	$cs->registerScriptFile('/js/jcarousellite_1.0.1.min.js', CClientScript::POS_END);
+	$cs->registerScript('jcarousel',
+		"$('#scroller').jCarouselLite({
+			btnPrev : '.prev',
+			btnNext : '.next',
+			auto    : null,
+			speed   : 3000,
+			visible : 4
+		});",
+	CClientScript::POS_READY);
+?>
