@@ -75,9 +75,9 @@
 		"$('#scroller').jCarouselLite({
 			btnPrev : '.prev',
 			btnNext : '.next',
-			auto    : null,
-			speed   : 3000,
-			visible : 4
+			auto    : false,
+			speed   : 500,
+			visible : 3
 		});",
 	CClientScript::POS_READY);
 ?>
