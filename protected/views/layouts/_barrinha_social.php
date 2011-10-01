@@ -8,6 +8,6 @@
 	</span>
 	&nbsp;
 	<span style="padding-top:2px; float:right;">
-		<g:plusone size="medium" href="http://phprio.org/phpnrio11"></g:plusone>
+		<g:plusone size="medium" href="http://www.phpnrio.com.br"></g:plusone>
 	</span>
 </div>
