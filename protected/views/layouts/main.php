@@ -59,7 +59,7 @@
 					<?php
 						for ($s = 0; $s < 6; $s++):
 							if (isset($this->sponsors[$s])) {
-								$img = $this->sponsors[$s]->getImageUrl('imageFile', true);
+								$img = $this->sponsors[$s]->getImageUrl('imageFile');
 								$name = $this->sponsors[$s]['name'];
 								$hash = $this->sponsors[$s]['id'];
 							}
