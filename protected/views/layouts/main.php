@@ -70,9 +70,9 @@
 							}
 						?>
 						<div class="box-logos-patrocinio">
-<!--							<a href="<?=$this->createUrl('sponsor/list', array('#' => $hash))?>">-->
+							<a href="<?=$this->sponsors[$s]->url?>">
 								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
-<!--							</a>-->
+							</a>
 						</div>
 					<? endfor ?>
 				</div>
