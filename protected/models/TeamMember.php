@@ -7,6 +7,8 @@
  * @property integer $id
  * @property string $name
  * @property string $description
+ * @property string $twitter
+ * @property string $portifolio
  */
 class TeamMember extends CActiveRecord {
 
@@ -46,6 +48,8 @@ class TeamMember extends CActiveRecord {
 			array('name', 'required'),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>250),
+			array('twitter', 'length', 'max'=>30, 'allowEmpty' => true),
+			array('portifolio', 'length', 'max'=>200, 'allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, description', 'safe', 'on'=>'search'),
@@ -70,6 +74,7 @@ class TeamMember extends CActiveRecord {
 			'id' => 'ID',
 			'name' => 'Nome',
 			'description' => 'Descrição',
+			'portifolio' => 'Portifólio',
 		);
 	}
 
@@ -92,5 +97,17 @@ class TeamMember extends CActiveRecord {
 		));
 	}
 
+	public function getTwitterLink() {
+		if ($this->twitter) return 'twitter.com/'.$this->twitter;
+	}
+
 	public function getImageFile() { return $this->id.'.jpg'; }
+
+	public function beforeSave() {
+		parent::beforeSave();
+		if ($this->portifolio && strpos($this->portifolio, 'http://') !== 0)
+			$this->portifolio = "http://$this->portifolio";
+		
+		return true;
+	}
 }

@@ -17,6 +17,18 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'twitter'); ?>
+		<?php echo $form->textField($model,'twitter',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->error($model,'twitter'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'portifolio'); ?>
+		<?php echo $form->textField($model,'portifolio',array('size'=>50,'maxlength'=>200)); ?>
+		<?php echo $form->error($model,'portifolio'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model,'image'); ?>
 		<?php echo $form->error($model,'image'); ?>
