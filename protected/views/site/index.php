@@ -24,7 +24,7 @@
 				<? $speaker_url = $this->createUrl('speaker/list', array('#' => $speaker->id)); ?>
 				<li>
 					<div class="palestrante">
-						<a href="<?=$speaker_url?>"><img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" style="float:left; padding-right:10px;" /></a>
+						<a href="<?=$speaker_url?>"><img src="<?=$speaker->getImageUrl('imageFile')?>" alt="<?=$speaker->name?>" style="float:left; padding-right:10px;" /></a>
 						<h3><a href="<?=$speaker_url?>"><?=$speaker->name?></a></h3>
 						<? foreach($speaker->presentations as $presentation): ?>
 							<? /* <a href="<?=$this->createUrl('presentation/list', array('#' => $presentation->id))?>"><p><?=$presentation->title?></p></a> */ ?>
