@@ -22,7 +22,7 @@ class SiteController extends Controller {
 	 */
 	public function actionIndex() {
 		$speakers	= Speaker::model()->with('presentations')->findAll(array('order' => 'RAND()'));
-		$all_news	= News::model()->findAll(array('limit' => 6));
+		$all_news	= News::model()->ordered()->findAll(array('limit' => 6));
 		$news_total	= News::model()->count();
 		$this->render('index', compact('speakers','all_news','news_total'));
 	}

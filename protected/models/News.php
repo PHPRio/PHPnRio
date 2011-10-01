@@ -28,6 +28,12 @@ class News extends CActiveRecord {
 	 */
 	public function tableName() { return 'news'; }
 
+	public function scopes() {
+		return array(
+			'ordered' => array('order' => 'id DESC')
+		);
+	}
+
 	public function behaviors() {
 		return array(
 			'snippetable'	=> array('class' => 'ext.behaviors.Snippetable'),
