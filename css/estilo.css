@@ -175,11 +175,14 @@ div#scroller{
 }
 
 .palestrante h3 a {
-	text-decoration: none;
 	color: #60a7aa;
 }
 
-.palestrante h3 a:hover {
+.palestrante a {
+	text-decoration: none;
+}
+
+.palestrante a:hover {
 	text-decoration: underline;
 }
 

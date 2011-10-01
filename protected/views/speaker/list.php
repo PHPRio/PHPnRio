@@ -21,8 +21,7 @@
 					<h3>
 					<?php
 						foreach ($speaker->presentations as $num => $pres) {
-//							echo CHtml::link($pres->title, array('presentation/list', '#' => $pres->id));
-							echo $pres->title;
+							echo CHtml::link($pres->title, array('presentation/list', '#' => $pres->id));
 							if ($num+1 < $total_presentations) echo ' | ';
 						}
 					?>
