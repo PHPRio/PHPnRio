@@ -106,7 +106,8 @@
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
-
+						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br">Design e Frontend<br />Rafael Caride</a></p>
+						<p style="padding-top:7px;"><a href="http://www.igorsantos.com.br">Desenvolvimento<br />Igor Santos </a></p>
 					</div>
 
 				</div>
