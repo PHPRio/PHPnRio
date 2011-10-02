@@ -63,15 +63,17 @@
 									$img = $this->sponsors[$s]->getImageUrl('imageFile');
 									$name = $this->sponsors[$s]['name'];
 									$hash = $this->sponsors[$s]['id'];
+									$url = $this->sponsors[$s]['url'];
 								}
 								else {
 									$img = '/img/patrocine-aqui.jpg';
 									$name = "Patrocine o PHP'n Rio";
 									$hash = 'patrocine';
+									$url = 'patrocinadores';
 								}
 							?>
 							<div class="box-logos-patrocinio">
-								<a href="<?=$this->sponsors[$s]->url?>">
+								<a href="<?=$url?>">
 									<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
 								</a>
 							</div>
@@ -103,7 +105,8 @@
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
-
+						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br" target="_blank">Design e Frontend<br />Rafael Caride</a></p>
+						<p style="padding-top:7px;"><a href="http://www.igorsantos.com.br" target="_blank">Desenvolvimento<br />Igor Santos </a></p>
 					</div>
 
 				</div>
