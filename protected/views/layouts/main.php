@@ -24,7 +24,6 @@
 				background-color: #fff;
 			}
 		</style>
-		<? if (ENV != 'dev') { ?><link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' /><? } ?>
 
 		<? if (PRODUCTION) echo $this->renderPartial('/layouts/_ga') ?>
 	</head>
