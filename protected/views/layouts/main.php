@@ -42,8 +42,8 @@
 							<?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
 							<li><?=CHtml::link('O EVENTO',			array('site/page', 'view' => 'evento'))?></li>
 							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
-							<? /* <li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
-							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li> */ ?>
+							<? /* <li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li> */ ?>
+							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
 							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMember/list'))?></li>
 						</ul>
 					</div>
@@ -53,31 +53,34 @@
 				<?=$content?>
 
 			</div>
-			<!-- footer 1-->
-			<div class="rodape-top">
-				<div class="logos-patrocinio">
-					<?php
-						for ($s = 0; $s < 6; $s++):
-							if (isset($this->sponsors[$s])) {
-								$img = $this->sponsors[$s]->getImageUrl('imageFile');
-								$name = $this->sponsors[$s]['name'];
-								$hash = $this->sponsors[$s]['id'];
-							}
-							else {
-								$img = '/img/patrocine-aqui.jpg';
-								$name = "Patrocine o PHP'n Rio";
-								$hash = 'patrocine';
-							}
-						?>
-						<div class="box-logos-patrocinio">
-							<a href="<?=$this->sponsors[$s]->url?>">
-								<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
-							</a>
-						</div>
-					<? endfor ?>
+
+			<? if ($this->getUniqueId() != 'sponsor'): ?>
+				<!-- footer 1-->
+				<div class="rodape-top">
+					<div class="logos-patrocinio">
+						<?php
+							for ($s = 0; $s < 6; $s++):
+								if (isset($this->sponsors[$s])) {
+									$img = $this->sponsors[$s]->getImageUrl('imageFile');
+									$name = $this->sponsors[$s]['name'];
+									$hash = $this->sponsors[$s]['id'];
+								}
+								else {
+									$img = '/img/patrocine-aqui.jpg';
+									$name = "Patrocine o PHP'n Rio";
+									$hash = 'patrocine';
+								}
+							?>
+							<div class="box-logos-patrocinio">
+								<a href="<?=$this->sponsors[$s]->url?>">
+									<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
+								</a>
+							</div>
+						<? endfor ?>
+					</div>
 				</div>
-			</div>
-			<!-- footer 1-->
+				<!-- footer 1-->
+			<? endif ?>
 
 			<!-- footer 2-->
 			<div class="rodape-bottom">
