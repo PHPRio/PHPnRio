@@ -36,7 +36,7 @@ $config = array(
 				'admin/<action:(login|logout)>' => 'admin/default/<action>',
 				'patrocinadores' => 'sponsor/list',
 				'palestrantes' => 'speaker/list',
-				'equipe' => 'teamMembers/list',
+				'equipe' => 'teamMember/list',
 				'palestras' => 'presentation/list',	'palestras/grade' => 'presentation/grid',
 				'noticias' => 'news/list',			'noticia/<id:\d+>' => 'news/view',
 				'/admin' => 'admin/default',
