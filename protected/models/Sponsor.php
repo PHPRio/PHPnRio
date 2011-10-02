@@ -110,7 +110,7 @@ class Sponsor extends CActiveRecord {
 
 	public function getImageFile() { return $this->id.'.jpg'; }
 
-	public function getCategoryName() { return self::$categories[$this->category]; }
+	public function getCategoryName() { return self::$categories[isset($this->category)? $this->category : 0]; }
 
 	public function beforeSave() {
 		parent::beforeSave();
