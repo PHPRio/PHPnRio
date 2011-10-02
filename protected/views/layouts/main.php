@@ -104,7 +104,8 @@
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
-						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br">Design e Frontend<br /> Rafael Caride</a></p>
+						<p style="padding-top:7px;"><a href="https://github.com/igorsantos07/PHP-n-Rio-2011">Código no GitHub</a></p>
+						<p style="padding-top:7px;"><a href="http://www.deployhq.com">Automatização com Deploy</a></p>
 					</div>
 
 				</div>
