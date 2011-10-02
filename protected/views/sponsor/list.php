@@ -11,7 +11,7 @@
 		<? if (isset($this->sponsors['sponsor']) && is_array($this->sponsors['sponsor'])): ?>
 			<? foreach ($this->sponsors['sponsor'] as $sponsor) echo $this->renderPartial('/sponsor/_box_sponsor', compact('sponsor')) ?>
 		<? endif ?>
-
+		<br />
 		<? if (isset($this->sponsors['supporter']) && is_array($this->sponsors['supporter'])): ?>
 			<div class="titulo">
 				<h2>Apoiadores</h2>
