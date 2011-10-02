@@ -27,6 +27,8 @@ class Controller extends CController
 	 */
 	public $sponsors = array();
 
+	public $pageTitle = 'Dia 5 de Novembro no CEFET-RJ campus Maracanã';
+
 	protected function beforeAction($action) {
 		parent::beforeAction($action);
 		$this->sponsors = Sponsor::model()->findAll(array('limit' => 6));
