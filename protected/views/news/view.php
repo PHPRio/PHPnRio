@@ -1,3 +1,5 @@
+<? $this->pageTitle = $news->title; ?>
+
 <!-- meio -->
 <div class="meio">
 	<!-- conteúdo -->
