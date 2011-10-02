@@ -29,7 +29,18 @@
 		<br />
 		<h1><img src="imagens/seta.jpg" alt="como chegar" width="8" height="15" style="padding-right:5px;" />Onde?</h1>
 		<p>CEFET/RJ Maracanã</p>
-		<p>Rua Gal Canabarro, 485 - Maracanã, Rio de Janeiro - RJ (<a href="http://maps.google.com.br/maps?q=Rua+Gal+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ&hl=pt-BR&ie=UTF8&ll=-22.913535,-43.225236&spn=0.011029,0.021136&hnear=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro,+20271-204&t=h&z=16&vpsrc=0">API Maps</a>)</p>
+		<p>
+			Rua Gal. Canabarro, 485 - Maracanã, Rio de Janeiro - RJ -
+			<a target="_blank" href="http://maps.google.com.br/maps?q=Rua+Gal+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ&hl=pt-BR&ie=UTF8&hnear=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro,+20271-204&t=m&vpsrc=0&hq=&source=embed&z=13&iwloc=A&f=d&daddr=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ,+20271-204&geocode=%3BCe7m09FZWWNoFe1eov4dYm9s_Sm9DdnNWX6ZADGeCp5it_OPIg">Como chegar?</a>
+		</p>
+		<br />
+
+		<iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.br/maps?q=Rua+Gal+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ&amp;hl=pt-BR&amp;ie=UTF8&amp;hnear=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro,+20271-204&amp;t=m&amp;vpsrc=0&amp;hq=&amp;source=embed&amp;z=13&amp;ll=-22.913535,-43.225236&amp;output=embed"></iframe><br />
+		<small>
+			<a target="_blank" href="http://maps.google.com.br/maps?q=Rua+Gal+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ&amp;hl=pt-BR&amp;ie=UTF8&amp;hnear=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro,+20271-204&amp;t=m&amp;vpsrc=0&amp;hq=&amp;source=embed&amp;z=14&amp;ll=-22.913535,-43.225236">Exibir mapa ampliado</a>
+		</small>
+
+		<br />
 		<br />
 		<? /* <h1><img src="imagens/seta.jpg" alt="como chegar" width="8" height="15" style="padding-right:5px;" />Como Chegar?</h1>
 		<p>Ônibus:</p>
