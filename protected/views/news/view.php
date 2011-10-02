@@ -16,6 +16,8 @@
 		</div>
 		<!-- noticia -->
 
+		<?=$this->renderPartial('/news/_disqus', array('id' => $news->id))?>
+
 		<? if (sizeof($other_news) > 0): ?>
 			<div class="titulo">
 				<h2>Outras Notícias</h2>
