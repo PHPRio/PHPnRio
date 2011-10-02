@@ -32,7 +32,7 @@ class Speaker extends CActiveRecord {
 			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
 				'fields'	=> array('image'),
 				'folderName'=> 'palestrantes',
-				'resizeTo'	=> array(array(72,82)),
+				'resizeTo'	=> array(array(82,82)),
 				'hasThumb'	=> false,
 				'prependFileName' => false,
 			),
