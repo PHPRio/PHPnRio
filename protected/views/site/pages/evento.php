@@ -29,6 +29,7 @@
 		<br />
 		<h1><img src="imagens/seta.jpg" alt="como chegar" width="8" height="15" style="padding-right:5px;" />Onde?</h1>
 		<p>CEFET/RJ Maracanã</p>
+		<p>Rua Gal Canabarro, 485 - Maracanã, Rio de Janeiro - RJ (<a href="http://maps.google.com.br/maps?q=Rua+Gal+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ&hl=pt-BR&ie=UTF8&ll=-22.913535,-43.225236&spn=0.011029,0.021136&hnear=R.+Gen.+Canabarro,+485+-+Maracan%C3%A3,+Rio+de+Janeiro,+20271-204&t=h&z=16&vpsrc=0">API Maps</a>)</p>
 		<br />
 		<? /* <h1><img src="imagens/seta.jpg" alt="como chegar" width="8" height="15" style="padding-right:5px;" />Como Chegar?</h1>
 		<p>Ônibus:</p>
