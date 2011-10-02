@@ -4,7 +4,7 @@
 	<!-- conteúdo -->
 	<div class="conteudo">
 		<div class="titulo">
-			<h2>Palestrantes</h2>
+			<h2>Patrocinadores e Apoiadores</h2>
 		</div>
 
 		<!-- box palestrantes -->
