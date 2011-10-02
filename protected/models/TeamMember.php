@@ -30,9 +30,8 @@ class TeamMember extends CActiveRecord {
 			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
 				'fields'	=> array('image'),
 				'folderName'=> 'membros',
-				'resizeTo'	=> array(array(200,200)),
-				'hasThumb'	=> true,
-				'thumbSize'	=> array(array(70,70)),
+				'resizeTo'	=> array(array(73,82)),
+				'hasThumb'	=> false,
 				'prependFileName' => false,
 			),
 		 );
@@ -107,7 +106,7 @@ class TeamMember extends CActiveRecord {
 		parent::beforeSave();
 		if ($this->portifolio && strpos($this->portifolio, 'http://') !== 0)
 			$this->portifolio = "http://$this->portifolio";
-		
+
 		return true;
 	}
 }
