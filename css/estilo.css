@@ -319,15 +319,29 @@ p{
 }
 
 .logos-patrocinio {
-	width:1010px;
 	height:150px;
 }
 
-.box-logos-patrocinio {
+#logos-patrocinadores {
+/*	width: 680px;*/
+	width:1010px;
+}
+#logos-apoiadores {
+	width: 340px;
+}
+
+#logos-patrocinadores .box-logos-patrocinio {
 	width:115px;
-	height:79;
+	height:79px;
 	float:left;
 	margin:25px;
+}
+
+#logos-apoiadores .box-logos-patrocinio {
+	width:58px;
+	height:40px;
+	float:left;
+	margin:12px;
 }
 
 .rodape-bottom {

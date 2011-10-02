@@ -56,28 +56,22 @@
 			<? if ($this->getUniqueId() != 'sponsor'): ?>
 				<!-- footer 1-->
 				<div class="rodape-top">
-					<div class="logos-patrocinio">
+					<div id="logos-patrocinadores" class="logos-patrocinio">
 						<?php
-							for ($s = 0; $s < 6; $s++):
-								if (isset($this->sponsors[$s])) {
-									$img = $this->sponsors[$s]->getImageUrl('imageFile');
-									$name = $this->sponsors[$s]['name'];
-									$hash = $this->sponsors[$s]['id'];
-									$url = $this->sponsors[$s]['url'];
-								}
-								else {
-									$img = '/img/patrocine-aqui.jpg';
-									$name = "Patrocine o PHP'n Rio";
-									$hash = 'patrocine';
-									$url = 'patrocinadores';
-								}
-							?>
-							<div class="box-logos-patrocinio">
-								<a href="<?=$url?>">
-									<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
-								</a>
-							</div>
-						<? endfor ?>
+							if (isset($this->sponsors['sponsor']) && is_array($this->sponsors['sponsor']))
+								foreach ($this->sponsors['sponsor'] as $sponsor)
+									echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name));
+
+							echo $this->renderPartial('/layouts/_box_sponsor', array(
+								'link'	=> $this->createUrl('sponsor/list'),
+								'img'	=> '/img/patrocine-aqui.jpg',
+								'name'	=> "Patrocine o PHP'n Rio!"
+							));
+
+							if (isset($this->sponsors['supporter']) && is_array($this->sponsors['supporter']))
+								foreach ($this->sponsors['supporter'] as $sponsor)
+									echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name));
+						?>
 					</div>
 				</div>
 				<!-- footer 1-->

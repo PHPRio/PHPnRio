@@ -31,7 +31,12 @@ class Controller extends CController
 
 	protected function beforeAction($action) {
 		parent::beforeAction($action);
-		$this->sponsors = Sponsor::model()->findAll(array('limit' => 6));
+		$sponsors = Sponsor::model()->findAll(array('limit' => 6));
+		$this->sponsors = array();
+		foreach ($sponsors as $sponsor) {
+			$this->sponsors[$sponsor->category? 'sponsor' : 'supporter'][] = $sponsor;
+		}
+
 		return true;
 	}
 }
