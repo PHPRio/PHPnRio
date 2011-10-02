@@ -7,9 +7,10 @@
  * @property integer $id
  * @property string $title
  * @property string $description
- * @property string $begin
- * @property string $end
+ * @property integer $period
  * @property integer $speaker_id
+ *
+ * @property virt-string $periodTime
  *
  * The followings are the available model relations:
  * @property Speaker $speaker
