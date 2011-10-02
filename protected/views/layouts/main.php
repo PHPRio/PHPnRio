@@ -44,7 +44,7 @@
 							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
 							<? /* <li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li>
 							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li> */ ?>
-							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMembers/list'))?></li>
+							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMember/list'))?></li>
 						</ul>
 					</div>
 				</div>
