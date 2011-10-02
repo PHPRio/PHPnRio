@@ -64,15 +64,17 @@
 									$img = $this->sponsors[$s]->getImageUrl('imageFile');
 									$name = $this->sponsors[$s]['name'];
 									$hash = $this->sponsors[$s]['id'];
+									$url = $this->sponsors[$s]['url'];
 								}
 								else {
 									$img = '/img/patrocine-aqui.jpg';
 									$name = "Patrocine o PHP'n Rio";
 									$hash = 'patrocine';
+									$url = 'patrocinadores';
 								}
 							?>
 							<div class="box-logos-patrocinio">
-								<a href="<?=$this->sponsors[$s]->url?>">
+								<a href="<?=$url?>">
 									<img src="<?=$img?>" alt="<?=$name?>" width="115" height="79" border="0" />
 								</a>
 							</div>
