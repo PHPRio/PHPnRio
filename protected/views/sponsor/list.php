@@ -5,6 +5,10 @@
 	<div class="conteudo">
 		<div class="titulo">
 			<h2>Patrocinadores e Apoiadores</h2>
+			<p>
+			  O PHP'n Rio 2011 agradece todos os patrocinadores e apoiadores do evento.
+			  Caso queira a sua marca associada ao evento, entre em contato através do e-mail <a href="mailto:phpnrio@phprio.org">phpnrio@phprio.org</a>
+			</p>
 		</div>
 
 		<!-- box palestrantes -->
