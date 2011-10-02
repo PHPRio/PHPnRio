@@ -10,6 +10,7 @@
 		<p style="padding-top:2px;">&nbsp;</p>
 		<p>Clique no botão abaixo para se inscrever! Você será redirecionado ao site do PagSeguro, onde fará um cadastro (caso já não possua) e escolherá a melhor forma de pagamento. Não perca tempo!</p>
 		<br />
+		<p>Valor de inscrição: R$ 30,00</p>
 		<div style="height:80px;">
 			<h2 style="text-align:center;">&nbsp;</h2>
 
