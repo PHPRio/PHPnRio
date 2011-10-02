@@ -100,7 +100,7 @@
 					<div class="menu-rodape">
 						<p style="margin-bottom:5px;">Precisa falar conosco?</p>
 						<ul>
-							<li>phpnrio@phprio.org</li>
+							<li><a href="mailto:phpnrio@phprio.org">phpnrio@phprio.org</a></li>
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
