@@ -324,14 +324,6 @@ p{
 	margin:25px;
 }
 
-.box-logos-patrocinio a{
-	border: #CCCCCC 1px solid;
-}
-
-.box-logos-patrocinio a:hover{
-	border: #60a7aa 1px solid;
-}
-
 .rodape-bottom {
 	background-color: #5095c9;
 	float: left;
