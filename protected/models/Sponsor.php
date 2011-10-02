@@ -22,6 +22,13 @@ class Sponsor extends CActiveRecord {
 	 */
 	public static function model($className=__CLASS__) { return parent::model($className); }
 
+	public function scopes() {
+		return array(
+			'supporters'	=> array('conditions' => 'category = 0'),
+			'sponsors'		=> array('conditions' => 'category > 0', 'order' => 'category DESC'),
+		);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
