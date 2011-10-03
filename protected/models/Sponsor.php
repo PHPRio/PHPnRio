@@ -61,7 +61,6 @@ class Sponsor extends CActiveRecord {
 			array('name, description', 'required'),
 			array('image', 'required', 'on' => 'insert'),
 			array('name', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>250),
 			array('category', 'numerical', 'integerOnly' => true),
 			array('url', 'length', 'max' => 200, 'allowEmpty' => true),
 			// The following rule is used by search().
