@@ -127,5 +127,5 @@ class Presentation extends CActiveRecord {
 
 	public function getImageName() { return $this->id.'.jpg'; }
 
-	public function getPeriodTime() { return self::$periods[$this->period]; }
+	public function getPeriodTime() { return self::$periods[isset($this->period)? $this->period : 0]; }
 }
