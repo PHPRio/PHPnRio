@@ -35,6 +35,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'order'); ?>
+		<?php echo $form->textField($model,'order',array('size'=>2, 'maxlength' => 3)); ?>
+		<?php echo $form->error($model,'order'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('cols'=>60,'rows'=>3)); ?>
 		<?php echo $form->error($model,'description'); ?>

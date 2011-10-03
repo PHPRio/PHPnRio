@@ -9,6 +9,7 @@
  * @property string $description
  * @property string $twitter
  * @property string $portifolio
+ * @property integer $order
  */
 class TeamMember extends CActiveRecord {
 
@@ -24,6 +25,12 @@ class TeamMember extends CActiveRecord {
 	 * @return string the associated database table name
 	 */
 	public function tableName() { return 'team_member'; }
+
+	public function scopes() {
+		return array(
+			'order' => array('order' => '`order` ASC'),
+		);
+	}
 
 	 public function behaviors() {
 		 return array(
@@ -47,6 +54,7 @@ class TeamMember extends CActiveRecord {
 			array('name', 'required'),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>250),
+			array('order', 'numerical', 'integerOnly' => true),
 			array('twitter', 'length', 'max'=>30, 'allowEmpty' => true),
 			array('portifolio', 'length', 'max'=>200, 'allowEmpty' => true),
 			// The following rule is used by search().
@@ -74,6 +82,7 @@ class TeamMember extends CActiveRecord {
 			'name' => 'Nome',
 			'description' => 'Descrição',
 			'portifolio' => 'Portifólio',
+			'order' => 'Ordem',
 		);
 	}
 
@@ -91,6 +100,7 @@ class TeamMember extends CActiveRecord {
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 
+		$criteria->order = '`order` ASC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

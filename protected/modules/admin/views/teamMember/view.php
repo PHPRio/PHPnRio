@@ -18,6 +18,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'order',
 		'name',
 		'description',
 		array('name' => 'Foto', 'type' => 'image', 'value' => $model->getImageUrl("imageFile")),
