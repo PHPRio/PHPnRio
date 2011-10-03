@@ -9,7 +9,7 @@
 
 		<!-- box palestrantes -->
 		<? foreach ($speakers as $speaker): ?>
-			<a name="<?=$speaker->id?>"></a>
+			<a name="<?=$speaker->id?>"></a><a name="<?=$speaker->slug?>"></a>
 			<div class="pagina-palestrantes">
 				<h1>
 					<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" width="73" height="82" border="1" align="left" style="margin-right:15px;" />
@@ -21,7 +21,7 @@
 					<h3>
 					<?php
 						foreach ($speaker->presentations as $num => $pres) {
-							echo CHtml::link($pres->title, array('presentation/list', '#' => $pres->id));
+							echo CHtml::link($pres->title, array('presentation/list', '#' => $pres->slug));
 							if ($num+1 < $total_presentations) echo ' | ';
 						}
 					?>

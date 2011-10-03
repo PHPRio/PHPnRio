@@ -9,6 +9,7 @@
  * @property string $description
  * @property integer $category
  * @property string $url
+ * @property string $slug
  */
 class Sponsor extends CActiveRecord {
 
@@ -42,6 +43,10 @@ class Sponsor extends CActiveRecord {
 				'resizeTo'	=> array(array(115,79)),
 				'hasThumb'	=> false,
 				'prependFileName' => false,
+			),
+			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
+				'title_col'			=> 'name',
+				'overwrite'			=> true,
 			),
 		);
  	}

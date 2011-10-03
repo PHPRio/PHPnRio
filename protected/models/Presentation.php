@@ -9,6 +9,7 @@
  * @property string $description
  * @property integer $period
  * @property integer $speaker_id
+ * @property string $slug
  *
  * @property virt-string $periodTime
  *
@@ -53,6 +54,9 @@ class Presentation extends CActiveRecord {
 				'hasThumb'	=> true,
 				'thumbSize'	=> array(array(70,70)),
 				'prependFileName' => false,
+			),
+			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
+				'overwrite'			=> true,
 			),
 		 );
 	 }

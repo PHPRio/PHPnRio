@@ -8,6 +8,7 @@
  * @property string $name
  * @property string $description
  * @property string $twitter
+ * @property string $slug
  *
  * The followings are the available model relations:
  * @property Presentation[] $presentations
@@ -35,6 +36,10 @@ class Speaker extends CActiveRecord {
 				'resizeTo'	=> array(array(82,82)),
 				'hasThumb'	=> false,
 				'prependFileName' => false,
+			),
+			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
+				'title_col'			=> 'name',
+				'overwrite'			=> true,
 			),
 		);
  	}

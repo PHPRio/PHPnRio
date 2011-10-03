@@ -1,4 +1,4 @@
-<a name="<?=$sponsor->id?>"></a>
+<a name="<?=$sponsor->id?>"></a><a name="<?=$sponsor->slug?>"></a>
 <div class="pagina-palestrantes">
 	<h1>
 		<img src="<?=$sponsor->getImageUrl('imageFile')?>" alt="<?=$sponsor->name?>" width="115" height="79" align="left" style="margin-right:15px;" />
