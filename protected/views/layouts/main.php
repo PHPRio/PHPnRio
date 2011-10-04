@@ -41,7 +41,7 @@
 							<?php /* Submenu Grade, Palestrantes, Local, Informações */ ?>
 							<li><?=CHtml::link('O EVENTO',			array('site/page', 'view' => 'evento'))?></li>
 							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
-							<? /* <li><?=CHtml::link('GRADE',				array('presentation/grid'))?></li> */ ?>
+							<li><?=CHtml::link('PROGRAMAÇÃO',		array('site/page', 'view' => 'programacao'))?></li>
 							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
 							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMember/list'))?></li>
 						</ul>
