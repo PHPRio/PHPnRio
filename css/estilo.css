@@ -1,12 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-@font-face {
-  font-family: 'Droid Sans Mono';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Droid Sans Mono'), local('DroidSansMono'), url('http://themes.googleusercontent.com/static/fonts/droidsansmono/v2/ns-m2xQYezAtqh7ai59hJUYuTAAIFFn5GTWtryCmBQ4.woff') format('woff');
-}
 
 *{
 	margin:0;
@@ -99,22 +93,11 @@ color:#195383;
 }
 
 .info pre{
-	font-family: "Droid Sans Mono", "Vera Sans Mono", monospace;
+	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif ;
 	font-weight: bold;
 	text-shadow:0px 2px 2px #003a66;
-	color: #8EABCF;
-	margin-bottom: -20px;
-	padding-top: 20px;
 }
 
-.info pre .op {
-	font-size: 14px;
-	color: #5E83B2;
-}
-
-.info pre .imp {
-	color: white;
-}
 
 #palestrantes{
 	border-bottom:  5px solid #60a7aa;
@@ -164,6 +147,7 @@ div#scroller{
 
 #palestrantes ul img{
 	height: 82px;
+	width:  72px;
 }
 
 #palestrantes ul .info{
@@ -177,18 +161,6 @@ div#scroller{
 	height:80px;
 	width:300px;
 	float:left;
-}
-
-.palestrante h3 a {
-	color: #60a7aa;
-}
-
-.palestrante a {
-	text-decoration: none;
-}
-
-.palestrante a:hover {
-	text-decoration: underline;
 }
 
 .palestras {
@@ -265,6 +237,14 @@ p{
 	border-bottom:#CCCCCC 1px dotted;
 }
 
+.titulo-logos {
+	width:100%;
+	border-bottom:#CCCCCC 1px dotted;
+	color:#999999;
+	margin-top:15px;
+	text-align:left;
+}
+
 .conteudo {
 	width:715px;
 	margin-top:15px;
@@ -310,6 +290,7 @@ p{
 
 .rodape-top {
 	width:100%;
+	height: auto;
 	float:left;
 	margin-top:20px;
 	border-top:#60a7aa 5px solid;
@@ -317,15 +298,62 @@ p{
 }
 
 .logos-patrocinio {
-	height:150px;
-	margin: 0px auto;
+	width:1010px;
+	height:200px;
 }
 
-.logos-patrocinio .box-logos-patrocinio {
-	width:115px;
-	height:79px;
+.box-logos-patrocinio {
+	width:150px;
+	height:101px;
 	float:left;
 	margin:25px;
+}
+
+.box-logos-patrocinio a{
+
+}
+
+.box-logos-patrocinio a:hover{
+	opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+}
+
+.box-logos-patrocinio img{
+    border: #CCCCCC 1px solid;
+	width:150px;
+	height:101px;
+}
+
+
+--
+
+.logos-apoio {
+	width:1010px;
+	height:250px;
+}
+
+.box-logos-apoio {
+	width:115px;
+	height:79;
+	float:left;
+	margin:25px;
+}
+
+.box-logos-apoio a{
+	
+}
+
+.box-logos-apoio a:hover{
+	opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+}
+
+.box-logos-apoio img{
+    border: #CCCCCC 1px solid;
+	width:115px;
+	height:79;
 }
 
 .rodape-bottom {
