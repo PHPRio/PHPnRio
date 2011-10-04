@@ -12,7 +12,7 @@
 			<a name="<?=$speaker->id?>"></a><a name="<?=$speaker->slug?>"></a>
 			<div class="pagina-palestrantes">
 				<h1>
-					<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" width="73" height="82" border="1" align="left" style="margin-right:15px;" />
+					<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" width="82" height="82" border="1" align="left" style="margin-right:15px;" />
 					<img src="img/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 					<?=$speaker->name?>
 				</h1>
