@@ -265,6 +265,14 @@ p{
 	border-bottom:#CCCCCC 1px dotted;
 }
 
+.titulo-logos {
+	width:100%;
+	border-bottom:#CCCCCC 1px dotted;
+	color:#999999;
+	margin-top:15px;
+	text-align:left;
+}
+
 .conteudo {
 	width:715px;
 	margin-top:15px;
@@ -310,6 +318,7 @@ p{
 
 .rodape-top {
 	width:100%;
+	height: auto;
 	float:left;
 	margin-top:20px;
 	border-top:#60a7aa 5px solid;
@@ -317,15 +326,62 @@ p{
 }
 
 .logos-patrocinio {
-	height:150px;
-	margin: 0px auto;
+	width:1010px;
+	height:200px;
 }
 
-.logos-patrocinio .box-logos-patrocinio {
-	width:115px;
-	height:79px;
+.box-logos-patrocinio {
+	width:150px;
+	height:101px;
 	float:left;
 	margin:25px;
+}
+
+.box-logos-patrocinio a{
+
+}
+
+.box-logos-patrocinio a:hover{
+	opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+}
+
+.box-logos-patrocinio img{
+    border: #CCCCCC 1px solid;
+	width:150px;
+	height:101px;
+}
+
+
+--
+
+.logos-apoio {
+	width:1010px;
+	height:250px;
+}
+
+.box-logos-apoio {
+	width:115px;
+	height:79;
+	float:left;
+	margin:25px;
+}
+
+.box-logos-apoio a{
+
+}
+
+.box-logos-apoio a:hover{
+	opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+}
+
+.box-logos-apoio img{
+    border: #CCCCCC 1px solid;
+	width:115px;
+	height:79;
 }
 
 .rodape-bottom {

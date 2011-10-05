@@ -57,38 +57,28 @@
 			<? if ($this->getUniqueId() != 'sponsor'): ?>
 				<!-- footer 1-->
 				<div class="rodape-top">
-					<?php
-					?>
-						<div class="titulo"><h2>Patrocinadores</h2></div>
-							<?php
-								if (isset($this->sponsors['sponsor']) && is_array($this->sponsors['sponsor'])):
-									$total_sponsors = sizeof($this->sponsors['sponsor']);
-									$width = ($total_sponsors > 6)? 168*6 : 168 * ($total_sponsors);
-							?>
-								<div id="logos-patrocinadores" class="logos-patrocinio" style="width: <?=$width?>px">
-								<?php
-									foreach ($this->sponsors['sponsor'] as $sponsor)
-										echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name));
+					<div class="logos-patrocinio">
+						<div class="titulo-logos"><h2>PATROCÍNIO</h2></div>
+						<?php
+							if (isset($this->sponsors['sponsor']) && is_array($this->sponsors['sponsor'])):
+								foreach ($this->sponsors['sponsor'] as $sponsor)
+									echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name, 'sponsor' => true));
+							endif;
+						?>
+					</div>
 
-								endif;
-								?>
-						</div>
-
-					<?php
-						if (isset($this->sponsors['supporter']) && is_array($this->sponsors['supporter'])):
-							$total_supporters = sizeof($this->sponsors['supporter']);
-							$width = ($total_supporters > 5)? 168*6 : 168 * ($total_supporters+1);
-					?>
-						<div class="titulo"><h2>Apoiadores</h2></div>
-						<div id="logos-apoiadores" class="logos-patrocinio" style="width: <?=$width?>px">
+					<? if (isset($this->sponsors['supporter']) && is_array($this->sponsors['supporter'])): ?>
+						<div class="logos-patrocinio">
+						<div class="titulo-logos"><h2>APOIO</h2></div>
 							<?php
 								foreach ($this->sponsors['supporter'] as $sponsor)
-									echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name));
+									echo $this->renderPartial('/layouts/_box_sponsor', array('link'=> $sponsor->url, 'img' => $sponsor->getImageUrl('imageFile'), 'name' => $sponsor->name, 'sponsor' => false));
 
 								echo $this->renderPartial('/layouts/_box_sponsor', array(
 									'link'	=> $this->createUrl('sponsor/list'),
 									'img'	=> '/img/patrocine-aqui.jpg',
-									'name'	=> "Patrocine o PHP'n Rio!"
+									'name'	=> "Patrocine o PHP'n Rio!",
+									'sponsor' => false,
 								));
 							?>
 						</div>

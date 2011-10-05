@@ -45,7 +45,7 @@
 	<? foreach ($all_news as $news): ?>
 		<? $url = $this->createUrl('news/view', array('id' => $news->id)) ?>
 		<div class="box-noticias">
-			<a href="<?=$url?>"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" />							</a>
+			<a href="<?=$url?>"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" /></a>
 
 			<div class="chamada-noticia">
 				<a href="<?=$url?>"><p style="font-size:16px; color:#60a7aa;"><?=$news->title?></p></a>
