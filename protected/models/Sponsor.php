@@ -40,7 +40,7 @@ class Sponsor extends CActiveRecord {
 			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
 				'fields'	=> array('image'),
 				'folderName'=> 'patrocinadores',
-				'resizeTo'	=> array(array(115,79)),
+				'resizeTo'	=> array(array(150,101)),
 				'hasThumb'	=> false,
 				'prependFileName' => false,
 			),
