@@ -75,7 +75,7 @@
 			btnPrev : '.prev',
 			btnNext : '.next',
 			auto    : true,
-			speed   : 500,
+			speed   : 2000,
 			visible : 3
 		});",
 	CClientScript::POS_READY);
