@@ -14,6 +14,12 @@
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'title'); ?>
+		<?php if (!$model->isNewRecord) { ?>
+			<p class="note" style="color: crimson">
+				Lembre-se: o slug (parte que forma a URL desse registro) é atualizado automaticamente a partir deste campo.<br />
+				Evite editá-lo se o link atual já foi divulgado.
+			</p>
+		<?php } ?>
 	</div>
 
 	<div class="row">
