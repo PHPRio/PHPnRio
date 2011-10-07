@@ -18,6 +18,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'datetime',
 		'author.name',
 		'title',
 		'short_desc',

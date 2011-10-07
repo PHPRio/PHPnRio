@@ -41,6 +41,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+		'datetime',
 		'title',
 		'short_desc',
 		array('header' => 'Conteúdo', 'type' => 'html', 'value' => '$data->snippet("text")'),
