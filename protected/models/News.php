@@ -9,6 +9,8 @@
  * @property string $short_desc
  * @property string $text
  * @property integer $author
+ * @property integer $slug
+ * @property integer $datetime
  *
  * The followings are the available model relations:
  * @property User $author
@@ -44,7 +46,11 @@ class News extends CActiveRecord {
 				'hasThumb'	=> true,
 				'thumbSize'	=> array(array(70,70)),
 				'prependFileName' => false,
-			)
+			),
+			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
+				'title_col'			=> 'title',
+				'overwrite'			=> true,
+			),
 		);
 	}
 
