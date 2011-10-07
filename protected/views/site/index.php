@@ -43,7 +43,7 @@
 	<div class="titulo"><h2>Notícias</h2></div>
 
 	<? foreach ($all_news as $news): ?>
-		<? $url = $this->createUrl('news/view', array('id' => $news->id)) ?>
+		<? $url = $this->createUrl('news/view', array('data' => $news->slug)) ?>
 		<div class="box-noticias">
 			<a href="<?=$url?>"><img src="<?=$news->getImageUrl('imageFile', true)?>" alt="<?=$news->title?>" width="70" height="70" border="0" style="float:left;" /></a>
 

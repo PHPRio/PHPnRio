@@ -38,7 +38,7 @@ $config = array(
 				'palestrantes' => 'speaker/list',
 				'equipe' => 'teamMember/list',
 				'palestras' => 'presentation/list',	'palestras/grade' => 'presentation/grid',
-				'noticias' => 'news/list',			'noticia/<id:\d+>' => 'news/view',
+				'noticias' => 'news/list',			'noticia/<data>' => 'news/view',
 				'/admin' => 'admin/default',
 				'/<view>' => 'site/page',
 //				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
