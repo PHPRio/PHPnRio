@@ -15,10 +15,8 @@ class m111003_051148_add_slugs extends CDbMigration {
 	}
 
 	public function down() {
-		foreach ($this->tables as $table) {
+		foreach ($this->tables as $table)
 			$this->dropColumn($table, 'slug');
-			$this->dropIndex("{$table}_slug", $table);
-		}
 
 		return true;
 	}
