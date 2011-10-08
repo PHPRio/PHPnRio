@@ -8,7 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 
 <IfModule mod_headers.c>
-	<FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+	<FilesMatch "\.(gif|jpg|jpeg|png|swf|js|css)$">
 		# one week
 		Header set Cache-Control "max-age=604800, public"
 	</FilesMatch>
