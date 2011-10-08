@@ -37,14 +37,17 @@ RewriteRule . index.php
   </filesMatch>
   <filesMatch "\.(css)$">
     Header set Cache-Control "public"
-  </filesMatch>
-  <filesMatch "\.(js)$">
-    Header set Cache-Control "private"
+	Header set Vary "Accept-Encoding"
   </filesMatch>
   <filesMatch "\.(x?html?|php)$">
     Header set Cache-Control "private, must-revalidate"
   </filesMatch>
 </ifModule>
 
+### this is not needed since the application is served from one server only
 # Turn ETags Off
-FileETag None
+# FileETag None
+
+<FilesMatch "\.(htm|html|css|js)$">
+	AddDefaultCharset UTF-8
+</FilesMatch>
