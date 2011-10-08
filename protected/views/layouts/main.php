@@ -9,12 +9,6 @@
 		<meta name="robots" content="index,follow" />
 		<meta name="author" content="Rafael Caride, Igor Santos" />
 
-<? if (ENV != 'dev'): ?>
-		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
-		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<? endif ?>
-
 		<link href="/css/estilo.css" rel="stylesheet" type="text/css"/>
 		<style type="text/css">
 			body {
@@ -24,6 +18,12 @@
 				background-color: #fff;
 			}
 		</style>
+
+<? if (ENV != 'dev'): ?>
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+		<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
+		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<? endif ?>
 
 		<? if (PRODUCTION) echo $this->renderPartial('/layouts/_ga') ?>
 	</head>
