@@ -37,6 +37,11 @@ class Controller extends CController
 			$this->sponsors[$sponsor->category? 'sponsor' : 'supporter'][] = $sponsor;
 		}
 
+		Yii::app()->clientScript->scriptMap = array(
+			'jquery.js' => false,
+			'jquery.min.js' => false,
+		);
+
 		return true;
 	}
 }

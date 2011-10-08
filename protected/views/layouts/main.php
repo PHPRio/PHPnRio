@@ -111,7 +111,10 @@
 			</div>
 			<!-- footer 2-->
 
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+			<?php
+				echo CGoogleApi::init();
+				echo CHtml::script(CGoogleApi::load('jquery','1.6.4'));
+			?>
 			<script type="text/javascript" src="/js/prettify.js"></script>
 			<? if (ENV != 'dev'): ?>
 				<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
