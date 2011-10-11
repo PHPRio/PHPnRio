@@ -74,9 +74,9 @@ table.programacao td.intervalo {
 					<td>13:30/14:30</td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'aplicativos-mobile-com-jquery-mobile'))?>">Aplicativos Mobile com jQuery Mobile</a></td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a></td>
-					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
-					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
-					<td rowspan="3" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
+					<td rowspan="2" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
+					<td rowspan="2" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
+					<td rowspan="2" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
 				</tr>
 				<tr>
 					<td>14:30/15:30</td>
