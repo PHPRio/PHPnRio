@@ -27,20 +27,20 @@
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">09:30/10:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td rowspan="3" bgcolor="#D9F2FF">Mini Curso</td>
-					<td rowspan="3" bgcolor="#D9F2FF">Mini Curso</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras#padroes-de-projeto-em-php-importancia-e-implementacao">Padrões de projeto em PHP: importância e implementação</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Não confirmado</a></td>
+					<td rowspan="3" bgcolor="#D9F2FF"><a href="/palestras#iniciando-no-drupal-7">Iniciando no Drupal 7</a></td>
+					<td rowspan="3" bgcolor="#D9F2FF"><a href="/palestras#how-stuff-works">How Stuff Works</a></td>
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">10:30/11:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras#magento-experiencias-de-mercado">Magento: Experiências de mercado</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Não confirmado</a></td>
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">11:30/12:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Scrum: Antes, durante e depois</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">MongoDb com PHP</a></td>
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">12:30/13:30</td>
@@ -48,31 +48,33 @@
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">13:30/14:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td rowspan="3" bgcolor="#D9F2FF">Criando uma Loja Virtual em três horas com CakePHP</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Aplicativos Mobile com jQuery Mobile</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Certificação Zend PHP e valorização no mercado</a></td>
+					<td rowspan="3" bgcolor="#D9F2FF"><a href="/palestras#criando-uma-loja-virtual-em-tres-horas-com-cakephp">Criando uma Loja Virtual em três horas com CakePHP</a></td>
 					<td rowspan="3" bgcolor="#D9F2FF"><a href="/palestras#doctrine-2">Doctrine 2</a></td>
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">14:30/15:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Como usar HTML5 sem uma máquina do tempo</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Introdução à criação de extensões PHP</a></td>
 				</tr>
-				<tr>
-					<td height="40" bgcolor="#EBEBEB">15:30/16:30</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-					<td bgcolor="#EBEBEB">Palestra</td>
-				</tr>
-				<tr>
-					<td height="40" bgcolor="#EBEBEB">16:30/16:50</td>
+                                <tr>
+					<td height="40" bgcolor="#EBEBEB">15:30/16:00</td>
 					<td colspan="4" bgcolor="#FFFF99">Coffe-break</td>
 				</tr>
 				<tr>
-					<td height="40" bgcolor="#EBEBEB">17:00/18:20</td>
-					<td colspan="4" bgcolor="#EBEBEB">Palestra Final - Auditório Principal</td>
+					<td height="40" bgcolor="#EBEBEB">16:00/17:00</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">SEO x Velocidade de carregamento</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">PHP Maroto</a></td>
+				</tr>
+
+				<tr>
+					<td height="40" bgcolor="#EBEBEB">17:00/18:00</td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">Introdução ZF2 Patterns</a></td>
+					<td bgcolor="#EBEBEB"><a href="/palestras">PHP for Android</a></td>
 				</tr>
 				<tr>
-					<td height="40" bgcolor="#EBEBEB">18:20/18:30</td>
+					<td height="40" bgcolor="#EBEBEB">18:00/18:30</td>
 					<td colspan="4" bgcolor="#FFFF99">Encerramento - Auditório Principal</td>
 				</tr>
 			</table>
