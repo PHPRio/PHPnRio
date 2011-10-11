@@ -236,3 +236,8 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
+
+table.detail-view ol,
+.grid-view table.items ol {
+	margin: 0px;
+}

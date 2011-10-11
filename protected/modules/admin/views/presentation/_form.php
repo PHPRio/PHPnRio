@@ -37,11 +37,16 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'speakers',array('style' => 'display: inline-block')); ?>
 		<input type="button" onclick="addSpeaker(this)" value="+" />
-		<div>
-			<?php echo $form->dropDownList($model,'speakers[]', CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
-			<?php echo $form->error($model,'speakers'); ?>
-			<input type="button" onclick="removeSpeaker(this)" value="-" />
-		</div>
+		<?php
+			$total_fields = ($model->isNewRecord)? 1 : sizeof($model->speakers);
+			for ($i = 0; $i < $total_fields; $i++):
+		?>
+			<div>
+				<?php echo $form->dropDownList($model, "speakers[$i]", CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
+				<?php echo $form->error($model,'speakers'); ?>
+				<input type="button" onclick="removeSpeaker(this)" value="-" />
+			</div>
+		<? endfor ?>
 	</div>
 
 	<div class="row">
@@ -61,8 +66,10 @@
 <?php Yii::app()->getClientScript()->registerScript('functions',
 <<<JS
 	function addSpeaker(button) {
-		var div = $(button).siblings("div")[0]
-		$(div).clone().insertAfter(div)
+		var div = $($(button).siblings("div")[0]),
+			select = div.find('select')
+		select.attr('name', select.attr('name').replace(/\[\d*\]/, '[]'))
+		div.clone().insertAfter(div)
 	}
 
 	function removeSpeaker(button) {

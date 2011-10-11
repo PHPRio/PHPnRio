@@ -49,6 +49,7 @@ class PresentationController extends Controller {
 
 		if (isset($_POST['Presentation'])) {
 			$model->attributes = array_merge($_POST['Presentation'], $_FILES['Presentation']['name']);
+			$model->speakers = $_POST['Presentation']['speakers'];
 			if ($model->save())
 				$this->redirect(array('index', 'id' => $model->id));
 		}

@@ -8,7 +8,6 @@
  * @property string $title
  * @property string $description
  * @property integer $period
- * @property integer $speaker_id
  * @property string $slug
  *
  * @property virt-string $periodTime
@@ -58,6 +57,7 @@ class Presentation extends CActiveRecord {
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
 				'overwrite'			=> true,
 			),
+			'CAdvancedArBehavior'	=> array('class' => 'ext.behaviors.CAdvancedArBehavior'),
 		 );
 	 }
 
@@ -68,13 +68,12 @@ class Presentation extends CActiveRecord {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, speaker_id', 'required'),
-			array('speaker_id', 'numerical', 'integerOnly'=>true),
+			array('title, description, speakers', 'required'),
 			array('period', 'numerical', 'integerOnly'=>true, 'allowEmpty' => true),
 			array('title', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, period, speaker_id', 'safe', 'on'=>'search'),
+			array('id, title, description, period', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,7 +84,7 @@ class Presentation extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'speaker' => array(self::BELONGS_TO, 'Speaker', 'speaker_id'),
+			'speakers' => array(self::MANY_MANY, 'Speaker', 'speaker_presentation(presentation_id, speaker_id)'),
 		);
 	}
 
@@ -98,10 +97,10 @@ class Presentation extends CActiveRecord {
 			'title' => 'Título',
 			'description' => 'Descrição',
 			'image' => 'Imagem',
-			'begin' => 'Início',
-			'end' => 'Fim',
-			'speaker_id' => 'Palestrante',
-			'speaker.name' => 'Palestrante',
+			'period' => 'Horário',
+			'periodTime' => 'Horário',
+			'speakers' => 'Palestrante(s)',
+			'speakersNames' => 'Palestrante(s)',
 		);
 	}
 
@@ -118,14 +117,32 @@ class Presentation extends CActiveRecord {
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('speaker_id',$this->speaker_id);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+		return new CActiveDataProvider($this, array('criteria' => $criteria));
 	}
 
 	public function getImageName() { return $this->id.'.jpg'; }
 
 	public function getPeriodTime() { return self::$periods[isset($this->period)? $this->period : 0]; }
+
+	public function getSpeakersNames($html = false) {
+		if (!is_array($this->speakers)) return '';
+
+		if ($html) {
+			$names = '<ol>';
+			foreach ($this->speakers as $speaker) $names .= "<li>$speaker->name</li>";
+			return $names.'</ol>';
+		}
+		else {
+			$names = array();
+			foreach ($this->speakers as $speaker) $names[] = $speaker->name;
+			return implode("\n", $names);
+		}
+	}
+
+	protected function beforeDelete() {
+		parent::beforeDelete();
+		Yii::app()->db->createCommand()->delete('speaker_presentation', array("presentation_id = $this->id"));
+		return true;
+	}
 }

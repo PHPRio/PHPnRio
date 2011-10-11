@@ -68,7 +68,7 @@ class Speaker extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'presentations' => array(self::HAS_MANY, 'Presentation', 'speaker_id'),
+			'presentations' => array(self::MANY_MANY, 'Presentation', 'speaker_presentation(speaker_id, presentation_id)'),
 		);
 	}
 
@@ -110,4 +110,10 @@ class Speaker extends CActiveRecord {
 	}
 
 	public function getImageFile() { return $this->id.'.jpg'; }
+
+	protected function beforeDelete() {
+		parent::beforeDelete();
+		Yii::app()->db->createCommand()->delete('speaker_presentation', array("speaker_id = $this->id"));
+		return true;
+	}
 }

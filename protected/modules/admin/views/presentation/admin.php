@@ -44,7 +44,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'title',
 		'description',
 		'periodTime',
-		'speakersNames',
+		array('header' => 'Palestrante(s)', 'type' => 'html', 'value' => '$data->getSpeakersNames(true)'),
 		array('class'=>'CButtonColumn'),
 	),
 )); ?>
