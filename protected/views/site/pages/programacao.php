@@ -1,6 +1,6 @@
 <style>
 table.programacao {text-align: center; border: 1px solid #000; font-size: .7em;}
-
+table.programacao a {	color: #000 }
 table.programacao th  {
   background-color: #003A66;
   color: #fff; 
