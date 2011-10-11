@@ -31,14 +31,14 @@ table.programacao td.intervalo {
 
 		<!-- box programação -->
 		<div class="programacao">
-			<table>
+			<table class="programacao">
 				<tr>
-					<td>Horário</td>
-					<td>Trilha Vermelha</td>
-					<td>Trilha Azul</td>
-					<td>Oficina Jedi 1</td>
-					<td>Oficina Jedi 2</td>
-					<td>Desconf</td>
+					<th>Horário</th>
+					<th>Trilha Vermelha</th>
+					<th>Trilha Azul</th>
+					<th>Oficina Jedi 1</th>
+					<th>Oficina Jedi 2</th>
+					<th>Desconf</th>
 				</tr>
 				<tr>
 					<td>09:00/09:20</td>
@@ -52,9 +52,9 @@ table.programacao td.intervalo {
 					<td>09:30/10:30</td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a></td>
 					<td><a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a></td>
-					<td rowspan="3"class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a></td>
-					<td rowspan="3"class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a></td>
-					<td rowspan="3" class="desconf">Desconf</td>
+					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a></td>
+					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a></td>
+					<td rowspan="3" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
 				</tr>
 				<tr>
 					<td>10:30/11:30</td>
@@ -76,7 +76,7 @@ table.programacao td.intervalo {
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
-					<td rowspan="5" class="desconf">Desconf</td>
+					<td rowspan="3" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
 				</tr>
 				<tr>
 					<td>14:30/15:30</td>
@@ -97,6 +97,7 @@ table.programacao td.intervalo {
 					<td>17:00/18:00</td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'introducao-zf2-patterns'))?>">Introdução ZF2 Patterns</a></td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'php-for-android'))?>">PHP for Android</a></td>
+					<td>-</td>
 					<td>-</td>
 				</tr>
 				<tr>
