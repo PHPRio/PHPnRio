@@ -44,9 +44,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'title',
 		'description',
 		'periodTime',
-		'speaker.name',
-		array(
-			'class'=>'CButtonColumn',
-		),
+		'speakersNames',
+		array('class'=>'CButtonColumn'),
 	),
 )); ?>
