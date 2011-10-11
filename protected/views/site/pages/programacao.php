@@ -50,8 +50,8 @@
 					<td height="40" bgcolor="#EBEBEB">13:30/14:30</td>
 					<td bgcolor="#EBEBEB">Palestra</td>
 					<td bgcolor="#EBEBEB">Palestra</td>
-					<td rowspan="3" bgcolor="#D9F2FF">Mini Curso</td>
-					<td rowspan="3" bgcolor="#D9F2FF">Mini Curso</td>
+					<td rowspan="3" bgcolor="#D9F2FF">Criando uma Loja Virtual em três horas com CakePHP</td>
+					<td rowspan="3" bgcolor="#D9F2FF"><a href="/palestras#doctrine-2">Doctrine 2</a></td>
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">14:30/15:30</td>
