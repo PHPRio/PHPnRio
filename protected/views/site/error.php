@@ -14,8 +14,8 @@
 				<p>Tem certeza que você digitou o endereço corretamente? Talvez o link esteja quebrado.</p>
 			<? break;
 			   default: ?>
-				<h3>Estamos tendo problemas de instabilidade.</h3>
-				<p>Tente novamente mais tarde.</p>
+				<h3>Estamos atualizando o site</h3>
+				<p>Volte brevemente, teremos novidades!</p>
 		<? } ?>
 		<!-- <?=$message?> -->
 
