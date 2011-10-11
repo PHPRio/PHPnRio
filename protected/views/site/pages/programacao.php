@@ -1,21 +1,26 @@
 <style>
 table.programacao {text-align: center; border: 1px solid #000; font-size: .7em;}
-table.programacao a {	color: #000 }
+table.programacao a {
+	color: #195383;
+	text-decoration: underline;
+}
 table.programacao th  {
-  background-color: #003A66;
-  color: #fff; 
-  width: 65px;
+	background-color: #003A66;
+	color: #fff;
+	font-size: 1.2em;
+	width: 65px;
 }
 
 table.programacao tr  {
-  background-color: #EBEBEB;
-  color: #195383;
-  font-weight: bold;
-  height: 50px;
+	background-color: #DDD;
+	color: #444;
+	font-weight: bold;
+	height: 50px;
 }
 
 table.programacao td.oficina  {
-  background-color: #D9F2FF;
+/*background-color: #D9F2FF;*/
+	background-color: #EEE;
 }
 table.programacao td.intervalo {
   background-color: #CAEBE3;
@@ -42,11 +47,11 @@ table.programacao td.intervalo {
 				</tr>
 				<tr>
 					<td>09:00/09:20</td>
-					<td colspan="5">Credenciamento e Breakfast</td>
+					<td colspan="5" class="intervalo">Credenciamento e Breakfast</td>
 				</tr>
 				<tr>
 					<td>09:20/09:30</td>
-					<td colspan="5">ABERTURA – Auditório Principal</td>
+					<td colspan="5" class="intervalo">ABERTURA – Auditório Principal</td>
 				</tr>
 				<tr>
 					<td>09:30/10:30</td>
@@ -54,7 +59,7 @@ table.programacao td.intervalo {
 					<td><a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a></td>
-					<td rowspan="3" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
+					<td rowspan="3" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
 				</tr>
 				<tr>
 					<td>10:30/11:30</td>
@@ -76,7 +81,7 @@ table.programacao td.intervalo {
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a></td>
 					<td rowspan="2" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
 					<td rowspan="2" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
-					<td rowspan="2" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
+					<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
 				</tr>
 				<tr>
 					<td>14:30/15:30</td>
@@ -85,7 +90,7 @@ table.programacao td.intervalo {
 				</tr>
                                 <tr>
 					<td>15:30/16:00</td>
-					<td colspan="5" class="intervalo" >Coffe-break</td>
+					<td colspan="5" class="intervalo">Coffe-break</td>
 				</tr>
 				<tr>
 					<td>16:00/17:00</td>
@@ -93,7 +98,7 @@ table.programacao td.intervalo {
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'php-maroto'))?>">PHP Maroto</a></td>
 					<td class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
 					<td class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
-					<td rowspan="2" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
+					<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
 				</tr>
 
 				<tr>
