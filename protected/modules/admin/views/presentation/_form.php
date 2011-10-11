@@ -35,9 +35,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'speaker_id'); ?>
-		<?php echo $form->dropDownList($model,'speaker_id', CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
-		<?php echo $form->error($model,'speaker_id'); ?>
+		<?php echo $form->labelEx($model,'speakers',array('style' => 'display: inline-block')); ?>
+		<input type="button" onclick="addSpeaker(this)" value="+" />
+		<div>
+			<?php echo $form->dropDownList($model,'speakers[]', CHtml::listData(Speaker::model()->findAll(), 'id', 'name')); ?>
+			<?php echo $form->error($model,'speakers'); ?>
+			<input type="button" onclick="removeSpeaker(this)" value="-" />
+		</div>
 	</div>
 
 	<div class="row">
@@ -53,3 +57,21 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<?php Yii::app()->getClientScript()->registerScript('functions',
+<<<JS
+	function addSpeaker(button) {
+		var div = $(button).siblings("div")[0]
+		$(div).clone().insertAfter(div)
+	}
+
+	function removeSpeaker(button) {
+		div = $(button).parent("div")
+		if (div.siblings('div').length > 0)
+			div.remove()
+		else
+			alert('É necessário ao menos um palestrante')
+	}
+JS
+, CClientScript::POS_END);
+?>
