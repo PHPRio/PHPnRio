@@ -85,12 +85,15 @@ table.programacao td.intervalo {
 				</tr>
                                 <tr>
 					<td>15:30/16:00</td>
-					<td colspan="2" class="intervalo" >Coffe-break</td>
+					<td colspan="5" class="intervalo" >Coffe-break</td>
 				</tr>
 				<tr>
 					<td>16:00/17:00</td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'seo-x-velocidade-de-carregamento'))?>">SEO x Velocidade de carregamento</a></td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'php-maroto'))?>">PHP Maroto</a></td>
+					<td class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
+					<td class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
+					<td rowspan="2" class="desconf"><a href="/noticia/desconferencia">Desconf</a></td>
 				</tr>
 
 				<tr>
