@@ -48,8 +48,8 @@
 				</tr>
 				<tr>
 					<td height="40" bgcolor="#EBEBEB">13:30/14:30</td>
-					<td bgcolor="#EBEBEB"><a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">Aplicativos Mobile com jQuery Mobile</a></td>
-					<td bgcolor="#EBEBEB"><a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">Certificação Zend PHP e valorização no mercado</a></td>
+					<td bgcolor="#EBEBEB"><a href="<?=$this->createUrl('presentation/list', array('#' => 'aplicativos-mobile-com-jquery-mobile'))?>">Aplicativos Mobile com jQuery Mobile</a></td>
+					<td bgcolor="#EBEBEB"><a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a></td>
 					<td rowspan="2" bgcolor="#D9F2FF"><a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a></td>
 					<td rowspan="2" bgcolor="#D9F2FF"><a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a></td>
 				</tr>
