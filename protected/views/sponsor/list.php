@@ -18,6 +18,14 @@
 			</div>
 			<? foreach ($this->sponsors['supporter'] as $sponsor) echo $this->renderPartial('/sponsor/_box_sponsor', compact('sponsor')) ?>
 		<? endif ?>
+
+
+		<? if (isset($this->sponsors['media']) && is_array($this->sponsors['media'])): ?>
+			<div class="titulo"><h2>Apoio na Mídia</h2></div>
+			<div style="margin-left: -20px">
+				<? foreach ($this->sponsors['media'] as $sponsor) echo $this->renderPartial('/sponsor/_box_sponsor', compact('sponsor')) ?>
+			</div>
+		<? endif ?>
 	</div>
 	<!-- conteúdo -->
 

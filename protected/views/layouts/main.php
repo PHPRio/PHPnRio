@@ -26,7 +26,7 @@
 			<div class="mae">
 				<!-- topo -->
 				<div class="topo">
-					<div class="logo"><a href="/"><img src="/img/logo.gif" alt="PHP'n Rio 2011" width="204" height="51" border="0" /></a></div>
+					<div id="logo"><a href="/"><img src="/img/logo.gif" alt="PHP'n Rio 2011" width="204" height="51" border="0" /></a></div>
 
 					<?=$this->renderPartial('/layouts/_barrinha_social')?>
 

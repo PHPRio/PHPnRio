@@ -4,7 +4,7 @@
 .meio{width:100%;float:left;height:auto;padding-top:15px;padding-bottom:10px;margin-bottom:10px;line-height:20px;}
 .meio a{text-decoration:none;color:#0075c4;}
 .meio a:hover{text-decoration:underline;color:#195383;}
-.logo{width:200px;height:70px;padding-top:22px;float:left;}
+#logo{width:200px;height:70px;padding-top:22px;float:left;}
 .redes-sociais{float:right;width:450px;padding-top:11px;}
 #menu{width:780px;height:25px;float:right;padding-top:29px;*padding-top:23px;font-size:16px;}
 #menu ul{list-style:none;float:left;}
@@ -29,7 +29,8 @@ div#scroller{height:82px;width:925px;overflow:hidden;display:inline-block;}
 .palestrante a{text-decoration:none;}
 .palestrante a:hover{text-decoration:underline;}
 .palestras{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;border-bottom:#D7EBFF dotted 1px;}
-.pagina-palestrantes{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
+.pagina-palestrantes,.box-patrocinador{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
+.box-patrocinador img.logo{margin-right:15px}
 .organizadores{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
 .programacao{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
 h1{font-size:22px;color:#195383;}
@@ -67,3 +68,6 @@ p{font-size:14px;color:#333333;}
 .menu-rodape ul li{list-style:none;}
 .menu-rodape ul li a{text-decoration:none;}
 .rodape-bottom .conteudo-rodape .rodape-creditos{float:right;font-size:14px;height:115px;width:92px;text-align:center;}
+.apoio-midia{display:inline-block;width:142px;border-bottom-width:0px;border-right:1px dotted #d7ebff;margin:20px 0px 0px 20px;padding-right:20px;text-align:center}
+.apoio-midia h1{font-size:16px}
+.apoio-midia img.logo{padding-bottom:10px;width:115px;margin:0px auto;height:79px}
