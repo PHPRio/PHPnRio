@@ -15,7 +15,19 @@ class Sponsor extends CActiveRecord {
 
 	/** @var mixed */ public $image;
 
-	/** @var array */ public static $categories = array('Apoiador', 'Gold', 'Silver', 'Bronze');
+	/** @var integer */ const CAT_SUPPORTER	= 0;
+	/** @var integer */ const CAT_GOLD		= 1;
+	/** @var integer */ const CAT_SILVER	= 2;
+	/** @var integer */ const CAT_BRONZE	= 3;
+	/** @var integer */ const CAT_MEDIA		= 4;
+
+	/** @var array */ public static $categories = array(
+		self::CAT_SUPPORTER => 'Apoiador',
+		self::CAT_GOLD => 'Gold',
+		self::CAT_SILVER => 'Silver',
+		self::CAT_BRONZE => 'Bronze',
+		self::CAT_MEDIA => 'Mídia'
+	);
 
 	/**
 	 * Returns the static model of the specified AR class.
