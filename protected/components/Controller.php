@@ -34,7 +34,12 @@ class Controller extends CController
 		$sponsors = Sponsor::model()->findAll();
 		$this->sponsors = array();
 		foreach ($sponsors as $sponsor) {
-			$this->sponsors[$sponsor->category? 'sponsor' : 'supporter'][] = $sponsor;
+			switch ($sponsor->category) {
+				case Sponsor::CAT_SUPPORTER:	$cat = 'supporter';	break;
+				case Sponsor::CAT_MEDIA:		$cat = 'media';		break;
+				default:						$cat = 'sponsor';
+			}
+			$this->sponsors[$cat][] = $sponsor;
 		}
 
 		Yii::app()->clientScript->scriptMap = array(
