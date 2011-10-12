@@ -11,10 +11,10 @@
 				<h1><img src="imagens/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" /><?=$pres->title?></h1>
 				<h3>
 					<?php
-						$links = array();
+						$speaker_links = array();
 						foreach ($pres->speakers as $speaker)
-							$links[] = CHtml::link($speaker->name, array('speaker/list', '#' => $speaker->slug));
-						echo implode(' | ', $links);
+							$speaker_links[] = CHtml::link($speaker->name, array('speaker/list', '#' => $speaker->slug));
+						echo implode(' | ', $speaker_links);
 					?>
 				</h3>
 				<p><?=$pres->description?></p>
