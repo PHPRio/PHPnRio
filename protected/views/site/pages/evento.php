@@ -25,7 +25,7 @@
 			Associação Libre de Tecnologias Abertas (ALTA).</p>
 		<br />
 		<h1><img src="imagens/seta.jpg" alt="grade" width="8" height="15" style="padding-right:5px;" />Grade</h1>
-		<p>Veja a <?=CHtml::link('grade',			array('site/page', 'view' => 'grade'))?>de palestras e oficinas.</p>
+		<p>Veja a <?=CHtml::link('grade',			array('site/page', 'view' => 'grade'))?> de palestras e oficinas.</p>
 		<br />
 		<h1><img src="imagens/seta.jpg" alt="como chegar" width="8" height="15" style="padding-right:5px;" />Quando?</h1>
 		<p>Dia 05 de novembro de 2011(Sábado) de 09:00 às 18:30.</p>
