@@ -9,7 +9,7 @@
 #menu{width:780px;height:25px;float:right;padding-top:29px;*padding-top:23px;font-size:16px;}
 #menu ul{list-style:none;float:left;}
 #menu ul li{text-align:center;float:left;}
-#menu ul li a{margin:1px;font-weight:bold;text-decoration:none;color:#003a66;float:left;margin-left:40px;}
+#menu ul li a{margin:1px;font-weight:bold;text-decoration:none;color:#003a66;float:left;margin-left:24px;}
 #menu ul li a:hover{color:#0075c4;font-weight:bold;text-decoration:underline;}
 .info{clear:both;width:355px;height:170px;*padding-top:15px;margin-bottom:20px;color:#FFFFFF;font-size:14px;}
 .info pre{font-family:"Droid Sans Mono", "Vera Sans Mono", monospace;font-weight:bold;text-shadow:0px 2px 2px #003a66;color:#8EABCF;margin-bottom:-20px;padding-top:20px;}
