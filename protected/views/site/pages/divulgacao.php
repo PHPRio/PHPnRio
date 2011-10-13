@@ -41,8 +41,8 @@
     <br /><br />
     <h1><img src="imagens/seta.jpg" alt="grade" width="8" height="15" style="padding-right:5px;" />Cartaz A4 para impressão</h1>
     <p>
-      <img width="265" height="375" src="img/a4_265_375.png" alt="PHP'n Rio 2011 - PHP'n Rio 2011 - Dia 5 de Novembro no CEFET-RJ campus Maracanã" /><br />
-      <a href="http://phpnrio.com.br/a4.png">Download em alta resolução(6MB)</a>
+      <a href="http://phpnrio.com.br/a4.png">Download em alta resolução(6MB)</a><br />
+      <img width="265" height="375" src="img/a4_265_375.png" alt="PHP'n Rio 2011 - PHP'n Rio 2011 - Dia 5 de Novembro no CEFET-RJ campus Maracanã" />
     </p>
 
 	</div>

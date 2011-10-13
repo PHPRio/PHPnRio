@@ -37,6 +37,7 @@
 							<li><?=CHtml::link('INSCRIÇÕES',		array('site/page', 'view' => 'inscricoes'))?></li>
 							<li><?=CHtml::link('GRADE',			array('site/page', 'view' => 'grade'))?></li>
 							<li><?=CHtml::link('PATROCINADORES',	array('sponsor/list'))?></li>
+							<li><?=CHtml::link('DIVULGAÇÃO',	array('site/page', 'view' => 'divulgacao'))?></li>
 							<li><?=CHtml::link('ORGANIZAÇÃO',		array('teamMember/list'))?></li>
 						</ul>
 					</div>
