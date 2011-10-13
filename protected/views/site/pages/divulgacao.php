@@ -11,14 +11,14 @@
     <div class="titulo">
       <h2>Divulgação</h2>
     </div>
-    <p style="margin-top:15px;">Ajude na divulgação do PHP'n Rio 2011.</p>
-    <p>Divulgue o evento no seu local de trabalho, em apresentações, na sua escola/universidade e nas mídias sociais.</p>
+    <p style="margin-top:15px;text-align: left;">Ajude na divulgação do PHP'n Rio 2011.</p>
+    <p style="margin-top:15px;text-align: left;">Divulgue o evento no seu local de trabalho, em apresentações, na sua escola/universidade e nas mídias sociais.</p>
     <br />
     <h1><img src="imagens/seta.jpg" alt="grade" width="8" height="15" style="padding-right:5px;" />Twitter</h1>
-    <p>Marque seus tweets com a hashtag #PHPnRio11</p>
+    <p style="margin-top:15px;text-align: left;">Marque seus tweets com a hashtag #PHPnRio11</p>
     <br /><br />
     <h1><img src="imagens/seta.jpg" alt="grade" width="8" height="15" style="padding-right:5px;" />Banner para site</h1>
-    <p>Coloque no seu site o nosso banner</p>
+    <p style="margin-top:15px;text-align: left;">Coloque no seu site o nosso banner</p>
     <br />    
     <p>Banner 238x60<br />
       <img width="238" height="60" src="img/banner_phpnrio_238_60.gif" alt="PHP'n Rio 2011 - PHP'n Rio 2011 - Dia 5 de Novembro no CEFET-RJ campus Maracanã" />
