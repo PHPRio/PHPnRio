@@ -10,6 +10,7 @@ class m111019_031450_create_attendee_table extends CDbMigration {
 			'email' => 'VARCHAR(50) NOT NULL',
 			'payment_method' => 'VARCHAR(10) NOT NULL',
 			'transaction_type' => 'VARCHAR(20) NOT NULL',
+			'status' => 'VARCHAR(20) NOT NULL',
 			'payment_type' => 'VARCHAR(30) NOT NULL',
 			'price' => 'DECIMAL(3,2) NOT NULL',
 			'discount' => 'DECIMAL(3,2) NOT NULL',
@@ -31,8 +32,8 @@ class m111019_031450_create_attendee_table extends CDbMigration {
 	}
 
 	public function down() {
-		$this->dropTable('attendee');
 		$this->dropTable('attendee_presentation');
+		$this->dropTable('attendee');
 		return true;
 	}
 }
