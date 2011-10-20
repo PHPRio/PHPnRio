@@ -55,7 +55,7 @@ class Presentation extends CActiveRecord {
 				'prependFileName' => false,
 			),
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
-				'overwrite'			=> true,
+				'overwrite'			=> false,
 			),
 			'CAdvancedArBehavior'	=> array('class' => 'ext.behaviors.CAdvancedArBehavior'),
 		 );

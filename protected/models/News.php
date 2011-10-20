@@ -49,7 +49,7 @@ class News extends CActiveRecord {
 			),
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
 				'title_col'			=> 'title',
-				'overwrite'			=> true,
+				'overwrite'			=> false,
 			),
 		);
 	}
