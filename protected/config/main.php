@@ -33,6 +33,9 @@ $config = array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules'=>array(
+				//fixing wrong slugs
+				'noticia/por-que-voce-designer-deve-ir-ao-phpn-rio-2011' => array('news/view', 'defaultParams' => array('data' => 'porque-voce-designer-deve-ir-ao-phpn-rio-2011')),
+
 				'admin/<action:(login|logout)>' => 'admin/default/<action>',
 				'patrocinadores' => 'sponsor/list',
 				'palestrantes' => 'speaker/list',
