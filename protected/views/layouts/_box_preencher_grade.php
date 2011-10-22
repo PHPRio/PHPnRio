@@ -8,10 +8,12 @@
 	<form action="<?=$this->createUrl('schedule/identifyAttendee')?>" method="post">
 		<input type="text" name="transaction" maxlength="36" />
 		<input type="submit" value="Identificar" />
-		<? if ($_SESSION['transaction'] === false) { ?>
-			<p class="error">Código inválido. Talvez sua transação ainda não tenha sido processada pelo site. Tente novamente mais tarde.</p>
-		<? } elseif (is_string($_SESSION['transaction'])) { ?>
-			<p class="success">Código identificado, <?=$_SESSION['first_name']?>! Marque as palestras ao lado e clique em Salvar.</p>
-		<? } ?>
+		<? if (isset($_SESSION['transaction'])): ?>
+			<? if ($_SESSION['transaction'] === false) { ?>
+				<p class="error">Código inválido. Talvez sua transação ainda não tenha sido processada pelo site. Tente novamente mais tarde.</p>
+			<? } elseif (is_string($_SESSION['transaction'])) { ?>
+				<p class="success">Código identificado, <?=$_SESSION['first_name']?>! Marque as palestras ao lado e clique em Salvar.</p>
+			<? } ?>
+		<? endif ?>
 	</form>
 </div>
