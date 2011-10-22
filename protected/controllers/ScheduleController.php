@@ -28,7 +28,7 @@ class ScheduleController extends Controller {
 	}
 
 	public function afterAction(CAction $action) {
-		if ($action->id == 'index' && $_SESSION['transaction'] === false)
+		if (isset($_SESSION['transaction']) && $action->id == 'index' && $_SESSION['transaction'] === false)
 			unset($_SESSION['transaction']);
 	}
 
