@@ -42,7 +42,13 @@ p{font-size:14px;color:#333333;}
 .titulo{width:100%;border-bottom:#CCCCCC 1px dotted;}
 .titulo-logos{width:100%;border-bottom:#CCCCCC 1px dotted;color:#999999;margin-top:15px;text-align:left;}
 .conteudo{width:715px;margin-top:15px;float:left;}
-.box-inscreva-se{float:right;width:234px;*width:250px;font-size:14px;color:#666666;background-color:#EAEAEA;border:#DBDBDB solid 1px;padding:8px;margin-top:10px;margin-bottom:20px;}
+.box-inscreva-se,.box-preencher-grade{float:right;width:234px;*width:250px;font-size:14px;color:#666666;background-color:#EAEAEA;border:#DBDBDB solid 1px;padding:8px;margin-top:10px;margin-bottom:20px;}
+.box-preencher-grade form{margin-top:10px;text-align:center}
+.box-preencher-grade input[type=submit]{padding:3px 5px;margin-left:10px}
+.box-preencher-grade input[type=text]{width:120px}
+.box-preencher-grade p.error,.box-preencher-grade p.success{font-size:13px}
+.box-preencher-grade p.error{color:crimson}
+.box-preencher-grade p.success{color:darkGreen}
 .box-noticias{margin:10px;width:335px;height:120px;float:left;}
 .box-noticias a{text-decoration:none;}
 .box-noticias a:hover{text-decoration:underline;color:#60a7aa;}

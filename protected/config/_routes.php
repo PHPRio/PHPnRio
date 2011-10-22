@@ -3,6 +3,8 @@
 'patrocinadores' => 'sponsor/list',
 'palestrantes' => 'speaker/list',
 'equipe' => 'teamMember/list',
+'grade' => 'schedule/index',
+'grade/<action>' => 'schedule/<action>',
 'palestras' => 'presentation/list',	'palestras/grade' => 'presentation/grid',
 'noticias' => 'news/list',			'noticia/<data>' => 'news/view',
 '/admin' => 'admin/default',
