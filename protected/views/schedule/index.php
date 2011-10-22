@@ -176,7 +176,7 @@ table.programacao td.intervalo {
 						<td colspan="5" class="intervalo">Encerramento - Auditório Principal</td>
 					</tr>
 				</table>
-				 <? if (sset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) { ?>
+				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) { ?>
 					<input type="submit" value="Salvar minha grade" style="display: block; margin: 10px auto; padding: 5px 20px; font-size: 16px" />
 				<? } ?>
 			</form>
@@ -197,7 +197,7 @@ table.programacao td.intervalo {
 
 </div>
 <!-- meio -->
-<? if (sset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) Yii::app()->getClientScript()->registerScript('radiobuttons',
+<? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) Yii::app()->getClientScript()->registerScript('radiobuttons',
 '$("input[type=radio]").change(function() {
 	$radio = $(this),
 	id = $radio.attr("id")
