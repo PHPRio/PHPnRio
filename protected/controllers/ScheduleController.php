@@ -24,7 +24,7 @@ class ScheduleController extends Controller {
 			$_SESSION['transaction'] = false;
 		}
 
-		$this->redirect('index');
+		$this->redirect('/grade');
 	}
 
 	public function afterAction(CAction $action) {
