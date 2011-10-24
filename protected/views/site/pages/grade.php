@@ -56,7 +56,7 @@ table.programacao td.intervalo {
 				<tr>
 					<td>09:30/10:30</td>
 					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a></td>
-					<td><a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a></td>
+					<td><a href="<?=$this->createUrl('presentation/list', array('#' => 'integrando-php-com-arduino'))?>">Robótica e PHP: Unindo os dois mundos</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a></td>
 					<td rowspan="3" class="oficina"><a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a></td>
 					<td rowspan="3" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
