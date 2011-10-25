@@ -18,8 +18,11 @@ table.programacao tr  {
 	height: 50px;
 }
 
+table.programacao td {
+	padding: 3px;
+}
+
 table.programacao td.oficina  {
-/*background-color: #D9F2FF;*/
 	background-color: #EEE;
 }
 table.programacao td.intervalo {
