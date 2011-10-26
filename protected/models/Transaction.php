@@ -41,6 +41,12 @@ class Transaction extends CActiveRecord {
 	 */
 	public function tableName() { return 'transaction'; }
 
+	public function behaviors() {
+		return array(
+			'CAdvancedArBehavior'	=> array('class' => 'ext.behaviors.CAdvancedArBehavior'),
+		);
+	}
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
