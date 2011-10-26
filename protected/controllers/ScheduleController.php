@@ -14,8 +14,8 @@ class ScheduleController extends Controller {
 		$this->render('index');
 	}
 
-	public function actionIdentifyAttendee() {
-		$attendee = Attendee::model()->findByAttributes(array('transaction' => $_POST['transaction']));
+	public function actionIdentifyTransaction() {
+		$attendee = Transaction::model()->findByAttributes(array('code' => $_POST['transaction']));
 		if (sizeof($attendee)) {
 			$_SESSION['transaction'] = $_POST['transaction'];
 			$_SESSION['first_name'] = strtok($attendee->name, ' ');
