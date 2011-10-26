@@ -3,9 +3,9 @@
 class m111019_031450_create_attendee_table extends CDbMigration {
 
 	public function up() {
-		$this->createTable('attendee', array(
+		$this->createTable('transaction', array(
 			'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
-			'transaction' => 'CHAR(36) NOT NULL',
+			'code' => 'CHAR(36) NOT NULL',
 			'name' => 'VARCHAR(50) NOT NULL',
 			'email' => 'VARCHAR(50) NOT NULL',
 			'payment_method' => 'VARCHAR(10) NOT NULL',
@@ -20,20 +20,30 @@ class m111019_031450_create_attendee_table extends CDbMigration {
 			'compensation_date' => 'TIMESTAMP NOT NULL',
 		), 'ENGINE=INNODB');
 
-		$this->createTable('attendee_presentation', array(
-			'attendee_id' => 'INT NOT NULL',
+		$this->createTable('transaction_presentation', array(
+			'transaction_id' => 'INT NOT NULL',
 			'presentation_id' => 'INT NOT NULL',
-			'PRIMARY KEY (attendee_id, presentation_id)'
+			'PRIMARY KEY (transaction_id, presentation_id)'
 		), 'ENGINE=INNODB');
+		$this->addForeignKey('fk_transaction_presentation_transaction_id', 'transaction_presentation', 'transaction_id', 'transaction', 'id');
+		$this->addForeignKey('fk_transaction_presentation_presentation_id', 'transaction_presentation', 'presentation_id', 'presentation', 'id');
 
-		$this->addForeignKey('fk_attendee_presentation_attendee_id', 'attendee_presentation', 'attendee_id', 'attendee', 'id');
-		$this->addForeignKey('fk_attendee_presentation_presentation_id', 'attendee_presentation', 'presentation_id', 'presentation', 'id');
+		$this->createTable('attendee', array(
+			'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
+			'transaction_id' => 'INT NOT NULL',
+			'rg' => 'BIGINT NOT NULL',
+			'name' => 'VARCHAR(50)',
+		), 'ENGINE=INNODB');
+		$this->createIndex('unique_attendee_rg', 'attendee', 'rg', true);
+		$this->addForeignKey('fk_attendee_transaction_id', 'attendee', 'transaction_id', 'transaction', 'id');
+
 		return true;
 	}
 
 	public function down() {
-		$this->dropTable('attendee_presentation');
 		$this->dropTable('attendee');
+		$this->dropTable('transaction_presentation');
+		$this->dropTable('transaction');
 		return true;
 	}
 }

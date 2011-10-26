@@ -1,6 +1,6 @@
 <?php
 
-class AttendeeController extends Controller {
+class TransactionController extends Controller {
 
 	/**
 	 * @return array action filters
@@ -33,7 +33,7 @@ class AttendeeController extends Controller {
 	}
 
 	public function actionIndex() {
-		$model = new Attendee('search');
+		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
 		$this->render('index', array('model' => $model));
 	}
@@ -61,24 +61,24 @@ class AttendeeController extends Controller {
 		$data = simplexml_load_string($xml_string);
 
 		$total = 0;
-		foreach ($data->Table as $attendee) {
-			if ($attendee->Tipo_Transacao != Attendee::TRANSACTION_TYPE_PAYMENT) continue;
-			$att = Attendee::model()->findByAttributes(array('transaction' => $attendee->Transacao_ID));
-			if (!$att) $att = new Attendee;
+		foreach ($data->Table as $trans) {
+			if ($trans->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
+			$att = Transaction::model()->findByAttributes(array('code' => $trans->Transacao_ID));
+			if (!$att) $att = new Transaction;
 			$att->attributes = array(
-				'transaction' => $attendee->Transacao_ID,
-				'name' => $attendee->Cliente_Nome,
-				'email' => $attendee->Cliente_Email,
-				'payment_method' => $attendee->Debito_Credito,
-				'transaction_type' => $attendee->Tipo_Transacao,
-				'status' => $attendee->Status,
-				'payment_type' => $attendee->Tipo_Pagamento,
-				'price' => self::handle_br_numbers($attendee->Valor_Bruto),
-				'discount' => self::handle_br_numbers($attendee->Valor_Desconto),
-				'taxes' => self::handle_br_numbers($attendee->Valor_Taxa),
-				'received' => self::handle_br_numbers($attendee->Valor_Liquido),
-				'transaction_date' => self::br_datetime_to_iso((string)$attendee->Data_Transacao),
-				'compensation_date' => self::br_datetime_to_iso((string)$attendee->Data_Compensacao),
+				'code' => $trans->Transacao_ID,
+				'name' => $trans->Cliente_Nome,
+				'email' => $trans->Cliente_Email,
+				'payment_method' => $trans->Debito_Credito,
+				'transaction_type' => $trans->Tipo_Transacao,
+				'status' => $trans->Status,
+				'payment_type' => $trans->Tipo_Pagamento,
+				'price' => self::handle_br_numbers($trans->Valor_Bruto),
+				'discount' => self::handle_br_numbers($trans->Valor_Desconto),
+				'taxes' => self::handle_br_numbers($trans->Valor_Taxa),
+				'received' => self::handle_br_numbers($trans->Valor_Liquido),
+				'transaction_date' => self::br_datetime_to_iso((string)$trans->Data_Transacao),
+				'compensation_date' => self::br_datetime_to_iso((string)$trans->Data_Compensacao),
 			);
 
 			if (!$att->save()) {
