@@ -64,8 +64,8 @@ table.programacao td.intervalo {
 						   <a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a>
 						</td>
 						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p1-2', 'disabled' => true, 'slug' => null))?>
-							<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
+							<?=$this->renderPartial('_checkbox', array('code' => 'p1-2', 'slug' => 'integrando-php-com-arduino'))?>
+							<a href="<?=$this->createUrl('presentation/list', array('#' => 'integrando-php-com-arduino'))?>">Robótica e PHP: Unindo os dois mundos</a>
 						</td>
 						<td rowspan="3" class="oficina">
 							<?=$this->renderPartial('_checkbox', array('code' => 'o1-1', 'slug' => 'iniciando-no-drupal-7'))?>

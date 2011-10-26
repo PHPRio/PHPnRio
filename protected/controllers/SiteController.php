@@ -56,8 +56,4 @@ class SiteController extends Controller {
 		}
 	}
 
-	public function actionErro500() {
-		$this->__call();
-	}
-
 }
