@@ -12,6 +12,7 @@ class m111019_031450_create_attendee_table extends CDbMigration {
 			'transaction_type' => 'VARCHAR(20) NOT NULL',
 			'status' => 'VARCHAR(20) NOT NULL',
 			'payment_type' => 'VARCHAR(30) NOT NULL',
+			'total_attendees' => 'TINYINT NOT NULL DEFAULT 1',
 			'price' => 'DECIMAL(7,2) NOT NULL',
 			'discount' => 'DECIMAL(7,2) NOT NULL',
 			'taxes' => 'DECIMAL(7,2) NOT NULL',

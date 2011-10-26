@@ -65,6 +65,9 @@ class TransactionController extends Controller {
 			if ($trans->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
 			$att = Transaction::model()->findByAttributes(array('code' => $trans->Transacao_ID));
 			if (!$att) $att = new Transaction;
+
+			$price = self::handle_br_numbers($trans->Valor_Bruto);
+
 			$att->attributes = array(
 				'code' => $trans->Transacao_ID,
 				'name' => $trans->Cliente_Nome,
@@ -73,7 +76,8 @@ class TransactionController extends Controller {
 				'transaction_type' => $trans->Tipo_Transacao,
 				'status' => $trans->Status,
 				'payment_type' => $trans->Tipo_Pagamento,
-				'price' => self::handle_br_numbers($trans->Valor_Bruto),
+				'total_attendees' => $price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE,
+				'price' => $price,
 				'discount' => self::handle_br_numbers($trans->Valor_Desconto),
 				'taxes' => self::handle_br_numbers($trans->Valor_Taxa),
 				'received' => self::handle_br_numbers($trans->Valor_Liquido),

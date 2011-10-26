@@ -12,6 +12,7 @@
  * @property string $transaction_type
  * @property string $status
  * @property string $payment_type
+ * @property string $total_attendees
  * @property string $price
  * @property string $discount
  * @property string $taxes
@@ -25,8 +26,10 @@
  */
 class Transaction extends CActiveRecord {
 
+	const TRANSACTION_VALUE_PER_ATTENDEE = 30.0;
+
 	const TRANSACTION_TYPE_PAYMENT = 'Pagamento';
-	
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Transaction the static model class
@@ -76,20 +79,21 @@ class Transaction extends CActiveRecord {
 	 */
 	public function attributeLabels() {
 		return array(
-			'id' => 'ID',
-			'code' => 'Code',
-			'name' => 'Name',
-			'email' => 'Email',
-			'payment_method' => 'Payment Method',
-			'transaction_type' => 'Transaction Type',
+			'id' => '#',
+			'code' => 'Código',
+			'name' => 'Nome',
+			'email' => 'E-mail',
+			'payment_method' => 'Método',
+			'transaction_type' => 'Tipo',
 			'status' => 'Status',
-			'payment_type' => 'Payment Type',
-			'price' => 'Price',
-			'discount' => 'Discount',
-			'taxes' => 'Taxes',
-			'received' => 'Received',
-			'transaction_date' => 'Transaction Date',
-			'compensation_date' => 'Compensation Date',
+			'payment_type' => 'Forma de pagamento',
+			'total_attendees' => 'Inscrições',
+			'price' => 'Valor pago',
+			'discount' => 'Desconto',
+			'taxes' => 'Tarifas',
+			'received' => 'Valor Recebido',
+			'transaction_date' => 'Data da transação',
+			'compensation_date' => 'Compensação',
 		);
 	}
 
