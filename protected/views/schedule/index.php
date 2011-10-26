@@ -232,7 +232,7 @@ table.programacao td.intervalo {
 	<!-- coluna direita -->
 	<div class="coluna-direita">
 		<?= $this->renderPartial('/layouts/_box_inscricoes') ?>
-		<?= $this->renderPartial('/layouts/_box_preencher_grade') ?>
+		<?//= $this->renderPartial('/layouts/_box_preencher_grade') ?>
 		<?= $this->renderPartial('/layouts/_redes_sociais') ?>
 	</div>
 	<!-- coluna direita -->
