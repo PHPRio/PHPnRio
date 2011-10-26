@@ -32,7 +32,7 @@ class m111019_031450_create_attendee_table extends CDbMigration {
 		$this->createTable('attendee', array(
 			'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
 			'transaction_id' => 'INT NOT NULL',
-			'rg' => 'BIGINT NOT NULL',
+			'rg' => 'INT UNSIGNED NOT NULL',
 			'name' => 'VARCHAR(50)',
 		), 'ENGINE=INNODB');
 		$this->createIndex('unique_attendee_rg', 'attendee', 'rg', true);
