@@ -13,7 +13,8 @@
  * @property virt-string $periodTime
  *
  * The followings are the available model relations:
- * @property Speaker $speaker
+ * @property Speaker[] $speakers
+ * @property Transaction[] $transactions
  */
 class Presentation extends CActiveRecord {
 
@@ -55,7 +56,7 @@ class Presentation extends CActiveRecord {
 				'prependFileName' => false,
 			),
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
-				'overwrite'			=> true,
+				'overwrite'			=> false,
 			),
 			'CAdvancedArBehavior'	=> array('class' => 'ext.behaviors.CAdvancedArBehavior'),
 		 );
@@ -85,6 +86,7 @@ class Presentation extends CActiveRecord {
 		// class name for the relations automatically generated below.
 		return array(
 			'speakers' => array(self::MANY_MANY, 'Speaker', 'speaker_presentation(presentation_id, speaker_id)'),
+			'transactions' => array(self::MANY_MANY, 'Transaction', 'transaction_presentation(presentation_id, transaction_id)'),
 		);
 	}
 

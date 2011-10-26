@@ -39,149 +39,188 @@ table.programacao td.intervalo {
 
 		<!-- box programação -->
 		<div class="programacao">
-			<form action="<?=$this->createUrl('schedule/setPresentations')?>" method="post">
+			<form action="<?=$this->createUrl('schedule/setPresentationsAndAttendees')?>" method="post">
 				<table class="programacao">
-					<tr>
-						<th>Horário</th>
-						<th>Trilha Vermelha</th>
-						<th>Trilha Azul</th>
-						<th>Oficina Jedi 1</th>
-						<th>Oficina Jedi 2</th>
-						<th>Desconf</th>
-					</tr>
-					<tr>
-						<td>09:00/09:20</td>
-						<td colspan="5" class="intervalo">Credenciamento e Breakfast</td>
-					</tr>
-					<tr>
-						<td>09:20/09:30</td>
-						<td colspan="5" class="intervalo">ABERTURA – Auditório Principal</td>
-					</tr>
-					<tr>
-						<td>09:30/10:30</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p1-1', 'slug' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>
-						   <a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p1-2', 'disabled' => true, 'slug' => null))?>
-							<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
-						</td>
-						<td rowspan="3" class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o1-1', 'slug' => 'iniciando-no-drupal-7'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a>
-						</td>
-						<td rowspan="3" class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o1-2', 'slug' => 'how-stuff-works'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a>
-						</td>
-						<td rowspan="3" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
-					</tr>
-					<tr>
-						<td>10:30/11:30</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p2-1', 'slug' => 'magento-experiencias-de-mercado'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'magento-experiencias-de-mercado'))?>">Magento: Experiências de mercado</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p2-2', 'disabled' => true, 'slug' => null))?>
-							<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
-						</td>
-					</tr>
-					<tr>
-						<td>11:30/12:30</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p3-1', 'slug' => 'scrum-antes-durante-e-depois'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'scrum-antes-durante-e-depois'))?>">Scrum: Antes, durante e depois</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p3-2', 'slug' => 'mongodb-com-php'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">MongoDb com PHP</a>
-						</td>
-					</tr>
-					<tr>
-						<td>12:30/13:30</td>
-						<td colspan="5" class="intervalo">ALMOÇO</td>
-					</tr>
-					<tr>
-						<td>13:30/14:30</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p4-1', 'slug' => 'aplicativos-mobile-com-jquery-mobile'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'aplicativos-mobile-com-jquery-mobile'))?>">Aplicativos Mobile com jQuery Mobile</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p4-2', 'slug' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a>
-						</td>
-						<td rowspan="2" class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o2-1', 'slug' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a>
-						</td>
-						<td rowspan="2" class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o2-2', 'slug' => 'doctrine-2'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a>
-						</td>
-						<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a>
-						</td>
-					</tr>
-					<tr>
-						<td>14:30/15:30</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p5-1', 'slug' => 'como-usar-html5-sem-uma-maquina-do-tempo'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'como-usar-html5-sem-uma-maquina-do-tempo'))?>">Como usar HTML5 sem uma máquina do tempo</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p5-2', 'slug' => 'introducao-a-criacao-de-extensoes-php'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'introducao-a-criacao-de-extensoes-php'))?>">Introdução à criação de extensões PHP</a>
-						</td>
-					</tr>
-									<tr>
-						<td>15:30/16:00</td>
-						<td colspan="5" class="intervalo">Coffe-break</td>
-					</tr>
-					<tr>
-						<td>16:00/17:00</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p6-1', 'slug' => 'seo-x-velocidade-de-carregamento'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'seo-x-velocidade-de-carregamento'))?>">SEO x Velocidade de carregamento</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p6-2', 'slug' => 'php-maroto'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'php-maroto'))?>">PHP Maroto</a>
-						</td>
-						<td class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o3-1', 'slug' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a>
-						</td>
-						<td class="oficina">
-							<?=$this->renderPartial('_checkbox', array('code' => 'o3-2', 'slug' => 'doctrine-2'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a>
-						</td>
-						<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a>
-						</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>Horário</th>
+							<th>Trilha Vermelha</th>
+							<th>Trilha Azul</th>
+							<th>Oficina Jedi 1</th>
+							<th>Oficina Jedi 2</th>
+							<th>Desconf</th>
+						</tr>
+					</thead>
 
-					<tr>
-						<td>17:00/18:00</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p7-1', 'slug' => 'introducao-zf2-patterns'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'introducao-zf2-patterns'))?>">Introdução ZF2 Patterns</a>
-						</td>
-						<td>
-							<?=$this->renderPartial('_checkbox', array('code' => 'p7-2', 'slug' => 'php-for-android'))?>
-							<a href="<?=$this->createUrl('presentation/list', array('#' => 'php-for-android'))?>">PHP for Android</a>
-						</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>18:00/18:30</td>
-						<td colspan="5" class="intervalo">Encerramento - Auditório Principal</td>
-					</tr>
+					<? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])): ?>
+						<tfoot>
+							<tr>
+								<td colspan="6">
+									Os dados preenchidos acima são para fins puramente estatísticos, para nos auxiliar a distribuir as palestras de acordo com as salas disponíveis
+									na CEFET. Ninguém será impedido de circular pelo evento, nem haverá nenhum tipo de lista para conferência dos presentes em nenhuma palestra.
+								</td>
+							</tr>
+						</tfoot>
+					<? endif ?>
+
+					<tbody>
+						<tr>
+							<td>09:00/09:20</td>
+							<td colspan="5" class="intervalo">Credenciamento e Breakfast</td>
+						</tr>
+						<tr>
+							<td>09:20/09:30</td>
+							<td colspan="5" class="intervalo">ABERTURA – Auditório Principal</td>
+						</tr>
+						<tr>
+							<td>09:30/10:30</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p1-1', 'slug' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>
+							   <a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p1-2', 'slug' => 'integrando-php-com-arduino'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'integrando-php-com-arduino'))?>">Robótica e PHP: Unindo os dois mundos</a>
+							</td>
+							<td rowspan="3" class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o1-1', 'slug' => 'iniciando-no-drupal-7'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'iniciando-no-drupal-7'))?>">Iniciando no Drupal&nbsp;7</a>
+							</td>
+							<td rowspan="3" class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o1-2', 'slug' => 'how-stuff-works'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'how-stuff-works'))?>">How Stuff Works</a>
+							</td>
+							<td rowspan="3" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
+						</tr>
+						<tr>
+							<td>10:30/11:30</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p2-1', 'slug' => 'magento-experiencias-de-mercado'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'magento-experiencias-de-mercado'))?>">Magento: Experiências de mercado</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p2-2', 'disabled' => true, 'slug' => null))?>
+								<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
+							</td>
+						</tr>
+						<tr>
+							<td>11:30/12:30</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p3-1', 'slug' => 'scrum-antes-durante-e-depois'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'scrum-antes-durante-e-depois'))?>">Scrum: Antes, durante e depois</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p3-2', 'slug' => 'mongodb-com-php'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">MongoDb com PHP</a>
+							</td>
+						</tr>
+						<tr>
+							<td>12:30/13:30</td>
+							<td colspan="5" class="intervalo">ALMOÇO</td>
+						</tr>
+						<tr>
+							<td>13:30/14:30</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p4-1', 'slug' => 'aplicativos-mobile-com-jquery-mobile'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'aplicativos-mobile-com-jquery-mobile'))?>">Aplicativos Mobile com jQuery Mobile</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p4-2', 'slug' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'certificacao-zend-php-e-valorizacao-no-mercado'))?>">Certificação Zend PHP e valorização no mercado</a>
+							</td>
+							<td rowspan="2" class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o2-1', 'slug' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a>
+							</td>
+							<td rowspan="2" class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o2-2', 'slug' => 'doctrine-2'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a>
+							</td>
+							<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a>
+							</td>
+						</tr>
+						<tr>
+							<td>14:30/15:30</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p5-1', 'slug' => 'como-usar-html5-sem-uma-maquina-do-tempo'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'como-usar-html5-sem-uma-maquina-do-tempo'))?>">Como usar HTML5 sem uma máquina do tempo</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p5-2', 'slug' => 'introducao-a-criacao-de-extensoes-php'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'introducao-a-criacao-de-extensoes-php'))?>">Introdução à criação de extensões PHP</a>
+							</td>
+						</tr>
+										<tr>
+							<td>15:30/16:00</td>
+							<td colspan="5" class="intervalo">Coffe-break</td>
+						</tr>
+						<tr>
+							<td>16:00/17:00</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p6-1', 'slug' => 'seo-x-velocidade-de-carregamento'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'seo-x-velocidade-de-carregamento'))?>">SEO x Velocidade de carregamento</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p6-2', 'slug' => 'php-maroto'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'php-maroto'))?>">PHP Maroto</a>
+							</td>
+							<td class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o3-1', 'slug' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'criando-uma-loja-virtual-em-tres-horas-com-cakephp'))?>">Criando uma Loja Virtual em três horas com CakePHP</a>
+							</td>
+							<td class="oficina">
+								<?=$this->renderPartial('_checkbox', array('code' => 'o3-2', 'slug' => 'doctrine-2'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'doctrine-2'))?>">Doctrine 2</a>
+							</td>
+							<td rowspan="2" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>17:00/18:00</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p7-1', 'slug' => 'introducao-zf2-patterns'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'introducao-zf2-patterns'))?>">Introdução ZF2 Patterns</a>
+							</td>
+							<td>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p7-2', 'slug' => 'php-for-android'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'php-for-android'))?>">PHP for Android</a>
+							</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>18:00/18:30</td>
+							<td colspan="5" class="intervalo">Encerramento - Auditório Principal</td>
+						</tr>
+					</tbody>
 				</table>
-				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) { ?>
-					<input type="submit" value="Salvar minha grade" style="display: block; margin: 10px auto; padding: 5px 20px; font-size: 16px" />
-				<? } ?>
+				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])): ?>
+					<? if ($transaction->total_attendees == 1) { ?>
+						<p>É necessário também preencher seu o RG e nome, para inclusão na lista de Credenciamento.</p>
+					<? } else { ?>
+						<p>
+							É necessário também preencher o RG e nome de cada inscrito com o seu pagamento, para inclusão de todos na lista de Credenciamento.
+							Você pode voltar mais tarde e preencher o formulário se não tiver os dados de alguém, mas lembre-se: sem preencher esse formulário
+							até a véspera, a pessoa será impossibilitada de permanecer no evento.
+						</p>
+					<? } ?>
+
+					<table id="inscricoes">
+						<tr>
+							<th>RG&nbsp;(números)</th>
+							<th>Nome</th>
+						</tr>
+						<? for ($i = 0; $i <= $transaction->total_attendees; $i++): ?>
+						<tr>
+							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="9" size="9" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" /></td>
+						</tr>
+						<? endfor ?>
+					</table>
+
+					<input type="submit" value="Salvar dados" />
+				<? endif ?>
 			</form>
 
 		</div>

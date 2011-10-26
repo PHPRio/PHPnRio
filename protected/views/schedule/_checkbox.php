@@ -6,6 +6,6 @@
 	if (isset($disabled) && $disabled) $attr .= 'disabled="disabled" ';
 	if (isset($slug) && isset($this->presentations[$slug])) $attr .= 'value="'.$this->presentations[$slug]->id.'" ';
 ?>
-<input type="radio" id="<?=$code?>" name="<?=strtok($code,'-')?>" <?=$attr?>/>
+<input type="radio" id="<?=$code?>" name="<?=strtok($code,'-')?>" value="<?=strtok('-')?>"<?=$attr?>/>
 <label for="<?=$code?>">Selecionar</label>
 <br />

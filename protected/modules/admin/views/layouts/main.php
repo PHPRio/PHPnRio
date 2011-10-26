@@ -39,6 +39,7 @@
 						array('label' => 'Palestras', 'url' => $this->createUrl('presentation/index')),
 						array('label' => 'Patrocinadores', 'url' => $this->createUrl('sponsor/index')),
 						array('label' => 'Membros da Equipe', 'url' => $this->createUrl('teamMember/index')),
+						array('label' => 'Conferencistas', 'url' => $this->createUrl('transaction/index')),
 						array('label' => 'Usuários', 'url' => $this->createUrl('user/index')),
 						array('label' => 'Login', 'url' => array('login'), 'visible' => Yii::app()->user->isGuest),
 						array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('default/logout'), 'visible' => !Yii::app()->user->isGuest)

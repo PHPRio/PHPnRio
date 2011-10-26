@@ -58,7 +58,7 @@ class Sponsor extends CActiveRecord {
 			),
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
 				'title_col'			=> 'name',
-				'overwrite'			=> true,
+				'overwrite'			=> false,
 			),
 		);
  	}

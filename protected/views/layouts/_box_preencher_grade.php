@@ -5,7 +5,7 @@
 		<p>Preencha aqui o código da sua Transação do PagSeguro e prossiga.</p>
 	</div>
 
-	<form action="<?=$this->createUrl('schedule/identifyAttendee')?>" method="post">
+	<form action="<?=$this->createUrl('schedule/identifyTransaction')?>" method="post">
 		<input type="text" name="transaction" maxlength="36" />
 		<input type="submit" value="Identificar" />
 		<? if (isset($_SESSION['transaction'])): ?>

@@ -33,6 +33,11 @@ div#scroller{height:82px;width:925px;overflow:hidden;display:inline-block;}
 .box-patrocinador img.logo{margin-right:15px}
 .organizadores{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
 .programacao{width:100%;margin-top:20px;margin-bottom:20px;padding-bottom:10px;float:left;border-bottom:#D7EBFF dotted 1px;}
+table.programacao tfoot td{background-color:white}
+div.programacao form table#inscricoes{width:350px;margin:0px auto}
+div.programacao form table#inscricoes th{text-align:left}
+div.programacao form table#inscricoes td,th{border-width:0px 0px 1px 1px;border-color:#909090;border-style:solid;padding: 2px 5px}
+div.programacao form input[type=submit]{display:block;margin:10px auto;padding:5px 20px;font-size:16px}
 h1{font-size:22px;color:#195383;}
 h2{font-size:16px;color:#60a7aa;}
 h3{font-size:16px;color:#0075c4;}

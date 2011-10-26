@@ -16,7 +16,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'transaction_type',
 		'status',
 		'payment_type',
-		'taxes',
+		'total_attendees',
 		'received',
 		'transaction_date'
 	),
