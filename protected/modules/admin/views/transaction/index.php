@@ -1,11 +1,32 @@
 <?php
 $this->breadcrumbs=array(
-	'Participantes'=>array('index'),
+	'Transações'=>array('index'),
 	'Listar',
 );
 
-$this->renderPartial('_form');
+$this->menu=array(
+	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
+);
 
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('sponsor-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
+
+$this->renderPartial('_form');
+?>
+
+<h1>Lista de Transações Importadas</h1>
+
+<?php
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'attendee-grid',
 	'dataProvider'=>$model->search(),
@@ -18,7 +39,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'payment_type',
 		'total_attendees',
 		'received',
-		'transaction_date'
+		'transaction_date',
+		array('class'=>'CButtonColumn', 'template' => '{view}'),
 	),
 ));
 ?>
