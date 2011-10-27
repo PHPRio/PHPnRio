@@ -56,6 +56,7 @@ class ScheduleController extends Controller {
 			$att->save();
 		}
 
+		Yii::app()->user->setFlash('alert', 'Dados salvos! Obrigado pela colaboração.');
 		$this->redirect('/grade');
 	}
 
