@@ -82,6 +82,7 @@ class TeamMember extends CActiveRecord {
 			'name' => 'Nome',
 			'description' => 'Descrição',
 			'portifolio' => 'Portifólio',
+			'image' => 'Imagem',
 			'order' => 'Ordem',
 		);
 	}

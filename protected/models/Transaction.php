@@ -98,7 +98,7 @@ class Transaction extends CActiveRecord {
 			'discount' => 'Desconto',
 			'taxes' => 'Tarifas',
 			'received' => 'Valor Recebido',
-			'transaction_date' => 'Data da transação',
+			'transaction_date' => 'Data',
 			'compensation_date' => 'Compensação',
 		);
 	}

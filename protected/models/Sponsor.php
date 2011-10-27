@@ -101,6 +101,7 @@ class Sponsor extends CActiveRecord {
 			'description' => 'Descrição',
 			'url' => 'Site',
 			'category' => 'Categoria',
+			'image' => 'Imagem',
 			'categoryName' => 'Categoria',
 		);
 	}

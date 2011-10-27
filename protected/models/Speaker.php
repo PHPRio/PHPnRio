@@ -81,6 +81,7 @@ class Speaker extends CActiveRecord {
 			'name' => 'Nome',
 			'description' => 'Descrição',
 			'twitter' => 'Twitter',
+			'image' => 'Imagem',
 			'image' => 'Foto',
 		);
 	}
