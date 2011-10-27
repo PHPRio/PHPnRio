@@ -58,12 +58,13 @@ class TransactionController extends Controller {
 		Yii::import('ext.mail.*');
 
 		$xml_string = file_get_contents($_FILES['file']['tmp_name']);
-		$xml_string = str_replace('encoding="ISO-8859-1"', 'encoding="UTF-8"', $xml_string);
+		$xml_string = str_replace('encoding="ISO-8859-1"', 'encoding="UTF-8"', utf8_encode($xml_string));
 		$data = simplexml_load_string($xml_string);
 
 		$total = 0;
 		foreach ($data->Table as $transaction_xml) {
-			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
+			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT || $transaction_xml->Status != Transaction::STATUS_APPROVED) continue;
+
 			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
 			if (!$transaction) {
 				$new = true;
@@ -100,8 +101,8 @@ class TransactionController extends Controller {
 				if ($new) {
 					$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
 					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/plain');
-					$mail->from = Yii::app()->params['email'];
-					$mail->addTo($transaction->email);
+					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
+					$mail->addTo((string)$transaction->email, (string)$transaction->name);
 					Yii::app()->mail->send($mail);
 				}
 			}

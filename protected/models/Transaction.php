@@ -30,6 +30,11 @@ class Transaction extends CActiveRecord {
 
 	const TRANSACTION_TYPE_PAYMENT = 'Pagamento';
 
+	const STATUS_APPROVED = 'Aprovada';
+	const STATUS_WAITING = 'Aguardando pagamento';
+	const STATUS_RETURNED = 'Devolvida';
+	const STATUS_CANCELED = 'Cancelada';
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Transaction the static model class
