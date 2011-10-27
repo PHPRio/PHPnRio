@@ -90,6 +90,7 @@ class News extends CActiveRecord {
 			'title' => 'Título',
 			'short_desc' => 'Texto curto',
 			'text' => 'Conteúdo',
+			'image' => 'Imagem',
 			'author.name' => 'Autor',
 		);
 	}
