@@ -211,9 +211,9 @@ table.programacao td.intervalo {
 							<th>RG&nbsp;(números)</th>
 							<th>Nome</th>
 						</tr>
-						<? for ($i = 0; $i <= $transaction->total_attendees; $i++): ?>
+						<? for ($i = 0; $i < $transaction->total_attendees; $i++): ?>
 						<tr>
-							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="9" size="9" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="20" size="13" /></td>
 							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" /></td>
 						</tr>
 						<? endfor ?>

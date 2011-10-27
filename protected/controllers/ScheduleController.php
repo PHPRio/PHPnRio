@@ -9,7 +9,7 @@ class ScheduleController extends Controller {
 	}
 
 	public function actionIndex() {
-		if (isset($_SESSION['transaction']) && !$_SESSION['transaction']) {
+		if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) {
 			$transaction = Transaction::model()->findByAttributes(array('code' => $_SESSION['transaction']));
 		}
 		else {
