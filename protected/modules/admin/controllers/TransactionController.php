@@ -11,10 +11,6 @@ class TransactionController extends Controller {
 		);
 	}
 
-	public function behaviors() {
-		return array('redirector' => 'ext.behaviors.AlertRedirector');
-	}
-
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
