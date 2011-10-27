@@ -17,7 +17,7 @@
 
 			<p>Não se esqueça de preencher os dados de inscrição, pois eles serão necessários para o credenciamento dos participantes. Também será necessário que todos os inscritos levem a identidade.</p>
 
-			<p>Em tempo: já viu nossa <a href="http://www.facebook.com/pages/PHPRio" target="_blank">página no Facebook</a>? Não esqueça também de marcar que <a href="http://www.facebook.com/event.php?eid=160928950657248" target="_blank">vai ao evento</a>!</p>
+			<p>Em tempo: já viu nossa <a href="http://www.facebook.com/pages/PHPRio/160383237381004" target="_blank">página no Facebook</a>? Não esqueça também de marcar que <a href="http://www.facebook.com/event.php?eid=160928950657248" target="_blank">vai ao evento</a>!</p>
 
 
 			<p><br />Agradecemos desde já, e um excelente evento pra você<?=$plural?'s':''?>!</p>
