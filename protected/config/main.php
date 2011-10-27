@@ -29,6 +29,14 @@ $config = array(
 			'allowAutoLogin' => true,
 			'loginUrl'=> array('/admin/default/login'),
 		),
+
+		'mail' => array(
+			'class' => 'ext.mail.YiiMail',
+			'logging' => true,
+			'transportType' => 'smtp',
+			'transportOptions' => require '_email.php',
+		),
+
 		'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
@@ -37,9 +45,7 @@ $config = array(
 
 		'db' => require '_database.php',
 
-		'errorHandler' => array(
-			'errorAction' => 'site/error',
-		),
+		'errorHandler' => array('errorAction' => 'site/error'),
 
 		'log' => array(
 			'class' => 'CLogRouter',
@@ -55,6 +61,7 @@ $config = array(
 	'params' => array(
 		'imgPath' => 'img/conteudo',
 		'imgUrl' => 'img/conteudo',
+		'email' => 'phpnrio@phprio.org'
 	),
 );
 

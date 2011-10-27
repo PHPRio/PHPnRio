@@ -55,41 +55,56 @@ class TransactionController extends Controller {
 
 	public function actionUploadList() {
 		Yii::import('ext.helpers.DateHelper');
+		Yii::import('ext.mail.*');
 
 		$xml_string = file_get_contents($_FILES['file']['tmp_name']);
 		$xml_string = str_replace('encoding="ISO-8859-1"', 'encoding="UTF-8"', $xml_string);
 		$data = simplexml_load_string($xml_string);
 
 		$total = 0;
-		foreach ($data->Table as $trans) {
-			if ($trans->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
-			$att = Transaction::model()->findByAttributes(array('code' => $trans->Transacao_ID));
-			if (!$att) $att = new Transaction;
+		foreach ($data->Table as $transaction_xml) {
+			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
+			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
+			if (!$transaction) {
+				$new = true;
+				$transaction = new Transaction;
+			}
+			else
+				$new = false;
 
-			$price = self::handle_br_numbers($trans->Valor_Bruto);
+			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
 
-			$att->attributes = array(
-				'code' => $trans->Transacao_ID,
-				'name' => $trans->Cliente_Nome,
-				'email' => $trans->Cliente_Email,
-				'payment_method' => $trans->Debito_Credito,
-				'transaction_type' => $trans->Tipo_Transacao,
-				'status' => $trans->Status,
-				'payment_type' => $trans->Tipo_Pagamento,
+			$transaction->attributes = array(
+				'code' => $transaction_xml->Transacao_ID,
+				'name' => $transaction_xml->Cliente_Nome,
+				'email' => $transaction_xml->Cliente_Email,
+				'payment_method' => $transaction_xml->Debito_Credito,
+				'transaction_type' => $transaction_xml->Tipo_Transacao,
+				'status' => $transaction_xml->Status,
+				'payment_type' => $transaction_xml->Tipo_Pagamento,
 				'total_attendees' => $price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE,
 				'price' => $price,
-				'discount' => self::handle_br_numbers($trans->Valor_Desconto),
-				'taxes' => self::handle_br_numbers($trans->Valor_Taxa),
-				'received' => self::handle_br_numbers($trans->Valor_Liquido),
-				'transaction_date' => self::br_datetime_to_iso((string)$trans->Data_Transacao),
-				'compensation_date' => self::br_datetime_to_iso((string)$trans->Data_Compensacao),
+				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
+				'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
+				'received' => self::handle_br_numbers($transaction_xml->Valor_Liquido),
+				'transaction_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Transacao),
+				'compensation_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Compensacao),
 			);
 
-			if (!$att->save()) {
-				$errors = $att->errors;
+			if (!$transaction->save()) {
+				$errors = $transaction->errors;
 				break;
 			}
-			else { ++$total; }
+			else {
+				++$total;
+				if ($new) {
+					$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
+					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/plain');
+					$mail->from = Yii::app()->params['email'];
+					$mail->addTo($transaction->email);
+					Yii::app()->mail->send($mail);
+				}
+			}
 		}
 
 		if (isset($errors)) {
