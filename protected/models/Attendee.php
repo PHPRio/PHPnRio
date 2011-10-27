@@ -59,8 +59,8 @@ class Attendee extends CActiveRecord {
 		return array(
 			'id' => 'ID',
 			'transaction_id' => 'Transaction',
-			'rg' => 'Rg',
-			'name' => 'Name',
+			'rg' => 'RG',
+			'name' => 'Nome',
 		);
 	}
 
