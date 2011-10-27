@@ -46,7 +46,7 @@ class ScheduleController extends Controller {
 		}
 		$presentation_ids = array_merge(array_unique($presentation_ids));
 		$transaction->presentations = $presentation_ids;
-		var_dump($transaction->save());
+		$transaction->save();
 
 		Attendee::model()->deleteAllByAttributes(array('transaction_id' => $transaction->id));
 		foreach ($attendees as $attendee) {
