@@ -53,7 +53,7 @@ class ScheduleController extends Controller {
 			$att = new Attendee;
 			$att->attributes = $attendee;
 			$att->transaction_id = $transaction->id;
-			var_dump($att->save());
+			$att->save();
 		}
 
 		$this->redirect('/grade');
