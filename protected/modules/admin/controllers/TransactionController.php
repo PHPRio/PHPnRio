@@ -71,6 +71,9 @@ class TransactionController extends Controller {
 		foreach ($data->Table as $transaction_xml) {
 			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT || $transaction_xml->Status != Transaction::STATUS_APPROVED) continue;
 
+			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
+			if ($price < 30) continue; //skipping alta's tests
+
 			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
 			if (!$transaction) {
 				$new = true;
@@ -78,8 +81,6 @@ class TransactionController extends Controller {
 			}
 			else
 				$new = false;
-
-			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
 
 			$transaction->attributes = array(
 				'code' => $transaction_xml->Transacao_ID,
