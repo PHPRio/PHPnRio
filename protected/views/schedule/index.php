@@ -198,18 +198,18 @@ table.programacao td.intervalo {
 				</table>
 				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])): ?>
 					<? if ($transaction->total_attendees == 1) { ?>
-						<p>É necessário também preencher seu o RG e nome, para inclusão na lista de Credenciamento.</p>
+						<p>É necessário também preencher o número de algum documento (a ser levado no dia do evento) e seu nome, para inclusão na lista de Credenciamento.</p>
 					<? } else { ?>
 						<p>
-							É necessário também preencher o RG e nome de cada inscrito com o seu pagamento, para inclusão de todos na lista de Credenciamento.
-							Você pode voltar mais tarde e preencher o formulário se não tiver os dados de alguém, mas lembre-se: sem preencher esse formulário
-							até a véspera, a pessoa será impossibilitada de permanecer no evento.
+							É necessário também preencher o número de algum documento (a ser levado no dia do evento) e nome de cada inscrito com o seu
+							pagamento, para inclusão de todos na lista de Credenciamento. Você pode voltar mais tarde e preencher o formulário se não
+							tiver os dados de alguém, mas lembre-se: sem preencher esse formulário até a véspera, a pessoa será impossibilitada de permanecer no evento.
 						</p>
 					<? } ?>
 
 					<table id="inscricoes">
 						<tr>
-							<th>RG&nbsp;(números)</th>
+							<th>Documento</th>
 							<th>Nome</th>
 						</tr>
 						<? for ($i = 0; $i < $transaction->total_attendees; $i++): ?>

@@ -9,7 +9,7 @@
 			<p>Olá!</p>
 
 			<p>Recebemos um pagamento referente a <?=$plural? 'inscrições' : 'uma inscrição'?> para o PHP'n Rio, no nome de "<?=$transaction->name?>".<br />
-			Agora, para finalizar o processo, precisamos que você vá ao site do PHP'n Rio para nos informar o <?=$plural? 'nome e RG das pessoas inscritas' : 'seu nome e RG'?>, para o credenciamento no dia do evento.
+			Agora, para finalizar o processo, precisamos que você vá ao site do PHP'n Rio para nos informar o <?=$plural? 'nome e um documento das pessoas inscritas' : 'seu nome e um documento'?>, para o credenciamento no dia do evento.
 			Também pedimos que você preencha, informalmente, quais são as palestras que você pretende assistir. Esses dados são necessários para que possamos separar as palestras nas salas disponíveis de acordo com o público esperado. Vale lembrar que a circulação pelas áreas do evento é totalmente livre, e essa informação é puramente estatística.</p>
 
 			<p>Para isso, acesse <a href="http://www.phpnrio.com.br/grade" target="_blank">http://www.phpnrio.com.br/grade</a> e informe, no box da direita, o código da transação do PagSeguro.<br />
