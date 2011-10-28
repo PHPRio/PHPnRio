@@ -66,10 +66,11 @@ class Transaction extends CActiveRecord {
 			array('transaction_type, status', 'length', 'max'=>20),
 			array('payment_type', 'length', 'max'=>30),
 			array('price, discount, taxes, received', 'length', 'max'=>7),
+			array('total_attendees', 'length', 'max'=>3),
 			array('compensation_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, code, name, email, payment_method, transaction_type, status, payment_type, price, discount, taxes, received, transaction_date, compensation_date', 'safe', 'on'=>'search'),
+			array('id, code, name, email, payment_method, transaction_type, status, payment_type, total_attendees, price, discount, taxes, received, transaction_date, compensation_date', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -9,7 +9,7 @@ class ScheduleController extends Controller {
 	}
 
 	public function actionIndex() {
-		if (isset($_SESSION['transaction']) && !$_SESSION['transaction']) {
+		if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) {
 			$transaction = Transaction::model()->findByAttributes(array('code' => $_SESSION['transaction']));
 		}
 		else {
@@ -33,30 +33,33 @@ class ScheduleController extends Controller {
 	}
 
 	public function actionSetPresentationsAndAttendees() {
-		$transaction = self::findTransaction($_SESSION['transaction']);
+		if ($_POST) {
+			$transaction = self::findTransaction($_SESSION['transaction']);
 
-		$schedule_array = require dirname(dirname(__FILE__))."/config/schedule_array.php";
-		$attendees = array_pop($_POST);
-		$presentations = $_POST;
+			$schedule_array = require dirname(dirname(__FILE__))."/config/schedule_array.php";
+			$attendees = array_pop($_POST);
+			$presentations = $_POST;
 
-		$presentation_ids = array();
-		foreach($presentations as $pos => $number) {
-			$type = ($pos[0] == 'p')? 'presentations' : 'workshops';
-			$presentation_ids[] = $schedule_array[$type][$pos[1]-1][$number-1];
+			$presentation_ids = array();
+			foreach($presentations as $pos => $number) {
+				$type = ($pos[0] == 'p')? 'presentations' : 'workshops';
+				$presentation_ids[] = $schedule_array[$type][$pos[1]-1][$number-1];
+			}
+			$presentation_ids = array_merge(array_unique($presentation_ids));
+			$transaction->presentations = $presentation_ids;
+			$transaction->save();
+
+			Attendee::model()->deleteAllByAttributes(array('transaction_id' => $transaction->id));
+			foreach ($attendees as $attendee) {
+				$att = new Attendee;
+				$att->attributes = $attendee;
+				$att->transaction_id = $transaction->id;
+				$att->save();
+			}
+
+			Yii::app()->user->setFlash('alert', 'Dados salvos! Obrigado pela colaboração.');
 		}
-		$presentation_ids = array_merge(array_unique($presentation_ids));
-		$transaction->presentations = $presentation_ids;
-		var_dump($transaction->save());
-
-		Attendee::model()->deleteAllByAttributes(array('transaction_id' => $transaction->id));
-		foreach ($attendees as $attendee) {
-			$att = new Attendee;
-			$att->attributes = $attendee;
-			$att->transaction_id = $transaction->id;
-			$att->save();
-		}
-
-		Yii::app()->user->setFlash('alert', 'Dados salvos! Obrigado pela colaboração.');
+		
 		$this->redirect('/grade');
 	}
 
