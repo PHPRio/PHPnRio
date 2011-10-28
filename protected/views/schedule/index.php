@@ -9,6 +9,7 @@ table.programacao th  {
 	color: #fff;
 	font-size: 1.2em;
 	width: 65px;
+	white-space: nowrap;
 }
 
 table.programacao tr  {
@@ -22,7 +23,7 @@ table.programacao td {
 	padding: 3px;
 }
 
-table.programacao td.oficina  {
+table.programacao td.oficina {
 	background-color: #EEE;
 }
 table.programacao td.intervalo {
