@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
+	array('label'=>'Interesse nas Palestras', 'url'=>array('presentation/interest')),
 );
 ?>
 

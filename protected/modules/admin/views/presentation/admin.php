@@ -6,6 +6,9 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Nova Palestra', 'url'=>array('create')),
+	array('label'=>'Interesse nas Palestras', 'url'=>array('interest')),
+	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
+	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

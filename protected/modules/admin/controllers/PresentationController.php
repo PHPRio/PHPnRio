@@ -19,7 +19,7 @@ class PresentationController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'create', 'update', 'delete'),
+				'actions' => array('index', 'view', 'create', 'update', 'delete','interest'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -111,6 +111,18 @@ class PresentationController extends Controller {
 		$this->render('admin', array(
 			'model' => $model,
 		));
+	}
+
+	public function actionInterest() {
+		$presentations = Yii::app()->db->createCommand()
+			->select('p.*, COUNT(*) AS total_attendees')
+			->from('presentation p')
+			->join('transaction_presentation tp', 'tp.presentation_id = p.id')
+			->group('tp.presentation_id')
+			->order('total_attendees DESC')
+			->queryAll();
+
+		$this->render('interest', array('presentations' => $presentations));
 	}
 
 	/**
