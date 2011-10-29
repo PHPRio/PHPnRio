@@ -197,7 +197,7 @@ table.programacao td.intervalo {
 					</tbody>
 				</table>
 				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])): ?>
-					<? if ($transaction->total_attendees == 1) { ?>
+					<? if ($this->transaction->total_attendees == 1) { ?>
 						<p>É necessário também preencher o número de algum documento (a ser levado no dia do evento) e seu nome, para inclusão na lista de Credenciamento.</p>
 					<? } else { ?>
 						<p>
@@ -212,10 +212,10 @@ table.programacao td.intervalo {
 							<th>Documento</th>
 							<th>Nome</th>
 						</tr>
-						<? for ($i = 0; $i < $transaction->total_attendees; $i++): ?>
+						<? for ($i = 0; $i < $this->transaction->total_attendees; $i++): ?>
 						<tr>
-							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="20" size="13" value="<?=$transaction->attendees[$i]->rg?>" /></td>
-							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" value="<?=$transaction->attendees[$i]->name?>" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="20" size="13" value="<?=$this->transaction->attendees[$i]->rg?>" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" value="<?=$this->transaction->attendees[$i]->name?>" /></td>
 						</tr>
 						<? endfor ?>
 					</table>

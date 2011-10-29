@@ -2,21 +2,30 @@
 
 class ScheduleController extends Controller {
 
+	/** @var array */ public $schedule_array = array();
 	/** @var array */ public $presentations = array();
+	/** @var Transaction */ public $transaction;
+
+
 	public function __construct($id, $module = null) {
 		parent::__construct($id, $module);
+
 		session_start();
+
+		$this->schedule_array = require dirname(dirname(__FILE__))."/config/schedule_array.php";
 	}
 
 	public function actionIndex() {
 		if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) {
-			$transaction = Transaction::model()->findByAttributes(array('code' => $_SESSION['transaction']));
+			$this->transaction = Transaction::model()->findByAttributes(array('code' => $_SESSION['transaction']));
 		}
 		else {
-			$transaction = false;
+			$this->transaction = false;
 		}
+		foreach (Presentation::model()->findAll() as $pres)
+			$this->presentations[$pres->slug] = $pres;
 
-		$this->render('index', compact('transaction'));
+		$this->render('index');
 	}
 
 	public function actionIdentifyTransaction() {
@@ -35,15 +44,13 @@ class ScheduleController extends Controller {
 	public function actionSetPresentationsAndAttendees() {
 		if ($_POST) {
 			$transaction = self::findTransaction($_SESSION['transaction']);
-
-			$schedule_array = require dirname(dirname(__FILE__))."/config/schedule_array.php";
 			$attendees = array_pop($_POST);
 			$presentations = $_POST;
 
 			$presentation_ids = array();
 			foreach($presentations as $pos => $number) {
 				$type = ($pos[0] == 'p')? 'presentations' : 'workshops';
-				$presentation_ids[] = $schedule_array[$type][$pos[1]-1][$number-1];
+				$presentation_ids[] = $this->schedule_array[$type][$pos[1]-1][$number-1];
 			}
 			$presentation_ids = array_merge(array_unique($presentation_ids));
 			$transaction->presentations = $presentation_ids;
@@ -59,7 +66,7 @@ class ScheduleController extends Controller {
 
 			Yii::app()->user->setFlash('alert', 'Dados salvos! Obrigado pela colaboração.');
 		}
-		
+
 		$this->redirect('/grade');
 	}
 
