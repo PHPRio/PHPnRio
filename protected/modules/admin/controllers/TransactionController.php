@@ -2,6 +2,8 @@
 
 class TransactionController extends Controller {
 
+	public $total_attendees;
+
 	/**
 	 * @return array action filters
 	 */
@@ -26,6 +28,15 @@ class TransactionController extends Controller {
 				'users' => array('*'),
 			),
 		);
+	}
+
+	public function behaviors() {
+		return array('attendeeCalculator' => array('class' => 'application.modules.admin.behaviors.AttendeeCalculator'));
+	}
+
+	protected function beforeAction($action) {
+		$this->attendeeCalculator->beforeAction();
+		return true;
 	}
 
 	public function actionIndex() {

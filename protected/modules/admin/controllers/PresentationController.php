@@ -2,6 +2,8 @@
 
 class PresentationController extends Controller {
 
+	public $total_attendees;
+
 	/**
 	 * @return array action filters
 	 */
@@ -26,6 +28,15 @@ class PresentationController extends Controller {
 				'users' => array('*'),
 			),
 		);
+	}
+
+	public function behaviors() {
+		return array('attendeeCalculator' => array('class' => 'application.modules.admin.behaviors.AttendeeCalculator'));
+	}
+
+	protected function beforeAction($action) {
+		if ($action->id == 'interest') $this->attendeeCalculator->beforeAction();
+		return true;
 	}
 
 	/**

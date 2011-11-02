@@ -8,14 +8,34 @@
 	<div class="span-5 last">
 		<div id="sidebar">
 		<?php
-			$this->beginWidget('zii.widgets.CPortlet', array(
-				'title'=>'Operações',
-			));
-			$this->widget('zii.widgets.CMenu', array(
-				'items'=>$this->menu,
-				'htmlOptions'=>array('class'=>'operations'),
-			));
+			$this->beginWidget('zii.widgets.CPortlet', array('title'=>'Operações'));
+				$this->widget('zii.widgets.CMenu', array('items'=>$this->menu, 'htmlOptions'=>array('class'=>'operations')));
 			$this->endWidget();
+
+			if (isset($this->total_attendees) && is_array($this->total_attendees)) {
+				$this->beginWidget('zii.widgets.CPortlet', array('title'=>'Totais de inscritos'));
+		?>
+			<table id="total_attendees" border="0">
+				<tr>
+					<th>Total de pessoas</th>
+					<td><?=$this->total_attendees['total_attendees']?></td>
+				</tr>
+				<tr>
+					<th><?=CHtml::link('Transações', array('transaction/index'))?></th>
+					<td><?=$this->total_attendees['transactions']?></td>
+				</tr>
+				<tr>
+					<th><?=CHtml::link('Inscritos', array('attendees/index'))?></th>
+					<td><?=$this->total_attendees['confirmed_attendees']?></td>
+				</tr>
+				<tr>
+					<th><?=CHtml::link('Não-inscritos', array('trasactions/unconfirmedAttendees'))?></th>
+					<td><?=$this->total_attendees['unconfirmed_attendees']?></td>
+				</tr>
+			</table>
+		<?php
+				$this->endWidget();
+			}
 		?>
 		</div><!-- sidebar -->
 	</div>
