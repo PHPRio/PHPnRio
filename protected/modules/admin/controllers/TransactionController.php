@@ -61,6 +61,8 @@ class TransactionController extends Controller {
 
 		$total = 0;
 		foreach ($transactions as $attributes) {
+			if ($attributes['status'] == Transaction::STATUS_WAITING) continue;
+			
 			$id = $attributes['id'];
 			unset($attributes['id']);
 
