@@ -227,3 +227,34 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+h1 { position: relative }
+h1 button {
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+#sidebar table#total_attendees {
+	border-with: 0px;
+}
+#sidebar table#total_attendees th {
+	font-weight: normal;
+	text-align: right;
+}
+#sidebar table#total_attendees td {
+	font-weight: bold;
+	font-size: 18px;
+}
+#sidebar table#total_attendees td.good {
+	color: darkgreen;
+	font-size: 14px;
+}
+#sidebar table#total_attendees td.bad {
+	color: crimson;
+	font-size: 14px;
+}
+#sidebar table#total_attendees a {
+	color: inherit;
+}
