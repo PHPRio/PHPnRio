@@ -101,7 +101,7 @@ class TransactionController extends Controller {
 				'payment_method' => $transaction_xml->Debito_Credito,
 				'transaction_type' => $transaction_xml->Tipo_Transacao,
 				'status' => $transaction_xml->Status,
-				'payment_type' => $transaction_xml->Tipo_Pagamento,
+				'payment_type' => ($transaction_xml->Tipo_Pagamento == 'Cartão de Crédito')? 'Cartão' : $transaction_xml->Tipo_Pagamento,
 				'total_attendees' => (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
 				'price' => $price,
 				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
@@ -122,7 +122,7 @@ class TransactionController extends Controller {
 					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
 					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
 					$mail->addTo((string)$transaction->email, (string)$transaction->name);
-					Yii::app()->mail->send($mail);
+//					Yii::app()->mail->send($mail);
 				}
 			}
 		}
