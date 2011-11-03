@@ -131,7 +131,7 @@ class TransactionController extends Controller {
 			$this->render('uploadList', array('errors' => $errors));
 		}
 		else {
-//			$this->redirect('index');
+			$this->redirect('index');
 		}
 	}
 
