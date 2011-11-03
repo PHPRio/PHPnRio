@@ -86,11 +86,12 @@ class TransactionController extends Controller {
 
 			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
 			if (!$transaction) {
-				$new = true;
 				$transaction = new Transaction;
+				$old_status = null;
 			}
-			else
-				$new = false;
+			else {
+				$old_status = $transaction->status;
+			}
 
 			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
 			$transaction->attributes = array(
@@ -116,7 +117,7 @@ class TransactionController extends Controller {
 			}
 			else {
 				++$total;
-				if ($new) {
+				if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED) {
 					$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
 					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
 					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
@@ -130,7 +131,7 @@ class TransactionController extends Controller {
 			$this->render('uploadList', array('errors' => $errors));
 		}
 		else {
-			$this->redirect('index');
+//			$this->redirect('index');
 		}
 	}
 
