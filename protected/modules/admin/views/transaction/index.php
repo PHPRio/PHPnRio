@@ -28,11 +28,7 @@ $('.search-form form').submit(function(){
 $this->renderPartial('_form');
 ?>
 
-<h1 style="display: inline-block">Lista de Transações <?=$unconfirmed_page? 'sem Inscrições':'Importadas'?></h1>
-	<?php
-		if ($unconfirmed_page)
-			echo ' - '.CHtml::button('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))
-	?>
+<h1>Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscrições '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?></h1>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
