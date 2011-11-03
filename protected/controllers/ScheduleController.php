@@ -16,8 +16,8 @@ class ScheduleController extends Controller {
 	}
 
 	public function actionIndex() {
-		if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])) {
-			$this->transaction = Transaction::model()->findByAttributes(array('code' => $_SESSION['transaction']));
+		if (isset($_SESSION['transaction']) && $_SESSION['transaction']) {
+			$this->transaction = self::findTransaction($_SESSION['transaction']);
 		}
 		else {
 			$this->transaction = false;
@@ -29,7 +29,7 @@ class ScheduleController extends Controller {
 	}
 
 	public function actionIdentifyTransaction() {
-		$trans = Transaction::model()->findByAttributes(array('code' => $_POST['transaction']));
+		$trans = self::findTransaction($_POST['transaction']);
 		if (sizeof($trans)) {
 			$_SESSION['transaction'] = $_POST['transaction'];
 			$_SESSION['first_name'] = strtok($trans->name, ' ');
@@ -76,7 +76,7 @@ class ScheduleController extends Controller {
 	}
 
 	private static function findTransaction($code) {
-		return Transaction::model()->findByAttributes(array('code' => $code));
+		return Transaction::model()->findByAttributes(array('code' => $code, 'status' => Transaction::STATUS_APPROVED));
 	}
 
 }

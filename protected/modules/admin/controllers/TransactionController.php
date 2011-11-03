@@ -80,10 +80,9 @@ class TransactionController extends Controller {
 
 		$total = 0;
 		foreach ($data->Table as $transaction_xml) {
-			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT || $transaction_xml->Status != Transaction::STATUS_APPROVED) continue;
-
-			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
-			if ($price < 30) continue; //skipping alta's tests
+			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT
+			|| !in_array($transaction_xml->Status, array(Transaction::STATUS_APPROVED, Transaction::STATUS_WAITING)))
+				continue;
 
 			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
 			if (!$transaction) {
@@ -93,6 +92,7 @@ class TransactionController extends Controller {
 			else
 				$new = false;
 
+			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
 			$transaction->attributes = array(
 				'code' => $transaction_xml->Transacao_ID,
 				'name' => $transaction_xml->Cliente_Nome,
@@ -101,7 +101,7 @@ class TransactionController extends Controller {
 				'transaction_type' => $transaction_xml->Tipo_Transacao,
 				'status' => $transaction_xml->Status,
 				'payment_type' => $transaction_xml->Tipo_Pagamento,
-				'total_attendees' => $price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE,
+				'total_attendees' => (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
 				'price' => $price,
 				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
 				'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
@@ -121,7 +121,7 @@ class TransactionController extends Controller {
 					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
 					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
 					$mail->addTo((string)$transaction->email, (string)$transaction->name);
-					Yii::app()->mail->send($mail);
+//					Yii::app()->mail->send($mail);
 				}
 			}
 		}
