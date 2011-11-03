@@ -196,7 +196,7 @@ table.programacao td.intervalo {
 						</tr>
 					</tbody>
 				</table>
-				 <? if (isset($_SESSION['transaction']) && is_string($_SESSION['transaction'])): ?>
+				 <? if ($this->transaction): ?>
 					<? if ($this->transaction->total_attendees == 1) { ?>
 						<p>É necessário também preencher o número de algum documento (a ser levado no dia do evento) e seu nome, para inclusão na lista de Credenciamento.</p>
 					<? } else { ?>

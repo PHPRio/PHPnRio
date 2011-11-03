@@ -1,5 +1,5 @@
 <?php
-	if (!isset($_SESSION['transaction']) || !is_string($_SESSION['transaction'])) return null;
+	if (!$this->transaction) return null;
 
 	$attr = '';
 	if (isset($checked) && $checked) $attr .= 'checked="checked" ';
