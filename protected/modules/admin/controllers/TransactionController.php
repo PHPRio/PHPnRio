@@ -118,11 +118,13 @@ class TransactionController extends Controller {
 			else {
 				++$total;
 				if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED) {
-					$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
-					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
-					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
-					$mail->addTo((string)$transaction->email, (string)$transaction->name);
-					if (PRODUCTION) Yii::app()->mail->send($mail);
+					if (PRODUCTION) {
+						$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
+						$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
+						$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
+						$mail->addTo((string)$transaction->email, (string)$transaction->name);
+						Yii::app()->mail->send($mail);
+					}
 				}
 			}
 		}
