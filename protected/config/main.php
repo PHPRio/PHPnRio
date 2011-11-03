@@ -33,6 +33,7 @@ $config = array(
 		'mail' => array(
 			'class' => 'ext.mail.YiiMail',
 			'logging' => true,
+			'dryRun' => !PRODUCTION,
 			'transportType' => 'smtp',
 			'transportOptions' => require '_email.php',
 		),
@@ -53,6 +54,11 @@ $config = array(
 				array(
 					'class' => 'CFileLogRoute',
 					'levels' => 'error, warning',
+				),
+				array(
+					'class' => 'CFileLogRoute',
+					'logFile' => 'email.log',
+					'categories' => 'ext.yii-mail.YiiMail',
 				),
 			),
 		),
