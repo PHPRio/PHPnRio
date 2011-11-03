@@ -31,7 +31,7 @@ $this->renderPartial('_form');
 <hr />
 <br />
 
-<h1>Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscrições '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?></h1>
+<h1>Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscritos '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?></h1>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
