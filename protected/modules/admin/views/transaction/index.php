@@ -1,4 +1,6 @@
 <?php
+$unconfirmed_page = $this->action->id == 'unconfirmedAttendees';
+
 $this->breadcrumbs=array(
 	'Transações'=>array('index'),
 	'Listar',
@@ -6,6 +8,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
+	$unconfirmed_page? array('label'=>'Todas as Transações', 'url'=>array('transaction/index')) : array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Interesse nas Palestras', 'url'=>array('presentation/interest')),
 );
 
@@ -25,9 +28,9 @@ $('.search-form form').submit(function(){
 $this->renderPartial('_form');
 ?>
 
-<h1 style="display: inline-block">Lista de Transações <?=$this->action->id == 'unconfirmedAttendees'? 'sem Inscrições':'Importadas'?></h1>
+<h1 style="display: inline-block">Lista de Transações <?=$unconfirmed_page? 'sem Inscrições':'Importadas'?></h1>
 	<?php
-		if ($this->action->id == 'unconfirmedAttendees')
+		if ($unconfirmed_page)
 			echo ' - '.CHtml::button('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))
 	?>
 

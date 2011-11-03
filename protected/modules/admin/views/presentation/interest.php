@@ -8,6 +8,7 @@ $this->menu=array(
 	array('label'=>'Nova Palestra', 'url'=>array('create')),
 	array('label'=>'Listar Palestras', 'url'=>array('index')),
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
+	array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
 );
 ?>
