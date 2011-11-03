@@ -21,16 +21,25 @@
 					<td><?=$this->total_attendees['total_attendees']?></td>
 				</tr>
 				<tr>
-					<th><?=CHtml::link('Transações', array('transaction/index'))?></th>
-					<td><?=$this->total_attendees['transactions']?></td>
-				</tr>
-				<tr>
 					<th><?=CHtml::link('Inscritos', array('attendees/index'))?></th>
 					<td><?=$this->total_attendees['confirmed_attendees']?></td>
 				</tr>
 				<tr>
 					<th><?=CHtml::link('Não-inscritos', array('trasactions/unconfirmedAttendees'))?></th>
 					<td><?=$this->total_attendees['unconfirmed_attendees']?></td>
+				</tr>
+				<tr><td colspan="2"><hr /></td></tr>
+				<tr>
+					<th><?=CHtml::link('Transações', array('transaction/index'))?></th>
+					<td><?=$this->total_attendees['total_transactions']?></td>
+				</tr>
+				<tr>
+					<th>Pagas</th>
+					<td><?=$this->total_attendees['paid_transactions']?></td>
+				</tr>
+				<tr>
+					<th>Aguardando</th>
+					<td><?=$this->total_attendees['unpaid_transactions']?></td>
 				</tr>
 			</table>
 		<?php
