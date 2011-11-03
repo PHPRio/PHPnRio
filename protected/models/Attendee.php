@@ -31,7 +31,7 @@ class Attendee extends CActiveRecord {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('transaction_id, rg', 'required'),
+			array('transaction_id, name', 'required'),
 			array('transaction_id', 'numerical', 'integerOnly'=>true),
 			array('rg', 'length', 'max'=>20),
 			array('name', 'length', 'max'=>50),
