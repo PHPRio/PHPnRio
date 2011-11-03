@@ -25,12 +25,12 @@ $('.search-form form').submit(function(){
 $this->renderPartial('_form');
 ?>
 
-<h1>Lista de Transações Importadas</h1>
+<h1>Lista de Transações <?=$this->action->id == 'unconfirmedAttendees'? 'sem Inscrições':'Importadas'?></h1>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'attendee-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$transactions,
 	'filter'=>$model,
 	'columns'=>array(
 		'id',

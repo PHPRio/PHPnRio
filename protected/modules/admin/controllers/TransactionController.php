@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'uploadList'),
+				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -42,7 +42,17 @@ class TransactionController extends Controller {
 	public function actionIndex() {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
-		$this->render('index', array('model' => $model));
+		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
+	}
+
+	public function actionUnconfirmedAttendees() {
+		$model = new Transaction('search');
+		$model->unsetAttributes();  // clear any default values
+
+		$transactions = Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee)')
+			->queryAll();
+
+		$this->render('index', array('model' => $model, 'transactions' => new CArrayDataProvider($transactions)));
 	}
 
 	/**
