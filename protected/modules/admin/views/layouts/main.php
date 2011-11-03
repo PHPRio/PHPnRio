@@ -23,6 +23,13 @@
 	</head>
 
 	<body>
+		<?php
+			$flash_message = Yii::app()->user->getFlash('alert');
+			if ($flash_message) {
+				$flash_message = addslashes($flash_message);
+				Yii::app()->clientScript->registerScript('flash_alert', "window.alert('$flash_message')");
+			}
+		?>
 
 		<div class="container" id="page">
 
