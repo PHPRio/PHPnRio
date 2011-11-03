@@ -58,6 +58,7 @@ class ScheduleController extends Controller {
 
 			Attendee::model()->deleteAllByAttributes(array('transaction_id' => $transaction->id));
 			foreach ($attendees as $attendee) {
+				if (empty($attendee['name'])) continue;
 				$att = new Attendee;
 				$att->attributes = $attendee;
 				$att->transaction_id = $transaction->id;
