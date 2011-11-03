@@ -27,6 +27,9 @@ $('.search-form form').submit(function(){
 
 $this->renderPartial('_form');
 ?>
+<br />
+<hr />
+<br />
 
 <h1>Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscrições '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?></h1>
 
