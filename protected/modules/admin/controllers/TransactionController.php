@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees'),
+				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -45,14 +45,35 @@ class TransactionController extends Controller {
 		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
 	}
 
+	private function getUnconfirmedTransactions() { return Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee)')->queryAll(); }
+
 	public function actionUnconfirmedAttendees() {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
 
-		$transactions = Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee)')
-			->queryAll();
+		$transactions = $this->getUnconfirmedTransactions();
 
 		$this->render('index', array('model' => $model, 'transactions' => new CArrayDataProvider($transactions)));
+	}
+
+	public function actionSendEmailToUnconfirmed() {
+		$transactions = $this->getUnconfirmedTransactions();
+
+		$total = 0;
+		foreach ($transactions as $attributes) {
+			$id = $attributes['id'];
+			unset($attributes['id']);
+
+			$transaction = new Transaction;
+			$transaction->attributes = $attributes;
+			$transaction->setPrimaryKey($id);
+
+			$this->sendEmail($transaction);
+			++$total;
+		}
+
+		Yii::app()->user->setFlash('alert', 'Total de e-mails enviados: '.$total);
+		$this->redirect('unconfirmedAttendees');
 	}
 
 	/**
@@ -81,14 +102,10 @@ class TransactionController extends Controller {
 	}
 
 	public function actionUploadList() {
-		Yii::import('ext.helpers.DateHelper');
-		Yii::import('ext.mail.*');
-
 		$xml_string = file_get_contents($_FILES['file']['tmp_name']);
 		$xml_string = str_replace('encoding="ISO-8859-1"', 'encoding="UTF-8"', utf8_encode($xml_string));
 		$data = simplexml_load_string($xml_string);
 
-		$total = 0;
 		foreach ($data->Table as $transaction_xml) {
 			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT
 			|| !in_array($transaction_xml->Status, array(Transaction::STATUS_APPROVED, Transaction::STATUS_WAITING)))
@@ -126,16 +143,8 @@ class TransactionController extends Controller {
 				break;
 			}
 			else {
-				++$total;
-				if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED) {
-					if (PRODUCTION) {
-						$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
-						$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
-						$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
-						$mail->addTo((string)$transaction->email, (string)$transaction->name);
-						Yii::app()->mail->send($mail);
-					}
-				}
+				if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED)
+					$this->sendEmail($transaction);
 			}
 		}
 
@@ -145,6 +154,16 @@ class TransactionController extends Controller {
 		else {
 			$this->redirect('index');
 		}
+	}
+
+	public function sendEmail(Transaction $transaction) {
+		Yii::import('ext.mail.*');
+		Yii::log("Sending email about transaction $transaction->code to $transaction->email", CLogger::LEVEL_INFO, 'email.send');
+		$mail = new YiiMailMessage('PHP\'n Rio - Finalize sua inscrição');
+		$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
+		$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
+		$mail->addTo((string)$transaction->email, (string)$transaction->name);
+		Yii::app()->mail->send($mail);
 	}
 
 	/**

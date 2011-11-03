@@ -25,7 +25,11 @@ $('.search-form form').submit(function(){
 $this->renderPartial('_form');
 ?>
 
-<h1>Lista de Transações <?=$this->action->id == 'unconfirmedAttendees'? 'sem Inscrições':'Importadas'?></h1>
+<h1 style="display: inline-block">Lista de Transações <?=$this->action->id == 'unconfirmedAttendees'? 'sem Inscrições':'Importadas'?></h1>
+	<?php
+		if ($this->action->id == 'unconfirmedAttendees')
+			echo ' - '.CHtml::button('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))
+	?>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
