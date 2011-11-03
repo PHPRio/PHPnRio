@@ -21,11 +21,11 @@
 					<td><?=$this->total_attendees['total_attendees']?></td>
 				</tr>
 				<tr>
-					<th><?=CHtml::link('Inscritos', array('attendees/index'))?></th>
+					<th><?=CHtml::link('Inscritos', array('attendee/index'))?></th>
 					<td><?=$this->total_attendees['confirmed_attendees']?></td>
 				</tr>
 				<tr>
-					<th><?=CHtml::link('Não-inscritos', array('trasactions/unconfirmedAttendees'))?></th>
+					<th><?=CHtml::link('Não-inscritos', array('transaction/unconfirmedAttendees'))?></th>
 					<td><?=$this->total_attendees['unconfirmed_attendees']?></td>
 				</tr>
 				<tr><td colspan="2"><hr /></td></tr>
