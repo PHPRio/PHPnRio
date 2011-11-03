@@ -26,8 +26,15 @@ $('.search-form form').submit(function(){
 
 <h1>Lista de Inscritos</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'sponsor-grid',
+<?php
+Yii::app()->clientScript->registerCss('table', <<<CSS
+	#attendee-grid_c0 { width: 30px; }
+	#attendee-grid_c2 { width: 100px; }
+CSS
+);
+
+$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'attendee-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -36,4 +43,5 @@ $('.search-form form').submit(function(){
 		'rg',
 		'name',
 	),
-)); ?>
+));
+?>
