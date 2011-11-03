@@ -17,6 +17,10 @@
 
 			<p>Não se esqueça de preencher os dados de inscrição, pois eles serão necessários para o credenciamento dos participantes. Também será necessário que todos os inscritos levem a identidade.</p>
 
+			<? if ($transaction->payment_type == 'Boleto') { ?>
+				<p>Como sua inscrição foi feita via boleto nos últimos dias antes do evento, a confirmação do pagamento não chegará a nós em tempo hábil. Portanto, <strong>é necessário levar o comprovante de pagamento do boleto para o credenciamento, com seu código anotado.</strong></p>
+			<? } ?>
+
 			<p>Em tempo: já viu nossa <a href="http://www.facebook.com/pages/PHPRio/160383237381004" target="_blank">página no Facebook</a>? Não esqueça também de marcar que <a href="http://www.facebook.com/event.php?eid=160928950657248" target="_blank">vai ao evento</a>!</p>
 
 
