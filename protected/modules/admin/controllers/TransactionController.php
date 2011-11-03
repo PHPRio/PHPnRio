@@ -121,7 +121,7 @@ class TransactionController extends Controller {
 					$mail->setBody($this->renderPartial('/emails/finalizar_inscricao', array('transaction' => $transaction), true), 'text/html');
 					$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
 					$mail->addTo((string)$transaction->email, (string)$transaction->name);
-//					Yii::app()->mail->send($mail);
+					Yii::app()->mail->send($mail);
 				}
 			}
 		}
