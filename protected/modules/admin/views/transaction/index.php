@@ -35,7 +35,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'columns'=>array(
 		'id',
 		array('type' => 'html', 'header' => 'Nome', 'value' => "'<a href=\"mailto:'.\$data->email.'\">'.\$data->name.'</a>'"),
-		'transaction_type',
 		'status',
 		'payment_type',
 		'total_attendees',
