@@ -214,8 +214,8 @@ table.programacao td.intervalo {
 						</tr>
 						<? for ($i = 0; $i < $this->transaction->total_attendees; $i++): ?>
 						<tr>
-							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="20" size="13" value="<?=$this->transaction->attendees[$i]->rg?>" /></td>
-							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" value="<?=$this->transaction->attendees[$i]->name?>" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][rg]" maxlength="20" size="13" value="<?if (isset($this->transaction->attendees[$i])) echo $this->transaction->attendees[$i]->rg?>" /></td>
+							<td><input type="text" name="attendee[<?=$i?>][name]" maxlength="50" size="30" value="<?if (isset($this->transaction->attendees[$i])) echo $this->transaction->attendees[$i]->name?>" /></td>
 						</tr>
 						<? endfor ?>
 					</table>
