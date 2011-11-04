@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'Ver Cortesias', 'url'=>array('attendee/free')),
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
 	array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Interesse nas Palestras', 'url'=>array('presentation/interest')),
@@ -35,7 +36,7 @@ CSS
 
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'attendee-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$attendees,
 	'filter'=>$model,
 	'columns'=>array(
 		'id',

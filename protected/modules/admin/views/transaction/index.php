@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
+	array('label'=>'Ver Cortesias', 'url'=>array('attendee/free')),
 	$unconfirmed_page? array('label'=>'Todas as Transações', 'url'=>array('transaction/index')) : array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Interesse nas Palestras', 'url'=>array('presentation/interest')),
 );
