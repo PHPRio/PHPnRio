@@ -35,6 +35,8 @@ class Transaction extends CActiveRecord {
 	const STATUS_RETURNED = 'Devolvida';
 	const STATUS_CANCELED = 'Cancelada';
 
+	const CODE_FREE_TICKETS = 'C734657E-B772-4456-B945-E33333B4AD32';
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Transaction the static model class
@@ -116,7 +118,7 @@ class Transaction extends CActiveRecord {
 	public function search() {
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-
+		
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
@@ -133,9 +135,11 @@ class Transaction extends CActiveRecord {
 		$criteria->compare('received',$this->received,true);
 		$criteria->compare('transaction_date',$this->transaction_date,true);
 		$criteria->compare('compensation_date',$this->compensation_date,true);
+		if (isset($GLOBALS['printing'])) $criteria->order = 'name';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination'=> isset($GLOBALS['printing'])? false : array('pageSize'=>10),
 		));
 	}
 }

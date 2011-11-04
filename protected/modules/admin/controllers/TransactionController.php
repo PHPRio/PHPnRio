@@ -45,15 +45,22 @@ class TransactionController extends Controller {
 		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
 	}
 
-	private function getUnconfirmedTransactions() { return Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee)')->queryAll(); }
+	private function getUnconfirmedTransactions() {
+		return Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee) ORDER BY t.name')->queryAll();
+	}
 
 	public function actionUnconfirmedAttendees() {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
 
-		$transactions = $this->getUnconfirmedTransactions();
+		$transactions_array = $this->getUnconfirmedTransactions();
+		$data_provider = new CArrayDataProvider($transactions_array, array(
+			'id' => 'unconfirmed_attendees',
+			'sort' => array('attributes' => array('id', 'name', 'status', 'payment_type', 'total_attendees', 'received', 'transaction_date')),
+			'pagination' => isset($GLOBALS['printing'])? false : array('pageSize' => 10)
+		));
 
-		$this->render('index', array('model' => $model, 'transactions' => new CArrayDataProvider($transactions)));
+		$this->render('index', array('model' => $model, 'transactions' => $data_provider));
 	}
 
 	public function actionSendEmailToUnconfirmed() {
@@ -62,7 +69,7 @@ class TransactionController extends Controller {
 		$total = 0;
 		foreach ($transactions as $attributes) {
 			if ($attributes['status'] == Transaction::STATUS_WAITING) continue;
-			
+
 			$id = $attributes['id'];
 			unset($attributes['id']);
 
@@ -86,21 +93,6 @@ class TransactionController extends Controller {
 		$this->render('view', array(
 			'model' => $this->loadModel($id),
 		));
-	}
-
-	/**
-	 * @todo MOVE THIS CRAP TO A DATE HELPER!!!!
-	 * @param type $datetime
-	 * @return type
-	 */
-	private static function br_datetime_to_iso($datetime) {
-		$parts = explode(' ',$datetime);
-		$date = explode('/', $parts[0]);
-		return "$date[2]-$date[1]-$date[0] $parts[1]";
-	}
-
-	private static function handle_br_numbers($number) {
-		return (float) strtr($number, ',', '.');
 	}
 
 	public function actionUploadList() {
@@ -131,7 +123,7 @@ class TransactionController extends Controller {
 				'transaction_type' => $transaction_xml->Tipo_Transacao,
 				'status' => $transaction_xml->Status,
 				'payment_type' => ($transaction_xml->Tipo_Pagamento == 'Cartão de Crédito')? 'Cartão' : $transaction_xml->Tipo_Pagamento,
-				'total_attendees' => (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
+				'total_attendees' => ($transaction_xml->Transacao_ID == Transaction::CODE_FREE_TICKETS)? 32 : (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
 				'price' => $price,
 				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
 				'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
@@ -166,6 +158,21 @@ class TransactionController extends Controller {
 		$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
 		$mail->addTo((string)$transaction->email, (string)$transaction->name);
 		Yii::app()->mail->send($mail);
+	}
+
+	/**
+	 * @todo MOVE THIS CRAP TO A DATE HELPER!!!!
+	 * @param type $datetime
+	 * @return type
+	 */
+	private static function br_datetime_to_iso($datetime) {
+		$parts = explode(' ',$datetime);
+		$date = explode('/', $parts[0]);
+		return "$date[2]-$date[1]-$date[0] $parts[1]";
+	}
+
+	private static function handle_br_numbers($number) {
+		return (float) strtr($number, ',', '.');
 	}
 
 	/**

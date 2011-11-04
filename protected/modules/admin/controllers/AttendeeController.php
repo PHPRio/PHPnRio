@@ -19,7 +19,7 @@ class AttendeeController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index'),
+				'actions' => array('index','free'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -40,6 +40,22 @@ class AttendeeController extends Controller {
 	public function actionIndex() {
 		$model = new Attendee('search');
 		$model->unsetAttributes();  // clear any default values
-		$this->render('index', array('model' => $model));
+		$data_provider = $model->search();
+		$free_tickets_transaction = Transaction::model()->findByAttributes(array('code' => Transaction::CODE_FREE_TICKETS));
+		$data_provider->getCriteria()->addCondition("transaction_id != $free_tickets_transaction->id");
+		$this->render('index', array('model' => $model, 'attendees' => $data_provider));
+	}
+
+	public function actionFree() {
+		$model = new Attendee('search');
+		$model->unsetAttributes();  // clear any default values
+		$attendees = new CActiveDataProvider('Attendee', array(
+			'criteria' => array(
+				'with' => array('transaction'),
+				'condition' => 'transaction.code = :code', 'params' => array(':code' => Transaction::CODE_FREE_TICKETS)
+			),
+			'pagination' => false,
+		));
+		$this->render('index', array('model' => $model, 'attendees' => $attendees));
 	}
 }

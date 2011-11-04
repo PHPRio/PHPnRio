@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	$this->action->id == 'index'? array('label'=>'Ver Cortesias', 'url'=>array('attendee/free')) : array('label'=>'Ver Inscrições', 'url'=>array('attendee/index')),
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
 	array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Interesse nas Palestras', 'url'=>array('presentation/interest')),
@@ -24,22 +25,21 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Lista de Inscritos</h1>
+<h1>Lista de <?=$this->action->id == 'index'? 'Inscritos' : 'Cortesias'?> <?=$this->renderPartial('/layouts/_print_button')?></h1>
 
 <?php
 Yii::app()->clientScript->registerCss('table', <<<CSS
 	#attendee-grid_c0 { width: 30px; }
-	#attendee-grid_c2 { width: 100px; }
+	#attendee-grid_c3 { white-space: nowrap; }
 CSS
 );
 
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'attendee-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$attendees,
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'transaction.code',
 		'rg',
 		'name',
 	),

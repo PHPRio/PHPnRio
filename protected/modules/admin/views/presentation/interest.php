@@ -10,6 +10,7 @@ $this->menu=array(
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
 	array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),
+	array('label'=>'Ver Cortesias', 'url'=>array('attendee/free')),
 );
 ?>
 

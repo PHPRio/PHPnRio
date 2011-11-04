@@ -49,4 +49,18 @@ class Controller extends CController
 
 		return true;
 	}
+
+	protected function beforeRender($view) {
+		parent::beforeRender($view);
+
+		if (isset($GLOBALS['printing']) && $GLOBALS['printing'])
+			$this->layout = false;
+
+		return true;
+	}
+
+	protected function afterRender($view, &$output) {
+		parent::afterRender($view, $output);
+		unset($GLOBALS['printing']);
+	}
 }

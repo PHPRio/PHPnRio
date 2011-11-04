@@ -23,7 +23,7 @@ class DefaultController extends Controller {
 				'users' => array('?'),
 			),
 			array('allow',
-				'actions' => array('index','logout'),
+				'actions' => array('index','logout','print'),
 				'users' => array('@'),
 			),
 			array('allow',
@@ -69,6 +69,13 @@ class DefaultController extends Controller {
 	public function actionLogout() {
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	public function actionPrint($route) {
+		$route = strtr($route, '-', '/');
+
+		$GLOBALS['printing'] = true;
+		$this->forward("/$route");
 	}
 
 }
