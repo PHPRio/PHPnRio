@@ -121,7 +121,7 @@ class TransactionController extends Controller {
 				'transaction_type' => $transaction_xml->Tipo_Transacao,
 				'status' => $transaction_xml->Status,
 				'payment_type' => ($transaction_xml->Tipo_Pagamento == 'Cartão de Crédito')? 'Cartão' : $transaction_xml->Tipo_Pagamento,
-				'total_attendees' => (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
+				'total_attendees' => ($transaction_xml->Transacao_ID == Transaction::CODE_FREE_TICKETS)? 32 : (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
 				'price' => $price,
 				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
 				'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
