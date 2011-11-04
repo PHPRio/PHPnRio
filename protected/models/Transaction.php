@@ -138,6 +138,7 @@ class Transaction extends CActiveRecord {
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination'=> isset($GLOBALS['printing'])? false : array('pageSize'=>10),
 		));
 	}
 }

@@ -81,7 +81,7 @@ class Attendee extends CActiveRecord {
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			'pagination'=>array('pageSize'=>20),
+			'pagination'=> isset($GLOBALS['printing'])? false : array('pageSize'=>20),
 		));
 	}
 }
