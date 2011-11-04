@@ -118,7 +118,7 @@ class Transaction extends CActiveRecord {
 	public function search() {
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-
+		
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
@@ -135,6 +135,7 @@ class Transaction extends CActiveRecord {
 		$criteria->compare('received',$this->received,true);
 		$criteria->compare('transaction_date',$this->transaction_date,true);
 		$criteria->compare('compensation_date',$this->compensation_date,true);
+		if (isset($GLOBALS['printing'])) $criteria->order = 'name';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

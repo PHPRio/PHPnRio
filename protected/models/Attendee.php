@@ -78,6 +78,7 @@ class Attendee extends CActiveRecord {
 		$criteria->compare('transaction_id',$this->transaction_id);
 		$criteria->compare('rg',$this->rg,true);
 		$criteria->compare('name',$this->name,true);
+		if (isset($GLOBALS['printing'])) $criteria->order = 'name';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
