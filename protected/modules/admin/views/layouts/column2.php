@@ -25,6 +25,10 @@
 					<td class="good"><?=$this->total_attendees['confirmed_attendees']?></td>
 				</tr>
 				<tr>
+					<th><?=CHtml::link('Cortesias', array('attendee/free'))?></th>
+					<td class="neutral"><?=$this->total_attendees['free_attendees']?></td>
+				</tr>
+				<tr>
 					<th><?=CHtml::link('Não-inscritos', array('transaction/unconfirmedAttendees'))?></th>
 					<td class="bad"><?=$this->total_attendees['unconfirmed_attendees']?></td>
 				</tr>

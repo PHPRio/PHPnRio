@@ -245,13 +245,19 @@ h1 button {
 	font-weight: bold;
 	font-size: 18px;
 }
+#sidebar table#total_attendees td.good,
+#sidebar table#total_attendees td.bad,
+#sidebar table#total_attendees td.neutral {
+	font-size: 14px;
+}
 #sidebar table#total_attendees td.good {
 	color: darkgreen;
-	font-size: 14px;
+}
+#sidebar table#total_attendees td.neutral {
+	color: darkblue;
 }
 #sidebar table#total_attendees td.bad {
 	color: crimson;
-	font-size: 14px;
 }
 #sidebar table#total_attendees a {
 	color: inherit;
