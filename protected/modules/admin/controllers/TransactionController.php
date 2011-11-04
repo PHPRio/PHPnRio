@@ -95,11 +95,10 @@ class TransactionController extends Controller {
 		$data = simplexml_load_string($xml_string);
 
 		foreach ($data->Table as $transaction_xml) {
-			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT
-			|| !in_array($transaction_xml->Status, array(Transaction::STATUS_APPROVED, Transaction::STATUS_WAITING)))
-				continue;
+			if ($transaction_xml->Tipo_Transacao != Transaction::TRANSACTION_TYPE_PAYMENT) continue;
 
 			$transaction = Transaction::model()->findByAttributes(array('code' => $transaction_xml->Transacao_ID));
+			if (!in_array($transaction_xml->Status, array(Transaction::STATUS_APPROVED, Transaction::STATUS_WAITING, Transaction::STATUS_CANCELED))) continue;
 			if (!$transaction) {
 				$transaction = new Transaction;
 				$old_status = null;
@@ -108,31 +107,36 @@ class TransactionController extends Controller {
 				$old_status = $transaction->status;
 			}
 
-			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
-			$transaction->attributes = array(
-				'code' => $transaction_xml->Transacao_ID,
-				'name' => $transaction_xml->Cliente_Nome,
-				'email' => $transaction_xml->Cliente_Email,
-				'payment_method' => $transaction_xml->Debito_Credito,
-				'transaction_type' => $transaction_xml->Tipo_Transacao,
-				'status' => $transaction_xml->Status,
-				'payment_type' => ($transaction_xml->Tipo_Pagamento == 'Cartão de Crédito')? 'Cartão' : $transaction_xml->Tipo_Pagamento,
-				'total_attendees' => ($transaction_xml->Transacao_ID == Transaction::CODE_FREE_TICKETS)? 32 : (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
-				'price' => $price,
-				'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
-				'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
-				'received' => self::handle_br_numbers($transaction_xml->Valor_Liquido),
-				'transaction_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Transacao),
-				'compensation_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Compensacao),
-			);
-
-			if (!$transaction->save()) {
-				$errors = $transaction->errors;
-				break;
+			if ($old_status != $transaction_xml->Status && $transaction_xml->Status == Transaction::STATUS_CANCELED) {
+				$transaction->delete();
 			}
 			else {
-				if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED)
-					$this->sendEmail($transaction);
+				$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
+				$transaction->attributes = array(
+					'code' => $transaction_xml->Transacao_ID,
+					'name' => $transaction_xml->Cliente_Nome,
+					'email' => $transaction_xml->Cliente_Email,
+					'payment_method' => $transaction_xml->Debito_Credito,
+					'transaction_type' => $transaction_xml->Tipo_Transacao,
+					'status' => $transaction_xml->Status,
+					'payment_type' => ($transaction_xml->Tipo_Pagamento == 'Cartão de Crédito')? 'Cartão' : $transaction_xml->Tipo_Pagamento,
+					'total_attendees' => ($transaction_xml->Transacao_ID == Transaction::CODE_FREE_TICKETS)? 32 : (int)($price/Transaction::TRANSACTION_VALUE_PER_ATTENDEE),
+					'price' => $price,
+					'discount' => self::handle_br_numbers($transaction_xml->Valor_Desconto),
+					'taxes' => self::handle_br_numbers($transaction_xml->Valor_Taxa),
+					'received' => self::handle_br_numbers($transaction_xml->Valor_Liquido),
+					'transaction_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Transacao),
+					'compensation_date' => self::br_datetime_to_iso((string)$transaction_xml->Data_Compensacao),
+				);
+
+				if (!$transaction->save()) {
+					$errors = $transaction->errors;
+					break;
+				}
+				else {
+					if ($old_status != $transaction->status && $transaction->status == Transaction::STATUS_APPROVED)
+						$this->sendEmail($transaction);
+				}
 			}
 		}
 
