@@ -51,9 +51,14 @@ class TransactionController extends Controller {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
 
-		$transactions = $this->getUnconfirmedTransactions();
+		/** @todo sorting is not working */
+		$transactions_array = $this->getUnconfirmedTransactions();
+		$data_provider = new CArrayDataProvider($transactions, array(
+			'id' => 'unconfirmed_attendees',
+			'sort' => array('attributes' => array('id', 'name', 'status', 'payment_type', 'total_attendees', 'received', 'transaction_date'))
+		));
 
-		$this->render('index', array('model' => $model, 'transactions' => new CArrayDataProvider($transactions)));
+		$this->render('index', array('model' => $model, 'transactions' => $data_provider));
 	}
 
 	public function actionSendEmailToUnconfirmed() {
@@ -62,7 +67,7 @@ class TransactionController extends Controller {
 		$total = 0;
 		foreach ($transactions as $attributes) {
 			if ($attributes['status'] == Transaction::STATUS_WAITING) continue;
-			
+
 			$id = $attributes['id'];
 			unset($attributes['id']);
 
@@ -86,21 +91,6 @@ class TransactionController extends Controller {
 		$this->render('view', array(
 			'model' => $this->loadModel($id),
 		));
-	}
-
-	/**
-	 * @todo MOVE THIS CRAP TO A DATE HELPER!!!!
-	 * @param type $datetime
-	 * @return type
-	 */
-	private static function br_datetime_to_iso($datetime) {
-		$parts = explode(' ',$datetime);
-		$date = explode('/', $parts[0]);
-		return "$date[2]-$date[1]-$date[0] $parts[1]";
-	}
-
-	private static function handle_br_numbers($number) {
-		return (float) strtr($number, ',', '.');
 	}
 
 	public function actionUploadList() {
@@ -166,6 +156,21 @@ class TransactionController extends Controller {
 		$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
 		$mail->addTo((string)$transaction->email, (string)$transaction->name);
 		Yii::app()->mail->send($mail);
+	}
+
+	/**
+	 * @todo MOVE THIS CRAP TO A DATE HELPER!!!!
+	 * @param type $datetime
+	 * @return type
+	 */
+	private static function br_datetime_to_iso($datetime) {
+		$parts = explode(' ',$datetime);
+		$date = explode('/', $parts[0]);
+		return "$date[2]-$date[1]-$date[0] $parts[1]";
+	}
+
+	private static function handle_br_numbers($number) {
+		return (float) strtr($number, ',', '.');
 	}
 
 	/**
