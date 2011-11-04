@@ -228,12 +228,10 @@ div.search-form
 	background: #80CFFF;
 }
 
-h1 { position: relative }
 h1 button {
 	height: 30px;
-	position: absolute;
-	right: 0px;
-	top: 0px;
+	float: right;
+	margin-left: 5px;
 }
 
 #sidebar table#total_attendees {
