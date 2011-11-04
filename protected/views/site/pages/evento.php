@@ -54,7 +54,12 @@
 		<br />
 		<p>Carro:</p>
 		<br /> */ ?>
-		<h2>Valor: R$ 30,00</h2><a href="#"><img src="img/bt-inscreva-se.png" alt="inscreva-se" width="165" height="47" border="0" style="float:left; padding-left:277px;" /></a>
+		<h2>Valor: R$ 30,00</h2>
+		<? if (!FINISHED): ?>
+			<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>">
+				<img src="img/bt-inscreva-se.png" alt="inscreva-se" width="165" height="47" border="0" style="float:left; padding-left:277px;" />
+			</a>
+		<? endif ?>
 		<br />
 	</div>
 	<!-- conteúdo -->

@@ -9,9 +9,11 @@
 <span class="op">?&gt;</span>
 	</pre>
 
-	<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>" style="float:right;">
-		<img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
-	</a>
+	<? if (!FINISHED): ?>
+		<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>" style="float:right;">
+			<img src="img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
+		</a>
+	<? endif ?>
 </div>
 <!-- cadastre-se -->
 
