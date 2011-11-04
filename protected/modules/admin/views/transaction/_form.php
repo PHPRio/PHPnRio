@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form" id="transaction-import">
 	<?php
 		echo CHtml::beginForm($this->createUrl('transaction/uploadList'), 'post', array('enctype' => 'multipart/form-data'));
 
@@ -9,3 +9,6 @@
 	<p class="note">Subir um XML com novos registros enviará um email para cada um dos novos inscritos e os que tiveram seu pagamento confirmado, informando sobre a página de finalização das inscrições.</p>
 	<? echo CHtml::endForm(); ?>
 </div>
+<br />
+<hr />
+<br />

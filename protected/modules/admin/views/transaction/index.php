@@ -26,28 +26,33 @@ $('.search-form form').submit(function(){
 });
 ");
 
-$this->renderPartial('_form');
+if (!isset($GLOBALS['printing'])) $this->renderPartial('_form');
 ?>
-<br />
-<hr />
-<br />
 
-<h1>Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscritos '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?></h1>
+<h1>
+	Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscritos '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?>
+	 <?=$this->renderPartial('/layouts/_print_button')?>
+</h1>
 
 <?php
+$columns = array(
+	'code:text:Código',
+	'name:text:Nome',
+	'status:text:Status',
+	'payment_type:text:Tipo',
+	'total_attendees:text:Inscrições'
+);
+if (!isset($GLOBALS['printing'])) {
+	array_unshift($columns,'id');
+	$columns = array_merge($columns, array(
+		'transaction_date:text:Data',
+		array('class'=>'CButtonColumn', 'template' => '{view}'),
+	));
+}
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'attendee-grid',
 	'dataProvider'=>$transactions,
 	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'name',
-		'status',
-		'payment_type',
-		'total_attendees',
-		'received',
-		'transaction_date',
-		array('class'=>'CButtonColumn', 'template' => '{view}'),
-	),
+	'columns'=> $columns
 ));
 ?>

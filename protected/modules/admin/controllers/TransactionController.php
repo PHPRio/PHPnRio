@@ -45,17 +45,19 @@ class TransactionController extends Controller {
 		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
 	}
 
-	private function getUnconfirmedTransactions() { return Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee)')->queryAll(); }
+	private function getUnconfirmedTransactions() {
+		return Yii::app()->db->createCommand('SELECT t.* FROM transaction t WHERE id NOT IN (SELECT transaction_id FROM attendee) ORDER BY t.name')->queryAll();
+	}
 
 	public function actionUnconfirmedAttendees() {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
 
-		/** @todo sorting is not working */
 		$transactions_array = $this->getUnconfirmedTransactions();
-		$data_provider = new CArrayDataProvider($transactions, array(
+		$data_provider = new CArrayDataProvider($transactions_array, array(
 			'id' => 'unconfirmed_attendees',
-			'sort' => array('attributes' => array('id', 'name', 'status', 'payment_type', 'total_attendees', 'received', 'transaction_date'))
+			'sort' => array('attributes' => array('id', 'name', 'status', 'payment_type', 'total_attendees', 'received', 'transaction_date')),
+			'pagination' => isset($GLOBALS['printing'])? false : array('pageSize' => 10)
 		));
 
 		$this->render('index', array('model' => $model, 'transactions' => $data_provider));
