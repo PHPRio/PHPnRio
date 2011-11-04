@@ -35,6 +35,8 @@ class Transaction extends CActiveRecord {
 	const STATUS_RETURNED = 'Devolvida';
 	const STATUS_CANCELED = 'Cancelada';
 
+	const CODE_FREE_TICKETS = 'C734657E-B772-4456-B945-E33333B4AD32';
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Transaction the static model class
