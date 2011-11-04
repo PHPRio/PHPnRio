@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed'),
+				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -37,6 +37,14 @@ class TransactionController extends Controller {
 	protected function beforeAction($action) {
 		$this->attendeeCalculator->beforeAction();
 		return true;
+	}
+
+	public function actionCleanPendingTransactions() {
+		$paid = Transaction::model()->findAllByAttributes(array('status' => Transaction::STATUS_APPROVED));
+		foreach ($paid as $t)
+			$pending = Transaction::model()->deleteAllByAttributes(array('status' => Transaction::STATUS_WAITING, 'name' => $t->name));
+
+		$this->redirect('index');
 	}
 
 	public function actionIndex() {
