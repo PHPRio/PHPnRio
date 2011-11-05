@@ -54,7 +54,7 @@ class Controller extends CController
 		parent::beforeRender($view);
 
 		if (isset($GLOBALS['printing']) && $GLOBALS['printing'])
-			$this->layout = false;
+			$this->layout = '/layouts/empty';
 
 		return true;
 	}
