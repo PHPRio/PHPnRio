@@ -33,7 +33,7 @@ $config = array(
 		'mail' => array(
 			'class' => 'ext.mail.YiiMail',
 			'logging' => true,
-			'dryRun' => !PRODUCTION,
+			'dryRun' => true,
 			'transportType' => 'smtp',
 			'transportOptions' => require '_email.php',
 		),
