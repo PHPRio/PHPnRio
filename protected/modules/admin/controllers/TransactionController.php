@@ -119,7 +119,6 @@ class TransactionController extends Controller {
 				switch ($transaction_xml->Status) {
 					case Transaction::STATUS_CANCELED: //deleting transactions that have been canceled
 						if (!$transaction->isNewRecord) $transaction->delete();
-						continue;
 					break;
 
 					case Transaction::STATUS_APPROVED: //deleting other transactions by the same person that are pending when there's one that's approved
@@ -130,6 +129,8 @@ class TransactionController extends Controller {
 					break;
 				}
 			}
+
+			if ($transaction_xml->Status == Transaction::STATUS_CANCELED) continue;
 
 			$price = self::handle_br_numbers($transaction_xml->Valor_Bruto);
 			$transaction->attributes = array(
