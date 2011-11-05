@@ -58,6 +58,7 @@
 				<?php
 				$this->widget('zii.widgets.CBreadcrumbs', array(
 					'links' => $this->breadcrumbs,
+					'homeLink' => '<a href="/admin">Página Inicial</a>'
 				));
 				?><!-- breadcrumbs -->
 			<?php endif ?>
