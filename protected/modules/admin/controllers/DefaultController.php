@@ -23,7 +23,7 @@ class DefaultController extends Controller {
 				'users' => array('?'),
 			),
 			array('allow',
-				'actions' => array('index','logout','print'),
+				'actions' => array('index','logout','print', 'prizes'),
 				'users' => array('@'),
 			),
 			array('allow',
@@ -76,6 +76,35 @@ class DefaultController extends Controller {
 
 		$GLOBALS['printing'] = true;
 		$this->forward("/$route");
+	}
+
+	public function actionPrizes() {
+		$already_chosen_file = YiiBase::getPathOfAlias('application.runtime.already_chosen');
+		if (file_exists($already_chosen_file)) {
+			$already_chosen = unserialize(file_get_contents($already_chosen_file));
+			if (!$already_chosen) $already_chosen = array();
+		}
+		else {
+			touch($already_chosen_file);
+			$already_chosen = array();
+		}
+
+		$where = (sizeof($already_chosen))? 'WHERE id NOT IN ('.implode(',', $already_chosen).')' : '';
+
+		$transaction = Transaction::model()->with('attendees')->findBySql("SELECT * FROM transaction $where ORDER BY RAND() LIMIT 1");
+		$total_attendees = sizeof($transaction->attendees);
+		if ($total_attendees > 0) {
+			$result = $transaction->attendees[rand(0, $total_attendees-1)]->name;
+		}
+		else {
+			$result = $transaction->name;
+		}
+
+		$already_chosen[] = $transaction->id;
+		file_put_contents($already_chosen_file, serialize($already_chosen));
+
+		$this->layout = '/layouts/empty';
+		$this->render('prizes', compact('result'));
 	}
 
 }

@@ -41,11 +41,12 @@
 				<?php
 				$this->widget('zii.widgets.CMenu', array(
 					'items' => array(
+						array('label' => '-= FAZER SORTEIO =-', 'url' => $this->createUrl('default/prizes')),
 						array('label' => 'Notícias', 'url' => $this->createUrl('news/index')),
 						array('label' => 'Palestrantes', 'url' => $this->createUrl('speaker/index')),
 						array('label' => 'Palestras', 'url' => $this->createUrl('presentation/index')),
 						array('label' => 'Patrocinadores', 'url' => $this->createUrl('sponsor/index')),
-						array('label' => 'Membros da Equipe', 'url' => $this->createUrl('teamMember/index')),
+						array('label' => 'Equipe', 'url' => $this->createUrl('teamMember/index')),
 						array('label' => 'Inscrições', 'url' => $this->createUrl('transaction/index')),
 						array('label' => 'Usuários', 'url' => $this->createUrl('user/index')),
 						array('label' => 'Login', 'url' => array('login'), 'visible' => Yii::app()->user->isGuest),

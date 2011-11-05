@@ -1,5 +1,5 @@
 <?php return array(
-'admin/<action:(login|logout)>' => 'admin/default/<action>',
+'admin/<action:(login|logout|prizes)>' => 'admin/default/<action>',
 'admin/print/<route>' => 'admin/default/print',
 'patrocinadores' => 'sponsor/list',
 'palestrantes' => 'speaker/list',
