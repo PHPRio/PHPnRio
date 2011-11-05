@@ -118,7 +118,7 @@ class TransactionController extends Controller {
 			if ($old_status != $transaction_xml->Status) {
 				switch ($transaction_xml->Status) {
 					case Transaction::STATUS_CANCELED: //deleting transactions that have been canceled
-						$transaction->delete();
+						if (!$transaction->isNewRecord) $transaction->delete();
 						continue;
 					break;
 
