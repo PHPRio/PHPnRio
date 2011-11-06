@@ -70,11 +70,11 @@ table.programacao td.intervalo {
 							<td colspan="5" class="intervalo">Credenciamento e Breakfast</td>
 						</tr>
 						<tr>
-							<td>09:20/09:30</td>
+							<td>10:00/10:30</td>
 							<td colspan="5" class="intervalo">ABERTURA – Auditório Principal</td>
 						</tr>
 						<tr>
-							<td>09:30/10:30</td>
+							<td>10:30/11:30</td>
 							<td>
 								<?=$this->renderPartial('_checkbox', array('code' => 'p1-1', 'slug' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>
 							   <a href="<?=$this->createUrl('presentation/list', array('#' => 'padroes-de-projeto-em-php-importancia-e-implementacao'))?>">Padrões de projeto em PHP: importância e implementação</a>
@@ -94,25 +94,25 @@ table.programacao td.intervalo {
 							<td rowspan="3" class="desconf"><a href="<?=$this->createUrl('news/view', array('data' => 'desconferencia'))?>">Desconf</a></td>
 						</tr>
 						<tr>
-							<td>10:30/11:30</td>
+							<td>11:30/12:10</td>
 							<td>
 								<?=$this->renderPartial('_checkbox', array('code' => 'p2-1', 'slug' => 'magento-experiencias-de-mercado'))?>
 								<a href="<?=$this->createUrl('presentation/list', array('#' => 'magento-experiencias-de-mercado'))?>">Magento: Experiências de mercado</a>
 							</td>
 							<td>
-								<?=$this->renderPartial('_checkbox', array('code' => 'p2-2', 'disabled' => true, 'slug' => null))?>
-								<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p3-2', 'slug' => 'mongodb-com-php'))?>
+								<a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">MongoDb com PHP</a>
 							</td>
 						</tr>
 						<tr>
-							<td>11:30/12:30</td>
+							<td>12:10/12:50</td>
 							<td>
 								<?=$this->renderPartial('_checkbox', array('code' => 'p3-1', 'slug' => 'scrum-antes-durante-e-depois'))?>
 								<a href="<?=$this->createUrl('presentation/list', array('#' => 'scrum-antes-durante-e-depois'))?>">Scrum: Antes, durante e depois</a>
 							</td>
 							<td>
-								<?=$this->renderPartial('_checkbox', array('code' => 'p3-2', 'slug' => 'mongodb-com-php'))?>
-								<a href="<?=$this->createUrl('presentation/list', array('#' => 'mongodb-com-php'))?>">MongoDb com PHP</a>
+								<?=$this->renderPartial('_checkbox', array('code' => 'p2-2', 'disabled' => true, 'slug' => null))?>
+								<a href="<?=$this->createUrl('presentation/list')?>">Não confirmado</a>
 							</td>
 						</tr>
 						<tr>
