@@ -105,8 +105,13 @@ class SponsorController extends Controller {
 	public function actionIndex() {
 		$model = new Sponsor('search');
 		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['Sponsor']))
+		if (isset($_GET['Sponsor'])) {
 			$model->attributes = $_GET['Sponsor'];
+			if (isset($_GET['Sponsor']['categoryName'])) {
+				$categories = array_flip(Sponsor::$categories);
+				$category_id = $categories[ucfirst(strtolower($_GET['Sponsor']['categoryName']))];
+			}
+		}
 
 		$this->render('admin', array(
 			'model' => $model,

@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'Gráfico', 'url'=>array('transaction/graph')),
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
 	array('label'=>'Trans. sem inscritos', 'url'=>array('transaction/unconfirmedAttendees')),
 	array('label'=>'Ver Inscritos', 'url'=>array('attendee/index')),

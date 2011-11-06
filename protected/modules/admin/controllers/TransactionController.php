@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions'),
+				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions','graph'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -95,6 +95,73 @@ class TransactionController extends Controller {
 
 	public function actionView($id) {
 		$this->render('view', array('model' => $this->loadModel($id)));
+	}
+
+	public function actionGraph() {
+		Yii::import('ext.helpers.DateHelper');
+		$transactions = Yii::app()->db->createCommand()->select('COUNT(*) total, CAST(transaction_date AS DATE) date')->from('transaction')->group('date')->queryAll();
+
+		$dof_array = array(
+			'Sunday' => 'D',
+			'Monday' => '2ª',
+			'Tuesday' => '3ª',
+			'Wednesday' => '4ª',
+			'Thursday' => '5ª',
+			'Friday' => '6ª',
+			'Saturday' => 'S',
+		);
+
+		$dates = $numbers = array();
+		$i = 0;
+		foreach ($transactions as $trans) {
+			$dof = $dof_array[date('l', strtotime($trans['date']))];
+			$date = DateHelper::convert($trans['date'], 'ISO', 'BR');
+			$unix_date = strtotime($trans['date']);
+
+			$diff = ($unix_date - $last_day)/60/60/24;
+			if (isset($last_day) && $diff > 1) {
+				for($times = 1; $times < $diff; $times++) {
+					$this_unix_date = strtotime("-$times days", $unix_date);
+					$this_day = date('d', $this_unix_date);
+					$this_dof = $dof_array[date('l', $this_unix_date)];
+
+					$dates[] = $i % 3 == 0 ? "$this_day-$this_dof" : $this_dof;
+					$numbers[] = 0;
+					++$i;
+				}
+			}
+			$last_day = $unix_date;
+
+			$dates[] = $i % 3 == 0 ? substr($date,0,2)."-$dof" : $dof;
+			$numbers[] = $trans['total'];
+			++$i;
+		}
+
+		$min = min($numbers);
+		$max = max($numbers);
+		$colors = array('4080A5','4C99C5','85BAD8');
+
+		$graph = 'http://chart.apis.google.com/chart?cht=lc'.
+			"&chds=0,40". // min,max for each datagroup
+			'&chd=t:'.implode(',', $numbers).  //data
+
+			'&chxt=x,y'. //what axis to show
+			'&chxl='. //axis values
+				'0:|'.implode('|', $dates).'|'.
+				"1:|0|5|10|15|20|25|30|35|40".
+
+			'&chs=900x200'. //dimensions
+//			'&chma=10,10,10,10'. //margin
+
+			"&chco=$colors[1]". //line colors
+			'&chf=c,s,EFEFEF'. //last 2 zeroes for bg makes it fully transparent
+			"&chm=B,$colors[2]85,0,0,0,-1|o,$colors[0],0,-1,4". //filling under the line; adding markers to each point
+
+			'&chg='.(100/(sizeof($dates)-1)).','.(100/8).
+			'&chls=2'; //line style (tickness, dash length, space length)
+
+		$this->layout = '/layouts/column1';
+		$this->render('graph', compact('graph'));
 	}
 
 	public function actionUploadList() {
@@ -205,3 +272,19 @@ class TransactionController extends Controller {
 		return $model;
 	}
 }
+
+
+//http://chart.googleapis.com/chart?cht=lc&
+//chds=0,37&
+//chd=t:2,0,1,8,7,5,7,1,3,6,8,7,15,7,3,1,8,8,15,20,10,5,7,6,17,12,21,12,3,6,18,23,11,22,37,4&
+//chxt=x,y&
+//chxp=50|50&
+//chxl=0:|01-S|D|2%C2%AA|04-3%C2%AA|4%C2%AA|5%C2%AA|07-6%C2%AA|S|D|10-2%C2%AA|3%C2%AA|4%C2%AA|13-5%C2%AA|6%C2%AA|S|16-D|2%C2%AA|3%C2%AA|19-4%C2%AA|5%C2%AA|6%C2%AA|22-S|D|2%C2%AA|25-3%C2%AA|4%C2%AA|5%C2%AA|28-6%C2%AA|S|D|31-2%C2%AA|3%C2%AA|4%C2%AA|03-5%C2%AA|6%C2%AA|S|1:|0|9.25|18.5|27.75|37|&
+//chs=900x200&
+//chco=4C99C5&
+//chf=bg,s,00000000|c,s,EFEFEF&
+//chm=o,4080A5,0,-1,6|B,85BAD8,1,0,0&
+//chg=2.8571428571429,25&
+//chls=3
+
+

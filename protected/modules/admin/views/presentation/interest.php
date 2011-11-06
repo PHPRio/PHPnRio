@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'Gráfico', 'url'=>array('transaction/graph')),
 	array('label'=>'Nova Palestra', 'url'=>array('create')),
 	array('label'=>'Listar Palestras', 'url'=>array('index')),
 	array('label'=>'Ver Transações', 'url'=>array('transaction/index')),
