@@ -25,6 +25,5 @@ $this->menu=array(
 		'description',
 		'periodTime',
 		array('name' => 'Palestrante(s)', 'type' => 'html', 'value' => $model->getSpeakersNames(true)),
-		array('name' => 'Imagem', 'type' => 'image', 'value' => $model->getImageUrl('imageName'))
 	),
 )); ?>
