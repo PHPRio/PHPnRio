@@ -22,7 +22,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'title',
-		array('name' => 'Arquivo', 'type' => 'html', 'value' => ($model->hasFile)? '<a href="/presentations/'.basename($model->filename).'">'.basename($model->filename).'</a>' : 'Não tem'),
+		array('name' => 'Arquivo', 'type' => 'html', 'value' => ($model->hasFile)? '<a href="'.$model->fileUrl.'">'.basename($model->filename).'</a>' : 'Não tem'),
 		'description',
 		'periodTime',
 		array('name' => 'Palestrante(s)', 'type' => 'html', 'value' => $model->getSpeakersNames(true)),

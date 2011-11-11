@@ -121,7 +121,8 @@ class Presentation extends CActiveRecord {
 
 	public function getPeriodTime() { return self::$periods[isset($this->period)? $this->period : 0]; }
 
-	public function getFilename() { return YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.zip"; }
+	public function getFilename() { return YiiBase::getPathOfAlias('webroot.arquivos-palestras')."/$this->slug.zip"; }
+	public function getFileUrl() { return "/arquivos-palestras/$this->slug.zip"; }
 
 	public function getHasFile() { return file_exists($this->getFilename()); }
 

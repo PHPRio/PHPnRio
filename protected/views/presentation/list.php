@@ -11,7 +11,7 @@
 				<h1>
 					<img src="imagens/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 					<?=$pres->title?>
-					<? if ($pres->hasFile) { ?><span style="font-size: 14px">- <a href="/presentations/<?=basename($pres->filename)?>">Baixar arquivo(s)</a></span><? } ?>
+					<? if ($pres->hasFile) { ?><span style="font-size: 14px">- <a href="<?=$pres->fileUrl?>">Baixar arquivo(s)</a></span><? } ?>
 				</h1>
 				<h3>
 					<?php
