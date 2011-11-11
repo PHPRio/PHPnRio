@@ -121,6 +121,10 @@ class Presentation extends CActiveRecord {
 
 	public function getPeriodTime() { return self::$periods[isset($this->period)? $this->period : 0]; }
 
+	public function getFilename() { return YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.zip"; }
+
+	public function getHasFile() { return file_exists($this->getFilename()); }
+
 	public function getSpeakersNames($html = false) {
 		if (!is_array($this->speakers)) return '';
 
@@ -140,17 +144,16 @@ class Presentation extends CActiveRecord {
 		parent::afterSave();
 		if (isset($_FILES['Presentation']['tmp_name']['file']) && !empty($_FILES['Presentation']['tmp_name']['file'])) {
 			list($name, $tmp_name) = array($_FILES['Presentation']['name']['file'], $_FILES['Presentation']['tmp_name']['file']);
-			$final_name = YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.zip";
 
 			$ext = strrev(strtok(strrev($name),'.'));
 			if (strtolower($ext) != 'zip') {
 				$zip = new ZipArchive();
-				$zip->open($final_name, ZipArchive::CREATE);
+				$zip->open($this->getFilename(), ZipArchive::CREATE);
 				$zip->addFile($tmp_name, $name);
 				$zip->close();
 			}
 			else {
-				move_uploaded_file($tmp_name, $final_name);
+				move_uploaded_file($tmp_name, $this->getFilename());
 			}
 		}
 
