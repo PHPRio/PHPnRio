@@ -140,8 +140,18 @@ class Presentation extends CActiveRecord {
 		parent::afterSave();
 		if (isset($_FILES['Presentation']['tmp_name']['file']) && !empty($_FILES['Presentation']['tmp_name']['file'])) {
 			list($name, $tmp_name) = array($_FILES['Presentation']['name']['file'], $_FILES['Presentation']['tmp_name']['file']);
+			$final_name = YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.zip";
+
 			$ext = strrev(strtok(strrev($name),'.'));
-			move_uploaded_file($tmp_name, YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.$ext");
+			if (strtolower($ext) != 'zip') {
+				$zip = new ZipArchive();
+				$zip->open($final_name, ZipArchive::CREATE);
+				$zip->addFile($tmp_name, $name);
+				$zip->close();
+			}
+			else {
+				move_uploaded_file($tmp_name, $final_name);
+			}
 		}
 
 		return true;
