@@ -29,9 +29,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'image'); ?>
-		<?php echo $form->fileField($model,'image'); ?>
-		<?php echo $form->error($model,'image'); ?>
+		<?php echo $form->labelEx($model,'file'); ?>
+		<?php echo $form->fileField($model,'file'); ?>
+		<?php echo $form->error($model,'file'); ?>
 	</div>
 
 	<div class="row">

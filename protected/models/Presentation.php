@@ -19,6 +19,7 @@
 class Presentation extends CActiveRecord {
 
 	/** @var mixed */ public $image;
+	/** @var mixed */ public $file;
 
 	/** @var array */ public static $periods = array(
 			'Indefinido',
@@ -47,14 +48,6 @@ class Presentation extends CActiveRecord {
 
 	 public function behaviors() {
 		 return array(
-			'imageBehavior'	=> array('class' => 'ext.behaviors.HasImage',
-				'fields'	=> array('image'),
-				'folderName'=> 'palestras',
-				'resizeTo'	=> array(array(200,200)),
-				'hasThumb'	=> true,
-				'thumbSize'	=> array(array(70,70)),
-				'prependFileName' => false,
-			),
 			'slugBehavior'			=> array('class' => 'ext.behaviors.SlugBehavior',
 				'overwrite'			=> false,
 			),
@@ -103,6 +96,7 @@ class Presentation extends CActiveRecord {
 			'periodTime' => 'Horário',
 			'speakers' => 'Palestrante(s)',
 			'speakersNames' => 'Palestrante(s)',
+			'file' => 'Apresentação / ZIP',
 		);
 	}
 
@@ -140,6 +134,17 @@ class Presentation extends CActiveRecord {
 			foreach ($this->speakers as $speaker) $names[] = $speaker->name;
 			return implode("\n", $names);
 		}
+	}
+
+	protected function afterSave() {
+		parent::afterSave();
+		if (isset($_FILES['Presentation']['tmp_name']['file']) && !empty($_FILES['Presentation']['tmp_name']['file'])) {
+			list($name, $tmp_name) = array($_FILES['Presentation']['name']['file'], $_FILES['Presentation']['tmp_name']['file']);
+			$ext = strrev(strtok(strrev($name),'.'));
+			move_uploaded_file($tmp_name, YiiBase::getPathOfAlias('webroot.presentations')."/$this->slug.$ext");
+		}
+
+		return true;
 	}
 
 	protected function beforeDelete() {
