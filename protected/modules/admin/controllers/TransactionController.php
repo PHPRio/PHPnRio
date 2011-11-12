@@ -272,19 +272,3 @@ class TransactionController extends Controller {
 		return $model;
 	}
 }
-
-
-//http://chart.googleapis.com/chart?cht=lc&
-//chds=0,37&
-//chd=t:2,0,1,8,7,5,7,1,3,6,8,7,15,7,3,1,8,8,15,20,10,5,7,6,17,12,21,12,3,6,18,23,11,22,37,4&
-//chxt=x,y&
-//chxp=50|50&
-//chxl=0:|01-S|D|2%C2%AA|04-3%C2%AA|4%C2%AA|5%C2%AA|07-6%C2%AA|S|D|10-2%C2%AA|3%C2%AA|4%C2%AA|13-5%C2%AA|6%C2%AA|S|16-D|2%C2%AA|3%C2%AA|19-4%C2%AA|5%C2%AA|6%C2%AA|22-S|D|2%C2%AA|25-3%C2%AA|4%C2%AA|5%C2%AA|28-6%C2%AA|S|D|31-2%C2%AA|3%C2%AA|4%C2%AA|03-5%C2%AA|6%C2%AA|S|1:|0|9.25|18.5|27.75|37|&
-//chs=900x200&
-//chco=4C99C5&
-//chf=bg,s,00000000|c,s,EFEFEF&
-//chm=o,4080A5,0,-1,6|B,85BAD8,1,0,0&
-//chg=2.8571428571429,25&
-//chls=3
-
-
