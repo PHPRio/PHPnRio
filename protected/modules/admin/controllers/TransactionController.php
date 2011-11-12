@@ -50,6 +50,9 @@ class TransactionController extends Controller {
 	public function actionIndex() {
 		$model = new Transaction('search');
 		$model->unsetAttributes();  // clear any default values
+		if (isset($_GET['Transaction']))
+			$model->attributes = $_GET['Transaction'];
+		
 		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
 	}
 
