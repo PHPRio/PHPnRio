@@ -48,7 +48,7 @@ Você pode opcionalmente inserir um operador de comparação (<b>&lt;</b>, <b>&l
 		'description',
 		'periodTime',
 		array('header' => 'Palestrante(s)', 'type' => 'html', 'value' => '$data->getSpeakersNames(true)'),
-		array('header' => 'Arquivo', 'type' => 'html', 'value' => '($data->hasFile)? \'<a href="\'.$data->fileUrl.\'">Baixar</a>\' : \'Não tem\''),
+		array('header' => 'Arquivo', 'type' => 'html', 'value' => '(($data->hasFile)? \'<a href="\'.$data->fileUrl.\'">Arquivo</a>\' : \'\').(($data->link)? \'<br /><br /><a href="\'.$data->link.\'">Link</a>\' : \'\')'),
 		array('class'=>'CButtonColumn'),
 	),
 )); ?>

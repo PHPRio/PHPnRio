@@ -1,4 +1,4 @@
-<div class="form">
+ain<div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'presentation-form',
@@ -32,6 +32,12 @@
 		<?php echo $form->labelEx($model,'file'); ?>
 		<?php echo $form->fileField($model,'file'); ?>
 		<?php echo $form->error($model,'file'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'link'); ?>
+		<?php echo $form->textField($model,'link',array('size' => 30, 'maxlength' => 100)); ?>
+		<?php echo $form->error($model,'link'); ?>
 	</div>
 
 	<div class="row">

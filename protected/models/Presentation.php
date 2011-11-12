@@ -9,6 +9,7 @@
  * @property string $description
  * @property integer $period
  * @property string $slug
+ * @property string $link
  *
  * @property virt-string $periodTime
  *
@@ -65,6 +66,8 @@ class Presentation extends CActiveRecord {
 			array('title, description, speakers', 'required'),
 			array('period', 'numerical', 'integerOnly'=>true, 'allowEmpty' => true),
 			array('title', 'length', 'max'=>100),
+			array('link', 'length', 'max'=>100, 'allowEmpty' => true),
+			array('link', 'url','allowEmpty' => true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, description, period', 'safe', 'on'=>'search'),
@@ -97,6 +100,7 @@ class Presentation extends CActiveRecord {
 			'speakers' => 'Palestrante(s)',
 			'speakersNames' => 'Palestrante(s)',
 			'file' => 'Apresentação / ZIP',
+			'link' => 'Link da apresentação',
 		);
 	}
 

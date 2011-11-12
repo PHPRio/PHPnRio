@@ -11,7 +11,13 @@
 				<h1>
 					<img src="imagens/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 					<?=$pres->title?>
-					<? if ($pres->hasFile) { ?><span style="font-size: 14px">- <a href="<?=$pres->fileUrl?>">Baixar arquivo(s)</a></span><? } ?>
+					<? if ($pres->hasFile || $pres->link): ?>
+						<span style="font-size: 14px">-
+							<? if ($pres->hasFile) { ?><a href="<?=$pres->fileUrl?>">Baixar arquivo(s)</a><? } ?>
+							<? if ($pres->hasFile && $pres->link) { ?> || <? } ?>
+							<? if ($pres->link) { ?><a target="_blank" style="background: url(/img/external-12.png) no-repeat center right; padding-right: 16px;" href="<?=$pres->link?>">Link da palestra</a><? } ?>
+						</span>
+					<? endif ?>
 				</h1>
 				<h3>
 					<?php
