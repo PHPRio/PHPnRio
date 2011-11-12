@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions','graph'),
+				'actions' => array('index', 'view', 'import', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions','graph'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -52,8 +52,12 @@ class TransactionController extends Controller {
 		$model->unsetAttributes();  // clear any default values
 		if (isset($_GET['Transaction']))
 			$model->attributes = $_GET['Transaction'];
-		
+
 		$this->render('index', array('model' => $model, 'transactions' => $model->search()));
+	}
+
+	public function actionImport() {
+		$this->render('import');
 	}
 
 	private function getUnconfirmedTransactions() {

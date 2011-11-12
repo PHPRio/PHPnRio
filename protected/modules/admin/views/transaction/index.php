@@ -26,13 +26,12 @@ $('.search-form form').submit(function(){
 	return false;
 });
 ");
-
-if (!isset($GLOBALS['printing'])) $this->renderPartial('_form');
 ?>
 
 <h1>
 	Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscritos '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?>
 	 <?=$this->renderPartial('/layouts/_print_button')?>
+	 <?=CHtml::htmlButton('Nova importação', array('submit' => array('transaction/import')))?>
 </h1>
 
 <?php
