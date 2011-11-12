@@ -123,7 +123,7 @@ class Presentation extends CActiveRecord {
 
 	public function getImageName() { return $this->id.'.jpg'; }
 
-	public function getPeriodTime() { return self::$periods[isset($this->period)? $this->period : 0]; }
+	public function getPeriodTime() { return isset($this->period)? self::$periods[$this->period] : ''; }
 
 	public function getFilename() { return YiiBase::getPathOfAlias('webroot.arquivos-palestras')."/$this->slug.zip"; }
 	public function getFileUrl() { return "/arquivos-palestras/$this->slug.zip"; }
