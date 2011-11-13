@@ -19,8 +19,8 @@ class Certificate extends FPDF {
 
 	function generate() {
 		$this->AddPage('L', 'A4');
-		$this->SetXY(73, 63);
+		$this->SetXY(20, 63);
 		$this->SetFont('Arial', 'B', 40);
-		$this->Cell(150, 25, $this->name, 0, 0, 'C');
+		$this->MultiCell(257, (strlen($this->name) > 35)? 13 : 25, $this->name, 0, 'C');
 	}
 }
