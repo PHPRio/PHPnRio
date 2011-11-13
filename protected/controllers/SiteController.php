@@ -56,6 +56,18 @@ class SiteController extends Controller {
 		}
 	}
 
+	public function actionBiggestName() {
+		$n = array();
+
+		$att = Attendee::model()->findAll();
+		foreach ($att as $a) $n[strlen($a->name)] = "A$a->id - $a->name (".strlen($a->name).')';
+		$trans = Transaction::model()->findAll();
+		foreach ($trans as $t) $n[strlen($t->name)] = "T$t->id - $t->name (".strlen($t->name).')';
+
+		ksort($n);
+		die(var_dump(array_pop($n)));
+	}
+
 	public function actionGetCertificate($code) {
 		$cert_path = YiiBase::getPathOfAlias('webroot.certificados')."/$code.pdf";
 
