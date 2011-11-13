@@ -1,6 +1,7 @@
 <?php return array(
 'admin/<action:(login|logout|prizes)>' => 'admin/default/<action>',
 'admin/print/<route>' => 'admin/default/print',
+'certificado/<code:([at]-\d*)>' => 'site/getCertificate',
 'patrocinadores' => 'sponsor/list',
 'palestrantes' => 'speaker/list',
 'equipe' => 'teamMember/list',

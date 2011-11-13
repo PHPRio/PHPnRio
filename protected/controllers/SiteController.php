@@ -56,4 +56,29 @@ class SiteController extends Controller {
 		}
 	}
 
+	public function actionGetCertificate($code) {
+		$cert_path = YiiBase::getPathOfAlias('webroot.certificados')."/$code.pdf";
+
+		if (!file_exists($cert_path)) {
+			$original_code = $code;
+			$code = explode('-', $original_code);
+
+			switch ($code[0]) {
+				case 'a': $model = Attendee::model();		break;
+				case 't': $model = Transaction::model();	break;
+			}
+			$name = $model->findByPk($code[1])->name;
+
+			if (!$name) throw new CHttpException(404, 'Código inválido!');
+
+			$pdf = new Certificate(utf8_decode($name));
+			$pdf->generate();
+			$pdf->Output($cert_path, 'F');
+		}
+
+		header('Content-Type: application/pdf;');
+		header('Content-disposition: attachment; filename='.urldecode('Certificado PHP\'n Rio 11').'.pdf');
+		die(file_get_contents($cert_path));
+	}
+
 }
