@@ -21,7 +21,7 @@ class TransactionController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',
-				'actions' => array('index', 'view', 'import', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions','graph'),
+				'actions' => array('index', 'view', 'import', 'uploadList', 'unconfirmedAttendees', 'sendEmailToUnconfirmed', 'cleanPendingTransactions','graph', 'sendFinalEmail'),
 				'users' => array('@'),
 			),
 			array('deny', // deny all users
@@ -169,6 +169,41 @@ class TransactionController extends Controller {
 
 		$this->layout = '/layouts/column1';
 		$this->render('graph', compact('graph'));
+	}
+
+	public function actionSendFinalEmail() {
+		Yii::import('ext.mail.*');
+		Yii::import('ext.helpers.ArrayHelper');
+		Yii::app()->mail->dryRun = !PRODUCTION;
+		$sent_log = YiiBase::getPathOfAlias('application.runtime.sent_certificates');
+
+		touch($sent_log);
+		$sent_transactions = ArrayHelper::clear(explode(';', file_get_contents($sent_log)));
+
+		$transactions = Transaction::model()->findAllByAttributes(array('status' => Transaction::STATUS_APPROVED), sizeof($sent_transactions) > 0? 'id NOT IN ('.implode(',',$sent_transactions).')' : '');
+		$total = 0;
+		foreach ($transactions as $transaction) {
+			$list = array();
+			foreach($transaction->attendees as $attendee)
+				if (!is_numeric($attendee->name) && $attendee->name != 'Identidade')
+					$list[$attendee->name] = 'a:'.$attendee->id;
+
+			if (!count($list))
+				$list = array($transaction->name => 't:'.$transaction->id);
+
+			$mail = new YiiMailMessage('PHP\'n Rio - Certificado de Participação');
+			$mail->setBody($this->renderPartial('/emails/certificados', array('list' => $list), true), 'text/html');
+			$mail->addFrom(Yii::app()->params['email'], 'PHP\'n Rio');
+			$mail->addTo((string)$transaction->email, (string)$transaction->name);
+			Yii::app()->mail->send($mail);
+			file_put_contents($sent_log, $transaction->id.';', FILE_APPEND);
+			++$total;
+		}
+
+		$s = $total > 1? 's' : '';
+		Yii::app()->user->setFlash('alert', ($s? 'Foram' : ($total == 0? 'Não foi' : 'Foi'))." enviado$s ".($total? $total : 'nenhum')." email$s.");
+
+		$this->redirect('index');
 	}
 
 	public function actionUploadList() {

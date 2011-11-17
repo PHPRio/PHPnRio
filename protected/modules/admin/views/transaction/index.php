@@ -32,6 +32,7 @@ $('.search-form form').submit(function(){
 	Lista de Transações <?=!$unconfirmed_page? 'Importadas' : 'sem Inscritos '.CHtml::htmlButton('Reenviar email a eles', array('submit' => array('transaction/sendEmailToUnconfirmed'), 'confirm' => 'Tem certeza? Isso enviará o email com as instruções novamente a todas as transações sem inscrições confirmadas.'))?>
 	 <?=$this->renderPartial('/layouts/_print_button')?>
 	 <?=CHtml::htmlButton('Nova importação', array('submit' => array('transaction/import')))?>
+	 <?=CHtml::htmlButton('Enviar certificados', array('submit' => array('transaction/sendFinalEmail')))?>
 </h1>
 
 <?php
