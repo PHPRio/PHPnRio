@@ -186,10 +186,10 @@ class TransactionController extends Controller {
 			$list = array();
 			foreach($transaction->attendees as $attendee)
 				if (!is_numeric($attendee->name) && $attendee->name != 'Identidade')
-					$list[$attendee->name] = 'a:'.$attendee->id;
+					$list[$attendee->name] = 'a-'.$attendee->id;
 
 			if (!count($list))
-				$list = array($transaction->name => 't:'.$transaction->id);
+				$list = array($transaction->name => 't-'.$transaction->id);
 
 			$mail = new YiiMailMessage('PHP\'n Rio - Certificado de Participação');
 			$mail->setBody($this->renderPartial('/emails/certificados', array('list' => $list), true), 'text/html');
