@@ -4,6 +4,7 @@ web1:
     - /var/www/assets
     - /var/www/protected/runtime
     - /var/www/img/conteudo
+    - /etc/yii
   document_root: /var/www
 #  php_version: 5.3.9 # defaults to the newest stable version
   php_extensions:

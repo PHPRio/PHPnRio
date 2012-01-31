@@ -8,7 +8,7 @@ define('FINISHED', time() >= strtotime('2011-11-04 15:00:00'));
 switch (ENV) {
 	case 'pagoda':
 		$config = dirname(__FILE__).'/protected/config/main.php';
-		$uii = 
+		$yii = '/etc/yii/yii-1.1.8/framework/yiilite.php';
 	case 'prod':
 		$config = dirname(__FILE__).'/protected/config/main.php';
 		$yii = dirname(__FILE__).'/../etc/yii/yii-1.1.8/framework/yiilite.php';
