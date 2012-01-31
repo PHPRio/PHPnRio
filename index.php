@@ -1,7 +1,7 @@
 <?php
 $env = getenv('ENVIRONMENT');
 define('ENV', $env? $env : 'prod');
-define('PRODUCTION', in_array(ENV, array('prod', 'pagoda'));
+define('PRODUCTION', in_array(ENV, array('prod', 'pagoda')));
 
 define('FINISHED', time() >= strtotime('2011-11-04 15:00:00'));
 
