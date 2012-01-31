@@ -1,0 +1,22 @@
+web1:
+  name: "PHP'n Rio 2011"
+  shared_writeable_dirs:
+    - /var/www/assets
+    - /var/www/protected/runtime
+    - /var/www/img/conteudo
+  document_root: /var/www
+#  php_version: 5.3.9 # defaults to the newest stable version
+  php_extensions:
+    - dom
+    - pdo
+    - pdo_mysql
+    - apc
+    - mcrypt
+  php_error_reporting: 0
+  php_display_errors: 0
+  php_short_open_tag: 1
+  php_date_timezone: America/Sao_Paulo
+
+db1:
+  name: phpnrio2011
+  type: mysql

@@ -44,7 +44,15 @@ $config = array(
 			'rules' => require '_routes.php',
 		),
 
-		'db' => require '_database.php',
+		'db' => ((ENV == 'pagoda')?
+			array(
+			        'connectionString' => "mysql:host={$_SERVER['DB1_HOST']};mysql:port={$_SERVER['DB1_PORT']};dbname={$_SERVER['DB1_NAME']}",
+			        'emulatePrepare' => true,
+			        'username' => $_SERVER['DB1_USER'],
+			        'password' => $_SERVER['DB1_PASS'],
+			        'charset' => 'utf8',
+			) :
+			require '_database.php'),
 
 		'errorHandler' => array('errorAction' => 'site/error'),
 
