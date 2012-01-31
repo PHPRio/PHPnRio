@@ -35,7 +35,15 @@ $config = array(
 			'logging' => true,
 			'dryRun' => true,
 			'transportType' => 'smtp',
-			'transportOptions' => require '_email.php',
+			'transportOptions' => ((ENV == 'pagoda')?
+			array(
+				'host' => $_SERVER['MAIL_HOST'],
+				'encryption' => $_SERVER['MAIL_ENCRYPTION'],
+				'username' => $_SERVER['MAIL_USER'],
+				'password' => $_SERVER['MAIL_PASS'],
+				'port' => $_SERVER['MAIL_PORT'],
+			) :
+			require '_email.php'),
 		),
 
 		'urlManager' => array(
