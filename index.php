@@ -9,6 +9,8 @@ switch (ENV) {
 	case 'pagoda':
 		$config = dirname(__FILE__).'/protected/config/main.php';
 		$yii = '/etc/yii/yii-1.1.8/framework/yiilite.php';
+	break;
+
 	case 'prod':
 		$config = dirname(__FILE__).'/protected/config/main.php';
 		$yii = dirname(__FILE__).'/../etc/yii/yii-1.1.8/framework/yiilite.php';
