@@ -13,7 +13,7 @@ web1:
     - pdo_mysql
     - apc
     - mcrypt
-  php_error_reporting: 0
+  php_error_reporting: 32767 # E_ALL | E_STRICT
   php_display_errors: 0
   php_short_open_tag: 1
   php_date_timezone: America/Sao_Paulo
