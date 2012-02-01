@@ -71,7 +71,7 @@ class ScheduleController extends Controller {
 		$this->redirect('/grade');
 	}
 
-	public function afterAction(CAction $action) {
+	public function afterAction($action) {
 		if (isset($_SESSION['transaction']) && $action->id == 'index' && $_SESSION['transaction'] === false)
 			unset($_SESSION['transaction']);
 	}
