@@ -93,7 +93,7 @@
 				<div class="conteudo-rodape">
 
 					<div class="menu-rodape">
-						<p style="margin-bottom:5px;">O EVENTO</p>
+						<p style="margin-bottom:5px">O EVENTO</p>
 						<ul>
 							<li><?=CHtml::link('Palestrantes',	array('speaker/list'))?></li>
 							<li><?=CHtml::link('Palestras',		array('presentation/list'))?></li>
@@ -104,9 +104,17 @@
 					</div>
 
 					<div class="menu-rodape">
-						<p style="margin-bottom:5px;">Precisa falar conosco?</p>
+						<p style="margin-bottom:5px">Precisa falar conosco?</p>
 						<ul>
 							<li><a href="mailto:phpnrio@phprio.org">phpnrio@phprio.org</a></li>
+						</ul>
+					</div>
+
+					<div class="menu-rodape">
+						<p style="margin-bottom:5px">Hospedagem cloud</p>
+						<ul>
+							<li><a href="http://www.pagodabox.com"><img src="img/pagodabox.png" width="100" /></a></li>
+						</ul>
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />

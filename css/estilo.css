@@ -74,8 +74,8 @@ p{font-size:14px;color:#333333;}
 .rodape-bottom a{color:#FFF;text-decoration:underline;font-size:11px;}
 .rodape-bottom a:hover{color:#FFCC66;text-decoration:underline;font-size:11px;}
 .rodape-bottom .conteudo-rodape{height:150px;width:1010px;}
-.rodape-bottom .conteudo-rodape .menu-rodape{float:left;font-size:14px;text-align:left;}
-.menu-rodape ul{font-size:12px;height:115px;width:150px;}
+.rodape-bottom .conteudo-rodape .menu-rodape{float:left;font-size:14px;text-align:left;margin-right:80px;}
+.menu-rodape ul{font-size:12px;height:115px;}
 .menu-rodape ul li{list-style:none;}
 .menu-rodape ul li a{text-decoration:none;}
 .rodape-bottom .conteudo-rodape .rodape-creditos{float:right;font-size:14px;height:115px;width:92px;text-align:center;}
