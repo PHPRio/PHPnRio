@@ -11,6 +11,7 @@ web1:
     - pdo_mysql
     - apc
     - mcrypt
+    - mbstring
   php_error_reporting: 32767 # E_ALL | E_STRICT
   php_display_errors: 0
   php_short_open_tag: 1
