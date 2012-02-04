@@ -111,10 +111,7 @@
 					</div>
 
 					<div class="menu-rodape">
-						<p style="margin-bottom:5px">Hospedagem cloud</p>
-						<ul>
-							<li><a href="http://www.pagodabox.com"><img src="img/pagodabox.png" width="100" /></a></li>
-						</ul>
+						<a href="http://www.pagodabox.com"><img src="img/pagodabox.png" width="100" /></a>
 					</div>
 
 					<div class="rodape-creditos"><img src="/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
