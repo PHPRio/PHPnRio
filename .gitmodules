@@ -1,3 +1,6 @@
 [submodule "protected/extensions"]
 	path = protected/extensions
 	url = git@github.com:igorsantos07/Yii-Extensions.git
+[submodule "yii"]
+	path = yii
+	url = git://github.com/yiisoft/yii.git
