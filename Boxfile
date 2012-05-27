@@ -1,9 +1,10 @@
 web1:
-  name: "PHP'n Rio 2011"
+  name: "PHP'n Rio"
   shared_writable_dirs:
     - /assets
     - /protected/runtime
-    - /img/conteudo
+    - /img/2011
+    - /img/2012
   document_root: /
 #  php_version: 5.3.9 # defaults to the newest stable version
   php_extensions:
@@ -18,4 +19,7 @@ web1:
 
 db1:
   name: phpnrio2011
+  type: mysql
+db2:
+  name: phpnrio2012
   type: mysql
