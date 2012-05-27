@@ -3,7 +3,7 @@ $env = getenv('ENVIRONMENT');
 define('ENV', $env? $env : 'prod');
 define('PRODUCTION', in_array(ENV, array('prod', 'pagoda')));
 
-define('FINISHED', time() >= strtotime('2011-11-04 15:00:00'));
+define('CURRENT_EDITION', getenv('CURRENT_EDITION'));
 
 $config = dirname(__FILE__).'/protected/config/main.php';
 $yii = dirname(__FILE__).'/yii/framework/'.((ENV == 'dev')? 'yii' : 'yiilite').'.php';

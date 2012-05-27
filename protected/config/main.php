@@ -8,19 +8,17 @@ $config = array(
 	'language' => 'pt_br',
 	'sourceLanguage' => 'pt_br',
 
-	// preloading 'log' component
 	'preload' => array('log'),
 
-	// autoloading model and component classes
 	'import' => array(
 		'application.models.*',
 		'application.components.*',
 	),
 
 	'modules' => array(
-		// comment this crap after finishing creating models!!!
-//		'gii' => array('class' => 'system.gii.GiiModule', 'password' => 'gii', 'ipFilters' => array('127.0.0.1', '::1')),
-		'admin',
+		'gii' => array('class' => 'system.gii.GiiModule', 'password' => 'gii', 'ipFilters' => array('127.0.0.1', '::1')),
+		'y2011' => array('modules' => array('admin')),
+		'y2012' => array('modules' => array('admin')),
 	),
 
 	'components' => array(
@@ -80,11 +78,7 @@ $config = array(
 		),
 	),
 	// application-level parameters that can be accessed using Yii::app()->params['paramName']
-	'params' => array(
-		'imgPath' => 'img/conteudo',
-		'imgUrl' => 'img/conteudo',
-		'email' => 'phpnrio@phprio.org'
-	),
+	'params' => require '_params.php',
 );
 
 if (!PRODUCTION) {

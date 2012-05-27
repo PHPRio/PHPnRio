@@ -1,8 +1,24 @@
 <?php
 
-class SiteController extends Controller {
+class SiteController extends Y2012Controller {
 
-	public $defaultAction = 'backwardCompatibility';
+	/**
+	 * Declares class-based actions.
+	 */
+	public function actions() {
+		return array(
+			// captcha action renders the CAPTCHA image displayed on the contact page
+			'captcha' => array('class' => 'CCaptchaAction', 'backColor' => 0xFFFFFF),
+
+			// page action renders "static" pages stored under 'protected/views/site/pages'
+			// They can be accessed via: index.php?r=site/page&view=FileName
+//			'page' => array('class' => 'CViewAction'),
+		);
+	}
+
+	public function actionIndex() {
+		$this->render('index');
+	}
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -31,17 +47,6 @@ class SiteController extends Controller {
 			else
 				$this->render('error', $error);
 		}
-	}
-
-	public function actionBackwardCompatibility() {
-		$ano = 2011;
-//		$ano = CURRENT_EDITION;
-		switch (Yii::app()->request->pathInfo) {
-			default:		$route = '/'.$ano.'/'.Yii::app()->request->pathInfo;
-		}
-
-//		die(var_dump(Yii::app()->request->pathInfo));
-		$this->redirect($route, true, 307);
 	}
 
 }
