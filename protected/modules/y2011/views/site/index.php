@@ -11,7 +11,7 @@
 
 	<? if (!FINISHED): ?>
 		<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>" style="float:right;">
-			<img src="/img/2011/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
+			<img src="/static/2011/img/bt-inscreva-se.png" alt="Cadastre-se" width="165" height="47" border="0" />
 		</a>
 	<? endif ?>
 </div>
@@ -71,7 +71,7 @@
 
 <?php
 	$cs = Yii::app()->getClientScript();
-	$cs->registerScriptFile('/js/jcarousellite_1.0.1.min.js', CClientScript::POS_END);
+	$cs->registerScriptFile('/static/2011/js/jcarousellite_1.0.1.min.js', CClientScript::POS_END);
 	$cs->registerScript('jcarousel',
 		"$('#scroller').jCarouselLite({
 			btnPrev : '.prev',

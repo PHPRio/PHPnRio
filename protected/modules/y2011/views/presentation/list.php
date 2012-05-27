@@ -15,7 +15,7 @@
 						<span style="font-size: 14px">-
 							<? if ($pres->hasFile) { ?><a href="<?=$pres->fileUrl?>">Baixar arquivo(s)</a><? } ?>
 							<? if ($pres->hasFile && $pres->link) { ?> || <? } ?>
-							<? if ($pres->link) { ?><a target="_blank" style="background: url(/img/2011/external-12.png) no-repeat center right; padding-right: 16px;" href="<?=$pres->link?>">Link da palestra</a><? } ?>
+							<? if ($pres->link) { ?><a target="_blank" style="background: url(/static/2011/img/external-12.png) no-repeat center right; padding-right: 16px;" href="<?=$pres->link?>">Link da palestra</a><? } ?>
 						</span>
 					<? endif ?>
 				</h1>

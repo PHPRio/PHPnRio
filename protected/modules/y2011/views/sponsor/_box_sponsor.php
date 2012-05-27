@@ -16,7 +16,7 @@
 			<a href="<?=$sponsor->url?>" target="_blank">
 				<img class="logo" src="<?=$sponsor->getImageUrl('imageFile')?>" alt="<?=$sponsor->name?>" width="115" height="79" align="left" />
 			</a>
-			<img src="/img/2011/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
+			<img src="/static/2011/img/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 			<?=$sponsor->name?>
 		</h1>
 

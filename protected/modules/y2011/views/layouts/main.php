@@ -9,11 +9,11 @@
 		<meta name="robots" content="index,follow" />
 		<meta name="author" content="Rafael Caride, Igor Santos" />
 
-		<link href="/css/estilo.css" rel="stylesheet" type="text/css"/>
+		<link href="/static/2011/css/estilo.css" rel="stylesheet" type="text/css"/>
 		<style type="text/css">
 			body {
 				background-position:center top;
-				background-image: url(/img/2011/<?=(strpos($this->getUniqueId(), 'site') !== false && $this->action->getId() == 'index')? 'bg.gif' : 'bg-internas.jpg'?>);
+				background-image: url(/static/2011/img/<?=(strpos($this->getUniqueId(), 'site') !== false && $this->action->getId() == 'index')? 'bg.gif' : 'bg-internas.jpg'?>);
 				background-repeat:no-repeat;
 				background-color: #fff;
 			}
@@ -33,7 +33,7 @@
 			<div class="mae">
 				<!-- topo -->
 				<div class="topo">
-					<div id="logo"><a href="/"><img src="/img/2011/logo.gif" alt="PHP'n Rio 2011" width="204" height="51" border="0" /></a></div>
+					<div id="logo"><a href="/"><img src="/static/2011/img/logo.gif" alt="PHP'n Rio 2011" width="204" height="51" border="0" /></a></div>
 
 					<?=$this->renderPartial('/layouts/_barrinha_social')?>
 
@@ -77,7 +77,7 @@
 
 								echo $this->renderPartial('/layouts/_box_sponsor', array(
 									'link'	=> $this->createUrl('sponsor/list'),
-									'img'	=> '/img/2011/patrocine-aqui.jpg',
+									'img'	=> '/static/2011/img/patrocine-aqui.jpg',
 									'name'	=> "Patrocine o PHP'n Rio!",
 									'sponsor' => false,
 								));
@@ -111,10 +111,10 @@
 					</div>
 
 					<div class="menu-rodape">
-						<a href="http://www.pagodabox.com"><img src="/img/2011/pagodabox.png" width="100" /></a>
+						<a href="http://www.pagodabox.com"><img src="/static/2011/img/pagodabox.png" width="100" /></a>
 					</div>
 
-					<div class="rodape-creditos"><img src="/img/2011/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
+					<div class="rodape-creditos"><img src="/static/2011/img/logo-php-in-rio-2011-rodape.gif" alt="Php'n Rio 2011" width="92" height="42" /><br />
 						<p style="padding-top:7px;"><a href="http://www.rafaelcaride.com.br" target="_blank">Design e Frontend<br />Rafael Caride</a></p>
 						<p style="padding-top:7px;"><a href="http://www.igorsantos.com.br" target="_blank">Desenvolvimento<br />Igor Santos </a></p>
 					</div>
@@ -127,7 +127,7 @@
 				echo CGoogleApi::init();
 				echo CHtml::script(CGoogleApi::load('jquery','1.6.4'));
 			?>
-			<script type="text/javascript" src="/js/prettify.js"></script>
+			<script type="text/javascript" src="/static/2011/js/prettify.js"></script>
 			<? if (ENV != 'dev'): ?>
 				<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 				<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>

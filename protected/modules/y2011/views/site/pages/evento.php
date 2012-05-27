@@ -57,7 +57,7 @@
 		<h2>Valor: R$ 30,00</h2>
 		<? if (!FINISHED): ?>
 			<a href="<?=$this->createUrl('site/page', array('view' => 'inscricoes'))?>">
-				<img src="/img/2011/bt-inscreva-se.png" alt="inscreva-se" width="165" height="47" border="0" style="float:left; padding-left:277px;" />
+				<img src="/static/2011/img/bt-inscreva-se.png" alt="inscreva-se" width="165" height="47" border="0" style="float:left; padding-left:277px;" />
 			</a>
 		<? endif ?>
 		<br />

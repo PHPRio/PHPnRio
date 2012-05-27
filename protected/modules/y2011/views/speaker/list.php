@@ -13,7 +13,7 @@
 			<div class="pagina-palestrantes">
 				<h1>
 					<img src="<?=$speaker->getImageUrl('imageFile',true)?>" alt="<?=$speaker->name?>" width="82" height="82" border="1" align="left" style="margin-right:15px;" />
-					<img src="/img/2011/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
+					<img src="/static/2011/img/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 					<?=$speaker->name?>
 				</h1>
 

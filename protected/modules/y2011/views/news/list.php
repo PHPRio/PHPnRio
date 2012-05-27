@@ -13,7 +13,7 @@
 					<a href="<?=$link?>" title="<?=$news->title?>">
 						<img src="<?=$news->getImageUrl('imageFile',true)?>" alt="<?=$news->title?>" width="82" height="82" border="1" align="left" style="margin-right:15px;" />
 					</a>
-					<img src="/img/2011/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
+					<img src="/static/2011/img/seta.jpg" alt="palestras" width="8" height="15" style="margin-right:5px;" />
 					<a href="<?=$link?>"><?=$news->title?></a>
 				</h1>
 				<h3><?=date('d/m/Y', strtotime($news->datetime))?></h3>

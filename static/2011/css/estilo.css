@@ -18,8 +18,8 @@
 #palestrantes{border-bottom:5px solid #60a7aa;padding-top:30px;* padding-top:50px;}
 div#scroller{height:82px;width:925px;overflow:hidden;display:inline-block;}
 .prev, .next{height:82px;width:31px;background-repeat:no-repeat;background-position:center;color:#fff;}
-.next{float:right;background-image:url('../img/2011/next.gif');}
-.prev{background-image:url('../img/2011/prev.gif');float:left;}
+.next{float:right;background-image:url('../static/2011/img/next.gif');}
+.prev{background-image:url('../static/2011/img/prev.gif');float:left;}
 #palestrantes ul{height:82px;width:971px;margin-left:20px;list-style:none;}
 #palestrantes ul li{height:82px;width:310px;float:left;list-style:none;}
 #palestrantes ul img{height:82px;}
