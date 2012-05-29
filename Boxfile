@@ -3,8 +3,8 @@ web1:
   shared_writable_dirs:
     - /assets
     - /protected/runtime
-    - /static/2011/img
-    - /static/2012/img
+    - /static/2011/img/conteudo
+    - /static/2012/img/conteudo
   document_root: /
 #  php_version: 5.3.9 # defaults to the newest stable version
   php_extensions:
