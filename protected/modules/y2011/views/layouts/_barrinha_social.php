@@ -1,6 +1,6 @@
 <div class="redes-sociais">
 	<span style="padding-top:2px; *padding-top:1px; float:right;">
-		<fb:like href="http://www.facebook.com/pages/PHPRio/160383237381004" send="false" layout="button_count" width="80" show_faces="false" font=""></fb:like>
+		<fb:like href="http://www.facebook.com/pages/PHPRio/160383237381004" send="false" layout="button_count" width="110" show_faces="false" font=""></fb:like>
 	</span>
 	&nbsp;
 	<span style="padding-top:2px; padding-right:15px; float:right;">
