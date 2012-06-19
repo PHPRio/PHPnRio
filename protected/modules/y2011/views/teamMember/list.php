@@ -11,7 +11,7 @@
 			<div class="organizadores">
 				<h1>
 					<img src="<?=$member->getImageUrl('imageFile')?>" alt="<?=$member->name?>" width="73" height="82" border="1" align="left" style="margin-right:15px;" />
-					<img src="imagens/seta.jpg" alt=">" width="8" height="15" style="margin-right:5px;" />
+					<img src="/static/2011/img/seta.jpg" alt=">" width="8" height="15" style="margin-right:5px;" />
 					<?=$member->name?>
 				</h1>
 				<? if ($member->twitter) { ?><h3><a href="http://<?=$member->twitterLink?>" style="color:#0075c4;">@<?=$member->twitter?></a></h3><? } ?>
