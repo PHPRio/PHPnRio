@@ -35,7 +35,7 @@
 					</p>
 					<div class="form">
 						<div style=" width:270px; height:54px; padding-top:5px;  padding-left:60px; float:left;">
-							<input type="text" value="Seu email aqui!" size="30" />
+							<input type="text" value="Seu email aqui!" size="30" onfocus="if (this.value=='Seu email aqui!') this.value = ''" onblur="if (this.value=='') this.value = 'Seu email aqui!'"/>
 						</div>
 						<div style=" width:54px; height:54px; float:left;"><a href="#"><img src="/static/2012/img/ok.jpg" alt="OK" width="54" height="54" border="0" /></a> </div>
 					</div>
