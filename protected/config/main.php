@@ -4,7 +4,7 @@
 // Yii::setPathOfAlias('local','path/to/local-folder');
 $config = array(
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-	'name' => "PHP'n Rio 2011",
+	'name' => "PHP'n Rio",
 	'language' => 'pt_br',
 	'sourceLanguage' => 'pt_br',
 
