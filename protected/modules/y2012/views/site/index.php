@@ -21,7 +21,7 @@
 			<!-- inicio conteúdo -->
 			<div class="mae">
 				<div class="Logo"><img src="/static/2012/img/PHP-n-Rio-2012.png" alt="PHP 'n Rio 2012" width="472" height="440" /></div>
-				<div class="redessociais">Curtir --- Compartilhar --- Tweetar</div>
+				<?=$this->renderPartial('/layouts/_barrinha_social')?>
 				<div class="texto">
 					<h1>Pré-inscrições abertas!</h1>
 					<p>
@@ -64,6 +64,10 @@
 				</div>
 			</div>
 			<!-- fim footer -->
+
+			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+			<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
+			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 		</body>
 	</html>
 </center>
