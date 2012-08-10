@@ -8,7 +8,7 @@
 /*********************************** NORMAL ROUTES **********************************/
 '<module:\d{4}>/admin'									=> 'y<module>/admin/default',
 '<module:\d{4}>/admin/<action:(login|logout|prizes)>'	=> 'y<module>/admin/default/<action>',
-'<module:\d{4}>/admin/print/<route>'						=> 'y<module>/admin/default/print',
+'<module:\d{4}>/admin/print/<route>'					=> 'y<module>/admin/default/print',
 
 '<module:\d{4}>/certificado/<code:([at]-\d*)>' => 'y<module>/site/getCertificate',
 '<module:\d{4}>/'				=> 'y<module>/site/index',
