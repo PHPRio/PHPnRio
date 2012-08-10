@@ -34,13 +34,12 @@ class SiteController extends Controller {
 	}
 
 	public function actionBackwardCompatibility() {
-		$ano = 2011;
-//		$ano = CURRENT_EDITION;
+		$ano = CURRENT_EDITION;
+		
 		switch (Yii::app()->request->pathInfo) {
 			default:		$route = '/'.$ano.'/'.Yii::app()->request->pathInfo;
 		}
 
-//		die(var_dump(Yii::app()->request->pathInfo));
 		$this->redirect($route, true, 307);
 	}
 
