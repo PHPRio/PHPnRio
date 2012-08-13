@@ -68,6 +68,7 @@
 			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 			<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script>
 			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<?=$this->renderPartial('/layouts/_tracking')?>
 		</body>
 	</html>
 </center>
