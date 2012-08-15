@@ -1,5 +1,7 @@
 <?php
 
+$dbs = require '_database.php';
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 $config = array(
@@ -22,10 +24,20 @@ $config = array(
 	),
 
 	'components' => array(
+		'errorHandler' => array('errorAction' => 'site/error'),
+
+		'db11' => $dbs[2011],
+		'db12' => $dbs[2012],
+
 		'user' => array(
-			// enable cookie-based authentication
-			'allowAutoLogin' => true,
+			'allowAutoLogin' => true, // enable cookie-based authentication
 			'loginUrl'=> array('/admin/default/login'),
+		),
+
+		'urlManager' => array(
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+			'rules' => require '_routes.php',
 		),
 
 		'mail' => array(
@@ -44,24 +56,6 @@ $config = array(
 			require '_email.php'),
 		),
 
-		'urlManager' => array(
-			'urlFormat' => 'path',
-			'showScriptName' => false,
-			'rules' => require '_routes.php',
-		),
-
-		'db' => ((ENV == 'pagoda')?
-			array(
-			        'connectionString' => "mysql:host={$_SERVER['DB1_HOST']};mysql:port={$_SERVER['DB1_PORT']};dbname={$_SERVER['DB1_NAME']}",
-			        'emulatePrepare' => true,
-			        'username' => $_SERVER['DB1_USER'],
-			        'password' => $_SERVER['DB1_PASS'],
-			        'charset' => 'utf8',
-			) :
-			require '_database.php'),
-
-		'errorHandler' => array('errorAction' => 'site/error'),
-
 		'log' => array(
 			'class' => 'CLogRouter',
 			'routes' => array(
@@ -78,7 +72,7 @@ $config = array(
 		),
 	),
 	// application-level parameters that can be accessed using Yii::app()->params['paramName']
-	'params' => require '_params.php',
+	'params' => require '_params.php'
 );
 
 if (!PRODUCTION) {

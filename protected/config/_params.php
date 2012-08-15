@@ -5,8 +5,8 @@
 		'email' => 'phpnrio@phprio.org',
 	),
 	'2012' => array(
-		'imgPath' => 'static/2011/img/conteudo',
-		'imgUrl' => 'static/2011/img/conteudo',
+		'imgPath' => 'static/2012/img/conteudo',
+		'imgUrl' => 'static/2012/img/conteudo',
 		'email' => 'phpnrio@phprio.org',
 	),
 );
