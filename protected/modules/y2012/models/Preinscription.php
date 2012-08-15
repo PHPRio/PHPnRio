@@ -16,7 +16,8 @@ class Preinscription extends CActiveRecord {
 	public function rules() {
 		return array(
 			array('email', 'required'),
-			array('email', 'unique', 'caseSensitive' => false),
+			array('email', 'unique', 'caseSensitive' => false, 'message' => "Email já cadastrado."),
+			array('email', 'email', 'message' => 'Esse email não é válido.'),
 			array('email', 'length', 'max' => 100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
