@@ -1,5 +1,5 @@
 <?php
-
+require_once '_vars.php';
 $dbs = require '_database.php';
 
 // uncomment the following to define a path alias

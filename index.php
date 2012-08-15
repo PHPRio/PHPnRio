@@ -1,7 +1,5 @@
 <?php
-$env = getenv('ENVIRONMENT');
-define('ENV', $env? $env : 'prod');
-define('PRODUCTION', in_array(ENV, array('prod', 'pagoda')));
+require_once 'protected/config/_vars.php';
 
 define('CURRENT_EDITION', getenv('CURRENT_EDITION'));
 
