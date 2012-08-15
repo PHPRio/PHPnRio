@@ -27,7 +27,7 @@
 					<p>
 						Atenção, atenção!<br />
 						Já está aberta a pré-inscrição
-						para o <span style="color:#5ab2ac;">PHP’nRio 2012</span>!<br />
+						para o <span style="color:#0F4DA8">PHP’nRio 2012</span>!<br />
 						Preencha o campo abaixo com seu email e nós vamos
 						te avisar assim que o primeiro lote dos ingressos
 						estiver disponível.<br />
@@ -40,8 +40,10 @@
 						<div style=" width:54px; height:54px; float:left;"><a href="#"><img src="/static/2012/img/ok.jpg" alt="OK" width="54" height="54" border="0" /></a> </div>
 					</div>
 
+					<h1>09h 10/11/12<br /> CEFET-RJ Campus Maracanã</h1>
+
 					<div class="links">
-						<p style="margin-bottom:10px;"><a href="#">Participe! Envie sua palestra e entraremos em contato</a></p>
+						<p style="margin-bottom:10px;"><a href="http://bit.ly/phpnrio2012-cfp" target="_blank">Participe! Envie sua palestra e entraremos em contato</a></p>
 						<p><a href="http://www.phpnrio.com.br/2011/" target="_blank">Veja como foram os outros anos de PHP'nRio</a></p>
 					</div>
 
