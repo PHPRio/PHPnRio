@@ -18,7 +18,8 @@ $config = array(
 	),
 
 	'modules' => array(
-		'gii' => array('class' => 'system.gii.GiiModule', 'password' => 'gii', 'ipFilters' => array('127.0.0.1', '::1')),
+		// to make Gii work one need to set one of the databases down there as 'db'
+//		'gii' => array('class' => 'system.gii.GiiModule', 'password' => 'gii', 'ipFilters' => array('127.0.0.1', '::1')),
 		'y2011' => array('modules' => array('admin')),
 		'y2012' => array('modules' => array('admin')),
 	),
