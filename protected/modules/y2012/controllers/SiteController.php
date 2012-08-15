@@ -17,7 +17,21 @@ class SiteController extends Y2012Controller {
 	}
 
 	public function actionIndex() {
-		$this->render('index');
+		$pre = new Preinscription();
+		$pre->email = 'Seu email aqui!';
+		$msg = '';
+
+		if (isset($_POST['Preinscription'])) {
+			$pre->email = $_POST['Preinscription']['email'];
+			if ($pre->save()) {
+				$msg = 'Pronto! Aguarde novidades.';
+			}
+			else {
+				$msg = $pre->errors['email'][0];
+			}
+		}
+
+		$this->render('index', compact('pre', 'msg'));
 	}
 
 	/**

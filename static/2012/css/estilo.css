@@ -50,6 +50,12 @@ color:#696969;
 line-height:25px;
 }
 
+p.message {
+	margin-top: 15px;
+}
+p.message.success { color: darkGreen; }
+p.message.error { color: crimson; }
+
 .form {
 width: 430px;
 height: 100px;

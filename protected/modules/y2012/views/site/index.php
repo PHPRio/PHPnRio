@@ -34,13 +34,19 @@
 						Você não vai de fora dessa edição... vai??
 					</p>
 					<div class="form">
-						<div style=" width:270px; height:54px; padding-top:5px;  padding-left:60px; float:left;">
-							<input type="text" value="Seu email aqui!" size="30" onfocus="if (this.value=='Seu email aqui!') this.value = ''" onblur="if (this.value=='') this.value = 'Seu email aqui!'"/>
-						</div>
-						<div style=" width:54px; height:54px; float:left;"><a href="#"><img src="/static/2012/img/ok.jpg" alt="OK" width="54" height="54" border="0" /></a> </div>
+						<? $form=$this->beginWidget('CActiveForm', array('id'=>'page-form', 'enableAjaxValidation'=>true)) ?>
+							<div style="width:270px; height:54px; padding-top:5px;  padding-left:60px; float:left;">
+								<?=$form->textField($pre,'email',array('size'=>60, 'maxlength'=>255, 'onfocus' => "if (this.value=='Seu email aqui!') this.value = ''", "onblur" => "if (this.value=='') this.value = 'Seu email aqui!'"))?>
+								<? if (!empty($msg)) { ?><p class="message <?=(sizeof($pre->errors) == 0)? 'success' : 'error'?>"><?=$msg?></p><? } ?>
+<!--								<input type="text" name="email" value="Seu email aqui!" size="30" onfocus="if (this.value=='Seu email aqui!') this.value = ''" onblur="if (this.value=='') this.value = 'Seu email aqui!'"/>-->
+							</div>
+							<div style=" width:54px; height:54px; float:left;">
+								<input type="submit" name="submit" value="" style="background-image:url('/static/2012/img/ok.jpg'); width:54px; height:54px; border:none;" />
+							</div>
+						<? $this->endWidget() ?>
 					</div>
 
-					<h1>09h 10/11/12<br /> CEFET-RJ Campus Maracanã</h1>
+					<h1>09h, 10/11/12<br /> CEFET-RJ Campus Maracanã</h1>
 
 					<div class="links">
 						<p style="margin-bottom:10px;"><a href="http://bit.ly/phpnrio2012-cfp" target="_blank">Participe! Envie sua palestra e entraremos em contato</a></p>
