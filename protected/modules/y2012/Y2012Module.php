@@ -3,7 +3,7 @@
 class Y2012Module extends CWebModule {
 
 	public function init() {
-		define('FINISHED', time() >= strtotime('2011-11-04 15:00:00'));
+//		define('FINISHED', time() >= strtotime('2011-11-04 15:00:00'));
 
 		Yii::app()->params = Yii::app()->params[2012];
 		Yii::app()->setComponent('db', Yii::app()->db12);
