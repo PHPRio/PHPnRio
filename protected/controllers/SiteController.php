@@ -34,13 +34,16 @@ class SiteController extends Controller {
 	}
 
 	public function actionBackwardCompatibility() {
-		$ano = CURRENT_EDITION;
-		
+		$year = CURRENT_EDITION;
+
 		switch (Yii::app()->request->pathInfo) {
-			default:		$route = '/'.$ano.'/'.Yii::app()->request->pathInfo;
+			default:		$route = '/'.$year.'/'.Yii::app()->request->pathInfo;
 		}
 
-		$this->redirect($route, true, 307);
+		// currently, we are killing the application because we don't want logs (and therefore we don't wanna trigger anything that could ask for a 'db' component)
+		// if you need to log something, put here some code that defines 'db' component as the current year's db component (as it's done inside the modules)
+		$this->redirect($route, false, 307);
+		exit;
 	}
 
 }
