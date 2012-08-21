@@ -1,6 +1,6 @@
 <div class="redessociais">
     <span style="float:left; width: 33%; height: 100%">
-		<fb:like href="http://www.facebook.com/pages/PHPRio/160383237381004" send="false" layout="button_count" width="110" show_faces="false" font=""></fb:like>
+		<fb:like href="http://www.facebook.com/pages/PHPn-Rio/274374152668199" send="false" layout="button_count" width="110" show_faces="false" font=""></fb:like>
 	</span>
 
 	<span style="float:left; width: 33%; height: 100%">
