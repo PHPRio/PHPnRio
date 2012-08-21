@@ -5,6 +5,8 @@ web1:
     - /protected/runtime
     - /static/2011/img/conteudo
     - /static/2012/img/conteudo
+  before_deploy:
+    - "cd protected; ./yiic migrate --interactive=0"
   document_root: /
 #  php_version: 5.3.9 # defaults to the newest stable version
   php_extensions:
