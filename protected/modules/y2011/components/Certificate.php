@@ -14,7 +14,7 @@ class Certificate extends FPDF {
 	}
 
 	function Header() {
-		$this->Image(YiiBase::getPathOfAlias('webroot.img').'/certificado.png', 0, 0, 297, 210);
+		$this->Image(YiiBase::getPathOfAlias('webroot.static.2011.img').'/certificado.png', 0, 0, 297, 210);
 	}
 
 	function generate() {
