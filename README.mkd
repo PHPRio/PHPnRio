@@ -11,7 +11,7 @@ O projeto roda em cima do Yii, que no presente momento está na versão 1.1.11 a
 O primeiro passo é clonar o código e inicializar os submódulos no seu `/var/www` (ou onde for que você guarde os arquivos que rodam no Apache):
 
     $ git clone git@github.com:PHPRio/PHPnRio.git phpnrio
-    $ cd phpnnrio
+    $ cd phpnrio
     $ git submodule init
     $ git submodule update
 
