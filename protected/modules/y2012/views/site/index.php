@@ -49,7 +49,6 @@
 					<h1>09h, 10/11/12<br /> CEFET-RJ Campus Maracanã</h1>
 
 					<div class="links">
-						<p style="margin-bottom:10px;"><a href="http://bit.ly/phpnrio2012-cfp" target="_blank">Participe! Envie sua palestra e entraremos em contato</a></p>
 						<p><a href="http://www.phpnrio.com.br/2011/" target="_blank">Veja como foram os outros anos de PHP'nRio</a></p>
 					</div>
 
@@ -60,12 +59,12 @@
 			<!-- inicio footer -->
 			<div class="rodape">
 				<div class="footer">
-					<div style="float:left; padding-top:9px;">&nbsp;© PHP ‘n Rio 2009 / 2012 - phpnrio@phprio.org</div>
+					<div style="float:left; padding-top:9px;">&nbsp;© PHP ‘n Rio 2009 / 2012 - contato@phpnrio.com.br</div>
 					<div style="float:right;">
-						<a href="http://www.facebook.com/pages/PHPRio/160383237381004" target="_blank">
+						<a href="http://www.facebook.com/pages/PHPn-Rio/274374152668199" target="_blank">
 							<img src="/static/2012/img/facebook.png" alt="Facebook" width="34" height="34" border="0" style="padding-right:10px;" />
 						</a>
-						<a href="https://twitter.com/phprio" target="_blank">
+						<a href="https://twitter.com/phpnrio" target="_blank">
 							<img src="/static/2012/img/twitter.png" alt="Twitter" width="34" height="34" border="0" />
 						</a>
 					</div>
