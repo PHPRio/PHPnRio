@@ -1,0 +1,45 @@
+# Website do PHP'n Rio
+
+Esse é um README bem básico e seco feito pelo Igor Santos. O objetivo é ajudar no handout do projeto pra quem for mexer nele na minha ausência.
+
+O projeto roda em cima do Yii, que no presente momento está na versão 1.1.11 aqui dentro. O framework está inserido no projeto a partir de um submódulo do Git - o código do framework também é hospedado no Github.
+
+## Fazendo o deploy em desenvolvimento
+
+### Código inicial
+
+O primeiro passo é clonar o código e inicializar os submódulos no seu `/var/www` (ou onde for que você guarde os arquivos que rodam no Apache):
+
+    $ git clone git@github.com:PHPRio/PHPnRio.git phpnrio
+    $ cd phpnnrio
+    $ git submodule init
+    $ git submodule update
+
+Isso vai trazer quase todo o código necessário para que o site rode.
+
+### VHost do Apache
+
+Também é necessário configurar o VHost no Apache: na raiz do sistema tem um arquivo `example.vhost` que você pode jogar na pasta `/etc/apache2/sites-available`, renomear e configurar como ficar melhor pra você... Não pode esquecer também de adicionar o domínio novo no `/etc/hosts`, para que ele aponte para `127.0.0.1`.
+
+Vale lembrar também que o sistema depende da Rewrite Engine. Se você não tem certeza se ela esta habilitada, vale a pena rodar `sudo a2enmod rewrite` para confirmar isso.
+
+*Nota: é necessário dois domínios no VHost, um com www e outro sem, pois o `.htaccess` dentro do projeto faz o redirect de um domínio sem www para o com.*
+
+### Outras configurações prévias
+
+1. é necessário que as pastas `assets/` e `protected/runtime/` tenham permissão de leitura pelo Apache. Normalmente um `chmod -R 777 assets protected/runtime` resolve isso
+2. há a necessidade de um arquivo de configuração da extensão de email usada dentro do site. Esse arquivo não fica no repositório para manter a segurança dos dados. Ele deve ficar em `protected/config/_email.php`. O *Igor Santos* ou o *Raphael Almeida* tem esse arquivo.
+3. também precisamos do banco de dados. É necessário um usuário `phpnrio` no MySQL, com acesso preferencialmente aos bancos `phpnrio%`, pois cada ano tem um banco diferente (como "phpnrio2011" e "phpnrio2012"). Depois disso, crie o banco do ano em que você vai trabalhar - por exemplo, `phpnrio2012`.
+
+### Configurando o banco pra rodar o site
+
+O sistema se baseia em migrations para manter o histórico das alterações do banco. Portanto, para criar a estrutura inicial, é só fazer o seguinte:
+
+    $ cd protected
+    $ ENVIRONMENT=dev ./yiic migrate
+
+É necessário especificar a variável indicando o ambiente em que estamos pois a mesma é configurada, para o site, dentro do VHost. Você pode criá-la no seu ambiente, se desejar.
+
+Se os acessos ao banco estiverem corretos, ele vai criar a tabela de histórico de migrações e depois rodar cada uma delas.
+
+### Pronto! Agora você pode acessar o sistema no seu browser, com o endereço configurado no VHost
