@@ -49,10 +49,11 @@ class Preinscription extends CActiveRecord {
 	public function search() {
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('email', $this->email, true);
+		$criteria->order = 'id';
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
+			'pagination' => false,
 		));
 	}
 
