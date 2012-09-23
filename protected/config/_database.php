@@ -1,5 +1,5 @@
 <?php
-return array(
+$dbs = array(
 	'2011' => array(
 		'class' => 'CDbConnection',
 		'connectionString' => PRODUCTION?
@@ -21,3 +21,12 @@ return array(
 		'charset' => 'utf8',
 	),
 );
+
+if (!PRODUCTION) {
+	foreach ($dbs as &$db) {
+		$db['enableProfiling'] = true;
+		$db['enableParamLogging'] = true;
+	}
+}
+
+return $dbs;
