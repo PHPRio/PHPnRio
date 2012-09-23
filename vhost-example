@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerName phpnrio.igoru.dev
+	Redirect permanent / http://www.phpnrio.igoru.dev/
+</VirtualHost>
+
+<VirtualHost *:80>
+	ServerName www.phpnrio.igoru.dev
+	ServerAdmin igorsantos07@gmail.com
+	SetEnv ENVIRONMENT dev
+	SetEnv CURRENT_EDITION 2012
+	DocumentRoot /var/www/phpnrio
+	ErrorLog /var/log/apache2/phpnrio.error.log
+	CustomLog /var/log/apache2/phpnrio.access.log combined
+</VirtualHost>
